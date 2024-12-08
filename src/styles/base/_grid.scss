@@ -1,0 +1,163 @@
+@use "@styles/utils" as *;
+
+/* -------------------------------------------------------- */
+/*                           GRID                           */
+/* -------------------------------------------------------- */
+
+.container,
+.container--fullsize {
+    width: 100%;
+    padding: 0 calc($grid-gap * .5);
+    margin: 0 auto;
+}
+
+@each $viewport, $container-max-width in $container-max-widths {
+
+    .container-#{$viewport} {
+        @extend .container--fullsize;
+    }
+
+    @include viewport($viewport) {
+
+        .container,
+        .container-#{$viewport} {
+            max-width: $container-max-width;
+        }
+
+        .container-#{$viewport}--fullsize {
+            max-width: none;
+        }
+
+    }
+
+}
+
+
+.layout {
+    &--flex {
+        @include flex();
+
+        @for $i from 1 through $grid-columns {
+
+            .col-#{$i} {
+                flex: 0 0 auto;
+                width: grid-size($i);
+                padding: 0 $grid-gap;
+            }
+
+            .col-left-#{$i} {
+                margin-left: grid-size($i);
+                padding: 0 $grid-gap;
+            }
+
+            .col-right-#{$i} {
+                margin-right: grid-size($i);
+                padding: 0 $grid-gap;
+            }
+
+            .col-auto {
+                flex: 0 0 auto;
+                width: auto;
+                padding: 0 $grid-gap;
+            }
+
+        }
+
+        @each $viewport, $width in $viewports {
+
+            @if $viewport != "xs" {
+
+                @include viewport($viewport) {
+
+                    @for $i from 1 through $grid-columns {
+
+                        .col-#{$viewport}-#{$i} {
+                            flex: 0 0 auto;
+                            width: grid-size($i);
+                            padding: 0 $grid-gap;
+                        }
+
+                        .col-#{$viewport}-left-#{$i} {
+                            margin-left: grid-size($i);
+                            padding: 0 $grid-gap;
+                        }
+
+                        .col-#{$viewport}-right-#{$i} {
+                            margin-right: grid-size($i);
+                            padding: 0 $grid-gap;
+                        }
+
+                        .col-auto-#{$viewport} {
+                            flex: 0 0 auto;
+                            width: auto;
+                            padding: 0 $grid-gap;
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    &--grid {
+        @include grid();
+
+        @for $i from 1 through $grid-columns {
+
+            .g-col-#{$i} {
+                grid-column: auto / span $i;
+            }
+
+            .g-row-#{$i} {
+                grid-row: auto / span $i;
+            }
+
+            .g-col-start-#{$i} {
+                grid-column-start: $i;
+            }
+
+            .g-row-start-#{$i} {
+                grid-row-start: $i;
+            }
+
+        }
+
+        @each $viewport, $width in $viewports {
+
+            @if $viewport != "xs" {
+
+                @include viewport($viewport) {
+
+                    @for $i from 1 through $grid-columns {
+
+                        .g-col-#{$viewport}-#{$i} {
+                            grid-column: auto / span $i;
+                        }
+
+                        .g-row-#{$viewport}-#{$i} {
+                            grid-row: auto / span $i;
+                        }
+
+                        .g-col-#{$viewport}-start-#{$i} {
+                            grid-column-start: $i;
+                        }
+
+                        .g-row-#{$viewport}-start-#{$i} {
+                            grid-row-start: $i;
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+        
+    }
+
+}

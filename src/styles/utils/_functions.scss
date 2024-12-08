@@ -1,0 +1,24 @@
+@use "sass:map";
+@use "sass:math";
+
+@use '@styles/utils/_config' as *;
+
+
+/* -------------------------------------------------------- */
+/*                         FUNCTIONS                        */
+/* -------------------------------------------------------- */
+
+// Retrieves the minimum width in pixels for a given viewport.
+@function get-min-width($viewport) {
+    @return map.get($viewports, $viewport);
+}
+
+// Calculates the percentage width of a grid column based on the total number of columns
+@function grid-size($size) {
+    @return math.percentage(math.div($size, $grid-columns));
+}
+
+// Converts a pixel value into rem based on a specified base font size
+@function get-rem($pixels, $font-size-base: 16px) {
+    @return math.div($pixels, $font-size-base) * 1rem;
+}
