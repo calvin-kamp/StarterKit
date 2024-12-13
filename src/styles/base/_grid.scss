@@ -110,10 +110,14 @@
 
             .g-col-#{$i} {
                 grid-column: auto / span $i;
+                padding-left: $grid-gap;
+                padding-right: $grid-gap;
             }
 
             .g-row-#{$i} {
                 grid-row: auto / span $i;
+                padding-top: $grid-gap;
+                padding-bottom: $grid-gap;
             }
 
             .g-col-start-#{$i} {
@@ -136,10 +140,14 @@
 
                         .g-col-#{$viewport}-#{$i} {
                             grid-column: auto / span $i;
+                            padding-left: $grid-gap;
+                            padding-right: $grid-gap;
                         }
 
                         .g-row-#{$viewport}-#{$i} {
                             grid-row: auto / span $i;
+                            padding-top: $grid-gap;
+                            padding-bottom: $grid-gap;
                         }
 
                         .g-col-#{$viewport}-start-#{$i} {

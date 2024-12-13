@@ -12,6 +12,13 @@
 	}
 }
 
+// Adds a media query for a specified custom minimum width
+@mixin manual-viewport($viewport-min-width) {
+	@media screen and (min-width: $viewport-min-width) {
+		@content;
+	}
+}
+
 // Applies a flexbox layout to an element
 @mixin flex($flex-direction: row, $flex-wrap: wrap) {
 	display: -webkit-flex;
@@ -27,11 +34,11 @@
 }
 
 // Adds a CSS grid layout to an element
-@mixin grid($grid-template-columns: $grid-columns, $grid-template-rows: none, $gap: $grid-gap * 2) {
+@mixin grid($grid-template-columns: $grid-columns, $grid-template-rows: none, $row-gap: none) {
 	display: grid;
 	grid-auto-flow: row;
 
-	@if $grid-template-rows !=none {
+	@if $grid-template-rows != none {
 		-ms-grid-rows: $grid-template-columns;
 		grid-template-rows: $grid-template-rows;
 	}
@@ -39,5 +46,7 @@
 	-ms-grid-columns: repeat(#{$grid-template-columns}, 1fr);
 	grid-template-columns: repeat(#{$grid-template-columns}, 1fr);
 
-	gap: $gap;
+	@if $row-gap != none {
+		row-gap: $row-gap;
+	}
 }
