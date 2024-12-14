@@ -9,8 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "accordion-js": "^3.3.4",
     "astro": "^5.0.3",
-    "sass": "^1.82.0"
+    "sass": "^1.82.0",
+    "swiper": "^11.1.15"
   },
   "devDependencies": {
     "vite-plugin-mkcert": "^1.17.6"
