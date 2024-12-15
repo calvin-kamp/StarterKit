@@ -1,0 +1,171 @@
+/* -------------------------------------------------------- */
+/*                       RESET STYLES                       */
+/* -------------------------------------------------------- */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+
+    /* Set box-sizing for all elements */
+    box-sizing: border-box;
+
+    &::before,
+    &::after {
+        box-sizing: inherit;
+    }
+}
+
+/* Set block-level elements to block */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block; /* Fix for IE 10/11 */
+}
+
+/* Reset list styles */
+ol, ul {
+    list-style: none;
+}
+
+/* Reset table styles */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Remove all quotes from blockquote and q */
+blockquote, q {
+    quotes: none;
+
+    &::before,
+    &::after {
+        content: none;
+    }
+}
+
+/* Reset images */
+img {
+    max-width: 100%; /* Ensure images are responsive */
+    height: auto;
+    display: block; /* Prevent inline issues in older browsers */
+    border: none;
+}
+
+/* Reset form elements */
+input, button, textarea, select {
+    font: inherit; /* Fix inconsistent font styling */
+    margin: 0;
+    color: inherit;
+    background: none;
+    border: none;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* Remove browser-specific styling */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* Remove focus outline in older browsers */
+    &:focus {
+        outline: none;
+    }
+
+    &[disabled] {
+        cursor: not-allowed;
+    }
+}
+
+/* Reset specific form types */
+input[type="checkbox"], input[type="radio"] {
+    box-sizing: border-box; /* Required for consistent spacing */
+    padding: 0;
+
+    /* Restore default appearance in older browsers */
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Remove up/down arrows in Firefox */
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none; /* Remove up/down arrows in WebKit */
+    }
+}
+
+textarea {
+    resize: none; /* Disable resize by default */
+    overflow: auto; /* Fix scrollbars in IE */
+}
+
+/* Reset anchor styles */
+a {
+    text-decoration: none;
+    background-color: transparent;
+
+    &:hover, &:active {
+        outline: none; /* Remove focus outline for links */
+    }
+}
+
+/* Reset buttons */
+button {
+    overflow: visible; /* Fix overflow issues in older browsers */
+
+    &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+}
+
+/* Reset SVG */
+svg:not(:root) {
+    overflow: hidden; /* Fix for IE 9/10/11 */
+}
+
+/* Reset audio and video */
+audio, canvas, video {
+    display: inline-block; /* Fix for older browsers */
+    vertical-align: baseline;
+}
+
+audio:not([controls]) {
+    display: none; /* Hide audio without controls */
+    visibility: hidden;
+}
+
+/* Reset template */
+template {
+    display: none; /* Hide template element in older browsers */
+}
+
+/* HTML-level fixes */
+html {
+    -webkit-font-smoothing: antialiased; /* Improve font rendering */
+    -moz-osx-font-smoothing: grayscale; /* Improve font rendering on macOS */
+    -ms-overflow-style: scrollbar; /* Fix for scrollbars in IE */
+
+    /* Prevent mobile scaling issues */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* Utility: Reset scroll highlighting */
+html, body {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
