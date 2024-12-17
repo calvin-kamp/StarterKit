@@ -1,0 +1,230 @@
+@use "@styles/utils" as *;
+
+/* -------------------------------------------------------- */
+/*                        TYPOGRAPHY                        */
+/* -------------------------------------------------------- */
+
+/* -------------------------------------------------------- */
+/*                       GLOBAL STYLES                      */
+/* -------------------------------------------------------- */
+html {
+    line-height: 1.5;
+}
+
+body {
+    font-family: $font-family-body;
+    font-size: get-rem($font-size-mobile);
+    color: var(--color-body-font);
+    background-color: var(--color-body-background);
+
+    @include viewport(md) {
+        font-size: get-rem($font-size-tablet);
+    }
+
+    @include viewport(md) {
+        font-size: get-rem($font-size-desktop);
+    }
+}
+
+/* -------------------------------------------------------- */
+/*                         HEADINGS                         */
+/* -------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    font-family: $font-family-headline;
+    font-weight: $font-weight-bold;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: $font-size-h1-mobile;
+
+    @include viewport(md) {
+        font-size: $font-size-h1-tablet;
+    }
+
+    @include viewport(lg) {
+        font-size: $font-size-h1-desktop;
+    }
+}
+
+h2 {
+    font-size: $font-size-h2-mobile;
+
+    @include viewport(md) {
+        font-size: $font-size-h2-tablet;
+    }
+
+    @include viewport(lg) {
+        font-size: $font-size-h2-desktop;
+    }
+}
+
+h3 {
+    font-size: $font-size-h3-mobile;
+
+    @include viewport(md) {
+        font-size: $font-size-h3-tablet;
+    }
+
+    @include viewport(lg) {
+        font-size: $font-size-h3-desktop;
+    }
+}
+
+h4 {
+    font-size: $font-size-h4-mobile;
+
+    @include viewport(md) {
+        font-size: $font-size-h4-tablet;
+    }
+
+    @include viewport(lg) {
+        font-size: $font-size-h4-desktop;
+    }
+}
+
+h5 {
+    font-size: $font-size-h5-mobile;
+
+    @include viewport(md) {
+        font-size: $font-size-h5-tablet;
+    }
+
+    @include viewport(lg) {
+        font-size: $font-size-h5-desktop;
+    }
+}
+
+h6 {
+    font-size: $font-size-h6-mobile;
+
+    @include viewport(md) {
+        font-size: $font-size-h6-tablet;
+    }
+
+    @include viewport(lg) {
+        font-size: $font-size-h6-desktop;
+    }
+}
+
+
+/* -------------------------------------------------------- */
+/*                     PARAGRAPHS & TEXT                    */
+/* -------------------------------------------------------- */
+p {
+    margin-bottom: 1rem;
+}
+
+b, strong {
+    font-weight: $font-weight-bold;
+}
+
+i, em {
+    font-style: italic;
+}
+
+sup {
+    font-size: .875em;
+    vertical-align: super;
+    line-height: 1;
+}
+
+small {
+    font-size: .875em;
+}
+
+strike, del {
+    text-decoration: line-through;
+}
+
+/* -------------------------------------------------------- */
+/*                      QUOTES & BLOCKS                     */
+/* -------------------------------------------------------- */
+blockquote {
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    border-left: 4px solid var(--color-primary);
+    font-style: italic;
+}
+
+
+/* -------------------------------------------------------- */
+/*                  CODE & MONOSPACE TEXT                   */
+/* -------------------------------------------------------- */
+pre, code, kbd, samp {
+    font-family: $font-family-monospace;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: auto;
+}
+
+
+/* -------------------------------------------------------- */
+/*                        INLINE TEXT                       */
+/* -------------------------------------------------------- */
+a, .link {
+    position: relative;
+    color: var(--color-primary);
+    text-decoration: none;
+
+    &::before {
+        position: absolute;
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        background-color: var(--color-primary);
+        transition: width $transition-time ease;
+        content: "";
+    }
+
+    &:hover {
+        &::before {
+            width: 100%;
+        }
+    }
+
+    &.link--no-decoration {
+        &::before {
+            content: none;
+        }
+    }
+}
+
+/* -------------------------------------------------------- */
+/*                   TYPOGRAPHY UTILITIES                   */
+/* -------------------------------------------------------- */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.font-thin {
+    font-weight: $font-weight-thin;
+}
+
+.font-bold {
+    font-weight: $font-weight-bold;
+}
