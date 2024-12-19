@@ -3,94 +3,117 @@
 /* -------------------------------------------------------- */
 
 /* Base Reset for common elements */
-html, body, div, span, iframe, h1, h2, h3, h4, h5, h6,
-p, blockquote, pre, a, abbr, address, cite, code,
-del, dfn, em, img, ins, kbd, q, samp, small, strong,
-sub, sup, b, i, dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend, table, caption,
-tbody, tfoot, thead, tr, th, td, article, aside,
-canvas, details, embed, figure, figcaption,
-footer, header, nav, section, audio, video, template {
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, 
+button, p, a, input, textarea, select, svg, blockquote, main, 
+pre, abbr, address, cite, code, del, em, img, ins, 
+kbd, q, small, strong, sub, sup, dl, dt, dd, ol, ul, 
+li, form, fieldset, label, legend, table, caption, 
+tbody, tfoot, thead, tr, th, td, article, aside, 
+canvas, details, figcaption, figure, footer, header, 
+nav, section, summary, time, mark, audio, video, template {
     margin: 0;
     padding: 0;
     border: 0;
     font: inherit;
+    color: inherit;
     vertical-align: baseline;
     background: transparent;
     box-sizing: border-box;
 
-    &::before,
-    &::after {
+    &::before, &::after {
         box-sizing: inherit;
     }
 }
 
 /* Block-level elements */
-/* Correct `block` display not defined in IE 11. */
-article, aside, figcaption, figure, footer, header, nav, section {
+/* Ensure proper block rendering in older browsers */
+main, section, article, aside, nav, footer, header, figure, figcaption {
     display: block;
 }
 
+/* Lists */
+/* Remove default bullet points */
+ol, ul {
+    list-style: none;
+}
+
 /* Tables */
-/* Collapse adjacent table cell borders for consistent rendering */
+/* Ensure proper table behavior */
 table {
     border-collapse: collapse;
     border-spacing: 0;
 }
 
-/* Lists */
-/* Remove default bullet points and padding */
-ol, ul {
-    list-style: none;
-}
-
 /* Blockquotes and quotes */
-/* Remove default quotes in blockquote and q elements */
-blockquote,
-q {
+/* Remove default quotes */
+blockquote, q {
     quotes: none;
 
-    &::before,
+    &::before, 
     &::after {
         content: none;
     }
 }
 
 /* Images */
-/* Ensure images are responsive and prevent layout breaking */
+/* Ensure images are responsive */
 img {
+    display: block;
     max-width: 100%;
     height: auto;
-    display: block;
-    border: none;
 }
 
 /* Forms */
-/* Normalize form elements for consistent appearance */
+/* Normalize input, button, textarea, select */
 input, button, textarea, select {
-    font: inherit;
-    color: inherit;
-    outline: none;
-    border: none;
     appearance: none;
 
-    &:focus {
-        outline: none;
-        /* Remove focus outlines for consistency */
+    &:focus,
+    &:focus-visible {
+        outline: 0;
     }
 
     &[disabled] {
         cursor: not-allowed;
-        /* Indicate disabled state */
+        pointer-events: none;
+    }
+}
+
+/* Number Inputs */
+/* Remove spinner controls */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Textareas */
+/* Disable resizing and ensure scrollbars */
+textarea {
+    resize: none;
+    overflow: auto;
+}
+
+/* Links */
+/* Remove default styles */
+a {
+    text-decoration: none;
+    color: inherit;
+
+    &:focus,
+    &:hover, 
+    &:active  {
+        outline: none;
     }
 }
 
 /* Buttons */
-/* Remove padding and border for inner elements in Firefox */
+/* Fix inner padding in older Firefox */
 button {
     overflow: visible;
-    background-color: transparent;
-    -webkit-appearance: none;
 
     &::-moz-focus-inner {
         border: 0;
@@ -98,48 +121,14 @@ button {
     }
 }
 
-/* Checkbox and Radio */
-/* Restore default appearance for modern browsers */
-input[type="checkbox"],
-input[type="radio"] {
-    box-sizing: border-box;
-    appearance: auto;
-}
-
-/* Number Inputs */
-/* Remove spinner controls in WebKit and Firefox */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-}
-
-/* Textareas */
-/* Disable resizing and ensure scrollbars appear when needed */
-textarea {
-    resize: none;
-    overflow: auto;
-}
-
-/* Links */
-/* Remove default underlines and ensure consistent appearance */
-a {
-    text-decoration: none;
-    color: inherit;
-
-    &:hover,
-    &:active {
-        outline: none;
-    }
-}
-
 /* SVG */
-/* Prevent overflow issues in IE 9/10/11 */
+/* Prevent overflow issues */
 svg:not(:root) {
     overflow: hidden;
 }
 
 /* Media Elements */
-/* Normalize inline display and alignment */
+/* Ensure consistent alignment */
 audio, canvas, video {
     display: inline-block;
     vertical-align: baseline;
@@ -147,29 +136,28 @@ audio, canvas, video {
 
 audio:not([controls]) {
     display: none;
-    /* Hide audio elements without controls */
     visibility: hidden;
 }
 
 /* Template */
-/* Hide content in template elements (e.g., for older browsers like IE) */
+/* Hide content in template elements */
 template {
     display: none;
 }
 
 /* HTML Adjustments */
-/* Optimize font rendering and prevent font scaling in iOS */
+/* Optimize font rendering and prevent scaling */
 html {
     font-size: 100%;
-    line-height: 1.5;
+    line-height: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
+    -ms-text-size-adjust: 100%;
     scroll-behavior: smooth;
+
+    /* Prevent mobile tap highlight */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 /* Utilities */
