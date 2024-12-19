@@ -171,6 +171,10 @@ a, .link {
     color: var(--color-primary);
     text-decoration: none;
 
+    &:focus-visible {
+        box-shadow: 0 0 3px 3px var(--color-black);
+    }
+
     &::before {
         position: absolute;
         bottom: 0;
