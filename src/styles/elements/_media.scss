@@ -1,0 +1,71 @@
+@use "@styles/utils" as *;
+
+/* -------------------------------------------------------- */
+/*                       MEDIA STYLES                       */
+/* -------------------------------------------------------- */
+
+/* Images */
+img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    shape-margin: 1em;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-style: italic;
+}
+
+/* Videos */
+video {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+
+    &:fullscreen {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+    }
+}
+
+/* Audio */
+audio {
+    display: inline-block;
+    width: 100%;
+
+    &[controls] {
+        margin-top: 0.5rem; /* Optional: Spacing for audio controls */
+    }
+
+    &:not([controls]) {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+/* Canvas */
+canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: var(--color-border);
+
+    /* Fallback for unsupported canvas */
+    background: repeating-linear-gradient(
+        45deg,
+        var(--color-border),
+        var(--color-border) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+}
+
+/* Iframes */
+iframe {
+    border: none;
+    max-width: 100%;
+    height: auto;
+    background-color: var(--color-border);
+}
