@@ -20,62 +20,62 @@ ol {
             margin-bottom: 0;
         }
     }
-}
 
-/* -------------------------------------------------------- */
-/*                      MODIFIER STYLES                     */
-/* -------------------------------------------------------- */
+    /* -------------------------------------------------------- */
+    /*                      MODIFIER STYLES                     */
+    /* -------------------------------------------------------- */
 
-/* Styled ordered lists */
-ol.list--styled {
-    counter-reset: list-counter;
+    /* Styled ordered lists */
+    &.list--styled {
+        counter-reset: list-counter;
 
-    li {
-        counter-increment: list-counter;
-
-        &::before {
-            position: absolute;
-            top: 0;
-            left: 0;
-            font-size: inherit;
-            font-weight: $font-weight-semibold;
-            line-height: inherit;
-            color: var(--color-primary);
-
-            /* Numbered marker for ordered list */
-            content: counter(list-counter) ".";
-        }
-
-        /* Nested ordered lists with different markers */
-        ol > li {
-            counter-reset: nested-counter;
+        li {
+            counter-increment: list-counter;
 
             &::before {
-                content: counter(list-counter, upper-alpha) ".";
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-size: inherit;
+                font-weight: $font-weight-semibold;
+                line-height: inherit;
+                color: var(--color-primary);
+
+                /* Numbered marker for ordered list */
+                content: counter(list-counter) ".";
             }
 
+            /* Nested ordered lists with different markers */
             ol > li {
+                counter-reset: nested-counter;
+
                 &::before {
-                    content: counter(list-counter, upper-roman) ".";
+                    content: counter(list-counter, upper-alpha) ".";
+                }
+
+                ol > li {
+                    &::before {
+                        content: counter(list-counter, upper-roman) ".";
+                    }
                 }
             }
         }
     }
-}
 
-/* Unstyled ordered lists */
-ol.list--unstyled {
-    li {
-        padding-left: 0;
-
-        /* Remove markers */
-        &::before {
-            content: none;
-        }
-
-        /* Remove nesting indentation */
-        ul, ol {
+    /* Unstyled ordered lists */
+    &.list--unstyled {
+        li {
             padding-left: 0;
+
+            /* Remove markers */
+            &::before {
+                content: none;
+            }
+
+            /* Remove nesting indentation */
+            ul, ol {
+                padding-left: 0;
+            }
         }
     }
 }
