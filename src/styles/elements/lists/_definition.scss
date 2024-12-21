@@ -1,0 +1,27 @@
+@use '@styles/utils' as *;
+
+/* -------------------------------------------------------- */
+/*                     DEFINITION LISTS                     */
+/* -------------------------------------------------------- */
+
+/* Base styles for definition lists */
+dl {
+    margin-bottom: 1rem;
+
+    dt {
+        margin-bottom: 0.5rem;
+        color: var(--color-primary);
+        font-weight: $font-weight-semibold;
+    }
+
+    dd {
+        padding-left: 1.5rem;
+        margin-bottom: 0.5rem;
+
+        /* Nested definition lists spacing */
+        dl {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+    }
+}

@@ -1,0 +1,81 @@
+@use '@styles/utils' as *;
+
+/* -------------------------------------------------------- */
+/*                       ORDERED LISTS                      */
+/* -------------------------------------------------------- */
+
+/* Base styles for ordered lists */
+ol {
+    margin-bottom: 1rem;
+    list-style: none;
+
+    li {
+        padding-left: 1.5rem;
+        margin-bottom: 0.5rem;
+        position: relative;
+
+        /* Nested lists spacing */
+        ul, ol {
+            margin-top: 0.5rem;
+            margin-bottom: 0;
+        }
+    }
+}
+
+/* -------------------------------------------------------- */
+/*                      MODIFIER STYLES                     */
+/* -------------------------------------------------------- */
+
+/* Styled ordered lists */
+ol.list--styled {
+    counter-reset: list-counter;
+
+    li {
+        counter-increment: list-counter;
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: inherit;
+            font-weight: $font-weight-semibold;
+            line-height: inherit;
+            color: var(--color-primary);
+
+            /* Numbered marker for ordered list */
+            content: counter(list-counter) ".";
+        }
+
+        /* Nested ordered lists with different markers */
+        ol > li {
+            counter-reset: nested-counter;
+
+            &::before {
+                content: counter(list-counter, upper-alpha) ".";
+            }
+
+            ol > li {
+                &::before {
+                    content: counter(list-counter, upper-roman) ".";
+                }
+            }
+        }
+    }
+}
+
+/* Unstyled ordered lists */
+ol.list--unstyled {
+    li {
+        padding-left: 0;
+
+        /* Remove markers */
+        &::before {
+            content: none;
+        }
+
+        /* Remove nesting indentation */
+        ul, ol {
+            padding-left: 0;
+        }
+    }
+}

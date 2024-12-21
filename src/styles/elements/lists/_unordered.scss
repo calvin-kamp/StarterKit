@@ -1,0 +1,61 @@
+@use '@styles/utils' as *;
+
+/* -------------------------------------------------------- */
+/*                      UNORDERED LISTS                     */
+/* -------------------------------------------------------- */
+
+/* Base styles for unordered lists */
+ul {
+    margin-bottom: 1rem;
+    list-style: none;
+
+    li {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 0.5rem;
+
+        /* Nested lists spacing */
+        ul, ol {
+            margin-top: 0.5rem;
+            margin-bottom: 0;
+        }
+    }
+}
+
+/* -------------------------------------------------------- */
+/*                      MODIFIER STYLES                     */
+/* -------------------------------------------------------- */
+
+/* Styled unordered lists */
+ul.list--styled {
+    li {
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: inherit;
+            line-height: inherit;
+            color: var(--color-primary);
+
+            /* Custom marker for unordered list */
+            content: "+";
+        }
+    }
+}
+
+/* Unstyled unordered lists */
+ul.list--unstyled {
+    li {
+        padding-left: 0;
+
+        /* Remove markers */
+        &::before {
+            content: none;
+        }
+
+        /* Remove nesting indentation */
+        ul,ol {
+            padding-left: 0;
+        }
+    }
+}
