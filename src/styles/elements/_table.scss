@@ -1,0 +1,71 @@
+@use "@styles/utils" as *;
+
+/* -------------------------------------------------------- */
+/*                       TABLE STYLES                       */
+/* -------------------------------------------------------- */
+
+/* Base table styles */
+table, .table {
+    width: 100%;
+
+    th, td {
+        padding: 1rem;
+        text-align: left;
+        vertical-align: middle;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    th {
+        font-weight: $font-weight-bold;
+        background-color: var(--color-background-light);
+    }
+
+    tr {
+        color: var(--color-body-font);
+    }
+
+    caption {
+        text-align: left;
+        margin-bottom: 0.5rem;
+        font-weight: $font-weight-semibold;
+        color: var(--color-caption);
+    }
+
+    /* -------------------------------------------------------- */
+    /*                     MODIFIER STYLES                      */
+    /* -------------------------------------------------------- */
+
+    /* Striped table rows */
+    &.table--striped {
+        tbody {
+            tr:nth-child(odd) {
+                color: var(--color-body-background);
+                background-color: var(--color-body-font);
+            }
+        }
+    }
+
+    /* Bordered table */
+    &.table--bordered {
+        th, td {
+            border: 1px solid var(--color-border);
+        }
+    }
+    
+    /* Sticky table header */
+    &.table--sticky {
+        thead th {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            background-color: var(--color-background-light);
+        }
+    }
+
+    /* Compact table */
+    &.table--compact {
+        th, td {
+            padding: 0.5rem;
+        }
+    }
+}
