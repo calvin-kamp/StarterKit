@@ -31,12 +31,6 @@ main, section, article, aside, nav, footer, header, figure, figcaption {
     display: block;
 }
 
-/* Lists */
-/* Remove default bullet points */
-ol, ul {
-    list-style: none;
-}
-
 /* Tables */
 /* Ensure proper table behavior */
 table {
@@ -103,9 +97,7 @@ a {
     text-decoration: none;
     color: inherit;
 
-    &:focus,
-    &:hover, 
-    &:active  {
+    &:focus, &:hover,  &:active  {
         outline: none;
     }
 }
@@ -125,18 +117,6 @@ button {
 /* Prevent overflow issues */
 svg:not(:root) {
     overflow: hidden;
-}
-
-/* Media Elements */
-/* Ensure consistent alignment */
-audio, canvas, video {
-    display: inline-block;
-    vertical-align: baseline;
-}
-
-audio:not([controls]) {
-    display: none;
-    visibility: hidden;
 }
 
 /* Template */
