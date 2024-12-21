@@ -1,0 +1,30 @@
+@use '@styles/utils' as *;
+
+/* -------------------------------------------------------- */
+/*                   FORM TEXTAREA STYLES                   */
+/* -------------------------------------------------------- */
+
+.form-element--textarea {
+    textarea {
+        padding: 1rem;
+        border: 1px solid var(--color-border);
+
+        &:not([data-value=""]) {
+            &:valid {
+                border-color: var(--color-ui-green);
+            }
+
+            ~ span {
+                top: -20px;
+                left: 20px;
+                font-size: get-rem(14px);
+                font-weight: $font-weight-light;
+
+                @include viewport(lw) {
+                    top: -18px;
+                    left: 27px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,47 @@
+@use '@styles/utils' as *;
+
+/* -------------------------------------------------------- */
+/*                     FORM BASE STYLES                     */
+/* -------------------------------------------------------- */
+
+.form {
+    margin: 0 -#{$grid-gap};
+    @include flex();
+
+    input, textarea {
+        width: 100%;
+
+        &:invalid {
+            border-color: var(--color-ui-red);
+
+            + span {
+                color: var(--color-ui-red);
+            }
+
+            ~ small {
+                display: block;
+            }
+        }
+    }
+
+    small {
+        display: none;
+        color: var(--color-ui-red);
+
+        &::before {
+            display: inline-block;
+            transform: rotate(180deg);
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 900;
+            text-align: center;
+            color: var(--color-white);
+            border-radius: 50%;
+            background-color: var(--color-ui-red);
+            content: "i";
+        }
+    }
+}

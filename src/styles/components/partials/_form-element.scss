@@ -1,0 +1,14 @@
+@use '@styles/utils' as *;
+
+/* -------------------------------------------------------- */
+/*                   FORM ELEMENT PARTIAL                   */
+/* -------------------------------------------------------- */
+
+.form-element {
+    margin-bottom: 38px;
+
+    label {
+        position: relative;
+        display: block;
+    }
+}
