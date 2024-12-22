@@ -35,11 +35,6 @@ audio {
     &[controls] {
         margin-top: 0.5rem; /* Optional: Spacing for audio controls */
     }
-
-    &:not([controls]) {
-        display: none;
-        visibility: hidden;
-    }
 }
 
 /* Canvas */
@@ -65,4 +60,12 @@ iframe {
     max-width: 100%;
     height: auto;
     background-color: var(--color-border);
+}
+
+/* Svgs */
+svg {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
 }

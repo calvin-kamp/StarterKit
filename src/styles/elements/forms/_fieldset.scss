@@ -1,0 +1,20 @@
+@use "@styles/utils" as *;
+
+/* -------------------------------------------------------- */
+/*                      FIELDSET STYLES                     */
+/* -------------------------------------------------------- */
+
+fieldset {
+    width: 100%;
+    padding: 1rem 0;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--color-border);
+
+    @include flex();
+
+    legend {
+        padding: 0 0.5rem;
+        margin-left: 1rem;
+        font-weight: $font-weight-bold;
+    }
+}

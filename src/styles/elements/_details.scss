@@ -1,0 +1,83 @@
+@use "@styles/utils" as *;
+
+/* -------------------------------------------------------- */
+/*                DETAILS AND SUMMARY STYLES                */
+/* -------------------------------------------------------- */
+
+/* Base styles for details */
+details {
+    margin-bottom: 1rem;
+
+    summary {
+        cursor: pointer;
+        font-weight: $font-weight-semibold;
+        position: relative;
+        padding-left: 1.5rem;
+
+        /* Add expand/collapse indicator */
+        &::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%) rotate(0deg);
+            transition: transform $transition-time ease;
+            font-size: inherit;
+            line-height: inherit;
+            color: var(--color-primary);
+        }
+
+        &:focus-visible {
+            outline: 0;
+            box-shadow: 0 0 3px 3px var(--color-black);
+        }
+    }
+
+    /* Expand indicator for open details */
+    &[open] > summary::before {
+        transform: translateY(-50%) rotate(90deg);
+    }
+
+    /* -------------------------------------------------------- */
+    /*                      MODIFIER STYLES                     */
+    /* -------------------------------------------------------- */
+
+    /* Styled details */
+    &.details--styled {
+        border: 1px solid var(--color-border);
+        border-radius: 4px;
+        padding: 1rem;
+
+        summary {
+            border-radius: 4px;
+        }
+
+        /* Nested details */
+        details {
+            margin-top: 0.5rem;
+            border: none;
+            padding: 0;
+
+            summary {
+                background-color: transparent;
+
+                &::before {
+                    color: var(--color-secondary);
+                }
+            }
+        }
+    }
+
+    /* Unstyled details */
+    &.details--unstyled {
+        margin-bottom: 0;
+
+        summary {
+            padding-left: 0;
+
+            &::before {
+                content: none;
+            }
+        }
+    }
+}

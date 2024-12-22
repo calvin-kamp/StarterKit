@@ -4,8 +4,8 @@
 
 /* Base Reset for common elements */
 html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, 
-button, p, a, input, textarea, select, svg, blockquote, main, 
-pre, abbr, address, cite, code, del, em, img, ins, 
+button, p, a, input, textarea, select, output, svg, blockquote, 
+main, pre, abbr, address, cite, code, del, em, img, ins, 
 kbd, q, small, strong, sub, sup, dl, dt, dd, ol, ul, 
 li, form, fieldset, label, legend, table, caption, 
 tbody, tfoot, thead, tr, th, td, article, aside, 
@@ -27,7 +27,7 @@ nav, section, summary, time, mark, audio, video, template {
 
 /* Block-level elements */
 /* Ensure proper block rendering in older browsers */
-main, section, article, aside, nav, footer, header, figure, figcaption {
+main, section, article, aside, nav, footer, header, figure, figcaption, details {
     display: block;
 }
 
@@ -36,6 +36,12 @@ main, section, article, aside, nav, footer, header, figure, figcaption {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+}
+
+/* Table Columns */
+/* Ensure consistent column behavior */
+colgroup, col {
+    border: 0;
 }
 
 /* Blockquotes and quotes */
@@ -55,6 +61,39 @@ img {
     display: block;
     max-width: 100%;
     height: auto;
+}
+
+/* Summary */
+/* Standardize cursor and interaction styles */
+summary {
+    list-style: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+/* Fieldset */
+/* Remove default styles */
+fieldset {
+    min-width: 0;
+}
+
+/* Legend */
+/* Standardize alignment and spacing */
+legend {
+    display: table;
+}
+
+/* Abbreviations */
+/* Standardize abbreviation styling */
+abbr[title] {
+    text-decoration: underline dotted;
+    cursor: help;
+}
+
+/* Time */
+/* Ensure consistent appearance */
+time {
+    font-style: italic;
 }
 
 /* Forms */
@@ -91,6 +130,19 @@ textarea {
     overflow: auto;
 }
 
+/* Progress */
+/* Ensure consistent appearance */
+progress {
+    display: inline-block;
+    appearance: none;
+}
+
+/* Output */
+/* Standardize output appearance */
+output {
+    display: inline-block;
+}
+
 /* Links */
 /* Remove default styles */
 a {
@@ -111,6 +163,13 @@ button {
         border: 0;
         padding: 0;
     }
+}
+
+/* Audio */
+/* Hide audio elements without controls */
+audio:not([controls]) {
+    display: none;
+    visibility: hidden;
 }
 
 /* SVG */

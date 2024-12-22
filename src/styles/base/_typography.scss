@@ -124,14 +124,24 @@ i, em {
     font-style: italic;
 }
 
-sup {
-    font-size: .875em;
-    vertical-align: super;
+sup, sub {
+    font-size: 0.875em;
     line-height: 1;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+    vertical-align: super;
+}
+
+sub {
+    bottom: -0.25em;
+    vertical-align: sub;
 }
 
 small {
-    font-size: .875em;
+    font-size: 0.875em;
 }
 
 strike, del {
@@ -154,12 +164,6 @@ blockquote {
 /* -------------------------------------------------------- */
 pre, code, kbd, samp {
     font-family: $font-family-monospace;
-}
-
-pre {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    overflow: auto;
 }
 
 

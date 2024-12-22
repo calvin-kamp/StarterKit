@@ -1,0 +1,11 @@
+@use "@styles/utils" as *;
+
+/* -------------------------------------------------------- */
+/*                        MARK STYLES                       */
+/* -------------------------------------------------------- */
+
+mark {
+    background-color: var(--color-primary);
+    color: var(--color-body-font);
+    padding: 0 0.5rem;
+}

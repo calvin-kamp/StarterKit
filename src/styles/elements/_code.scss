@@ -1,0 +1,41 @@
+@use "@styles/utils" as *;
+
+/* -------------------------------------------------------- */
+/*                        CODE STYLES                       */
+/* -------------------------------------------------------- */
+
+/* Preformatted Text */
+pre {
+    padding: 1rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: auto;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-code-background);
+    color: var(--color-body-font);
+    border-radius: 4px;
+    text-align: left;
+}
+
+/* Inline Code */
+code {
+    padding: 0.2rem 0.4rem;
+    background-color: var(--color-code-background);
+    color: var(--color-body-font);
+    border-radius: 4px;
+}
+
+/* Keyboard Input */
+kbd {
+    padding: 0.2rem 0.4rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    color: var(--color-body-font);
+    background-color: var(--color-code-background);
+}
+
+/* Sample Output */
+samp {
+    padding: 0.5rem 1rem;
+    color: var(--color-primary);
+}
