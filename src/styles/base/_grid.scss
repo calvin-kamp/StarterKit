@@ -1,68 +1,41 @@
-@use "@styles/utils" as *;
+@use '@styles/utils' as *;
 
 /* -------------------------------------------------------- */
-/*                           GRID                           */
+/*                      FLEX CONTAINER                      */
 /* -------------------------------------------------------- */
 
-.container,
-.container--fullsize {
-    width: 100%;
-    padding: 0 calc($grid-gap * .5);
-    margin: 0 auto;
-}
+@if $enable-flex-container {
 
-@each $viewport, $container-max-width in $container-max-widths {
-
-    .container-#{$viewport} {
-        @extend .container--fullsize;
-    }
-
-    @include viewport($viewport) {
-
-        .container,
-        .container-#{$viewport} {
-            max-width: $container-max-width;
-        }
-
-        .container-#{$viewport}--fullsize {
-            max-width: none;
-        }
-
-    }
-
-}
-
-
-.layout {
-    &--flex {
+    /* Base styles for flex containers */
+    .flex-container {
         @include flex();
 
+        /* Generate column classes based on grid columns */
         @for $i from 1 through $grid-columns {
 
+            /* Standard column */
             .col-#{$i} {
-                flex: 0 0 auto;
-                width: grid-size($i);
-                padding: 0 $grid-gap;
+                @include make-col($size: $i);
             }
 
+            /* Column with left offset */
             .col-left-#{$i} {
-                margin-left: grid-size($i);
-                padding: 0 $grid-gap;
+                @include make-offset-col($size: $i, $direction: left);
             }
 
+            /* Column with right offset */
             .col-right-#{$i} {
-                margin-right: grid-size($i);
-                padding: 0 $grid-gap;
-            }
-
-            .col-auto {
-                flex: 0 0 auto;
-                width: auto;
-                padding: 0 $grid-gap;
+                @include make-offset-col($size: $i, $direction: right);
             }
 
         }
 
+        /* Full-size column class */
+        .col--fullsize {
+            @include make-col($fullsize: true);
+        }
+
+        /* Responsive column logic for specific viewports */
         @each $viewport, $width in $viewports {
 
             @if $viewport != "xs" {
@@ -71,28 +44,26 @@
 
                     @for $i from 1 through $grid-columns {
 
+                        /* Responsive column */
                         .col-#{$viewport}-#{$i} {
-                            flex: 0 0 auto;
-                            width: grid-size($i);
-                            padding: 0 $grid-gap;
+                            @include make-col($size: $i);
                         }
 
+                        /* Responsive left offset column */
                         .col-#{$viewport}-left-#{$i} {
-                            margin-left: grid-size($i);
-                            padding: 0 $grid-gap;
+                            @include make-offset-col($size: $i, $direction: left);
                         }
 
+                        /* Responsive right offset column */
                         .col-#{$viewport}-right-#{$i} {
-                            margin-right: grid-size($i);
-                            padding: 0 $grid-gap;
+                            @include make-offset-col($size: $i, $direction: right);
                         }
 
-                        .col-auto-#{$viewport} {
-                            flex: 0 0 auto;
-                            width: auto;
-                            padding: 0 $grid-gap;
-                        }
+                    }
 
+                    /* Responsive full-size column */
+                    .col-#{$viewport}--fullsize {
+                        @include make-col($fullsize: true);
                     }
 
                 }
@@ -103,33 +74,44 @@
 
     }
 
-    &--grid {
+}
+
+/* -------------------------------------------------------- */
+/*                      GRID CONTAINER                      */
+/* -------------------------------------------------------- */
+
+@if $enable-grid-container {
+
+    /* Base styles for grid containers */
+    .grid-container {
         @include grid();
 
+        /* Generate grid column and row classes */
         @for $i from 1 through $grid-columns {
 
+            /* Standard grid column */
             .g-col-#{$i} {
-                grid-column: auto / span $i;
-                padding-left: $grid-gap;
-                padding-right: $grid-gap;
+                @include make-g-col($size: $i);
             }
 
+            /* Standard grid row */
             .g-row-#{$i} {
-                grid-row: auto / span $i;
-                padding-top: $grid-gap;
-                padding-bottom: $grid-gap;
+                @include make-g-col($size: $i, $row: true);
             }
 
+            /* Grid column starting point */
             .g-col-start-#{$i} {
-                grid-column-start: $i;
+                @include make-g-col($start: $i);
             }
 
+            /* Grid row starting point */
             .g-row-start-#{$i} {
-                grid-row-start: $i;
+                @include make-g-col($start: $i, $row: true);
             }
 
         }
 
+        /* Responsive grid logic for specific viewports */
         @each $viewport, $width in $viewports {
 
             @if $viewport != "xs" {
@@ -138,24 +120,24 @@
 
                     @for $i from 1 through $grid-columns {
 
+                        /* Responsive grid column */
                         .g-col-#{$viewport}-#{$i} {
-                            grid-column: auto / span $i;
-                            padding-left: $grid-gap;
-                            padding-right: $grid-gap;
+                            @include make-g-col($size: $i);
                         }
 
+                        /* Responsive grid row */
                         .g-row-#{$viewport}-#{$i} {
-                            grid-row: auto / span $i;
-                            padding-top: $grid-gap;
-                            padding-bottom: $grid-gap;
+                            @include make-g-col($size: $i, $row: true);
                         }
 
+                        /* Responsive grid column starting point */
                         .g-col-#{$viewport}-start-#{$i} {
-                            grid-column-start: $i;
+                            @include make-g-col($start: $i);
                         }
 
+                        /* Responsive grid row starting point */
                         .g-row-#{$viewport}-start-#{$i} {
-                            grid-row-start: $i;
+                            @include make-g-col($start: $i, $row: true);
                         }
 
                     }
@@ -165,7 +147,7 @@
             }
 
         }
-        
+
     }
 
 }
