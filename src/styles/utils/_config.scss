@@ -1,31 +1,31 @@
 /* -------------------------------------------------------- */
-/*                     SET UP VIEWPORTS                     */
+/*                          LAYOUT                          */
 /* -------------------------------------------------------- */
 
 $viewports: (
-    "xs":  	    0,
-    "sm":  	    576px,
-    "md":  	    768px,
-    "lg":  	    992px,
-    "xl":  	    1280px,
-    "xxl": 	    1440px,
+    xs:         			0,
+    sm:         			576px,
+    md:         			768px,
+    lg:         			992px,
+    xl:         			1280px,
+    xxl:        			1440px,
 );
-
-
-/* -------------------------------------------------------- */
-/*                        SET UP GRID                       */
-/* -------------------------------------------------------- */
-
-$grid-columns: 	12;
-$grid-gap:		16px;
 
 $container-max-widths: (
-    sm: 	    540px,
-    md: 	    720px,
-    lg: 	    960px,
-    xl: 	    1240px,
-    xxl: 	    1380px,
+    sm:         			540px,
+    md:         			720px,
+    lg:         			960px,
+    xl:         			1240px,
+    xxl:        			1380px,
 );
+
+$enable-flex-container:		true;
+$enable-grid-container:		true;
+
+$grid-columns:  			12;
+
+$col-padding:      			10px;
+$container-padding:			10px;
 
 
 /* -------------------------------------------------------- */
@@ -33,27 +33,49 @@ $container-max-widths: (
 /* -------------------------------------------------------- */
 
 $colors: (
-    "light": (
-        "border":               #666666,
+	light: (
+		
+		white: 				#FFFFFF,
+		black: 				#000000,
 
-        "primary":              #D2691E,
-        "secondary":            #800080,
+		border: 			#666666,
 
-        "body-font":            #292929,
-        "body-background":      #E0E0E0,
-    ),
+		primary: 			#6f188d,
+		secondary: 			#800080,
 
-    "dark": (
-        "border":               #999999,
+		ui-green:           #94b035,
+		ui-blue:            #6F8FAF,
+		ui-red:             #a90217,
 
-        "primary":              #A03700,
-        "secondary":            #B232B2,
+		body-font: 			#292929,
+		body-background: 	#E0E0E0,
 
-        "body-font":            #D6D6D6,
-        "body-background":      #1F1F1F,
-    )
+		code-font:			#E0E0E0,
+		code-background:	#292929,
+
+	),
+	dark: (
+
+		white: 				#000000,
+		black: 				#FFFFFF,
+
+		border: 			#999999,
+
+		primary: 			#A03700,
+		secondary: 			#B232B2,
+
+		ui-green:           #94b035,
+		ui-blue:            #6F8FAF,
+		ui-red:             #a90217,
+
+		body-font: 			#D6D6D6,
+		body-background: 	#1F1F1F,
+
+		code-font:			#1F1F1F,
+		code-background:	#D6D6D6,
+
+	)
 );
-
 
 
 /* -------------------------------------------------------- */
@@ -61,13 +83,13 @@ $colors: (
 /* -------------------------------------------------------- */
 
 $font-size-mobile:			                16px;
-$font-size-tablet:			                16px;
-$font-size-desktop:			                18px;
+$font-size-tablet:			                18px;
+$font-size-desktop:			                20px;
 
-$font-size-h1-mobile:			            30px;
-$font-size-h2-mobile:			            24px;
-$font-size-h3-mobile:			            20px;
-$font-size-h4-mobile:			            18px;
+$font-size-h1-mobile:			            32px;
+$font-size-h2-mobile:			            28px;
+$font-size-h3-mobile:			            24px;
+$font-size-h4-mobile:			            20px;
 $font-size-h5-mobile:			            16px;
 $font-size-h6-mobile:			            14px;
 
@@ -92,15 +114,14 @@ $font-weight-extralight:			        200;
 $font-weight-light:			                300;
 $font-weight-normal:			            400;
 $font-weight-medium:		                500;
-$font-weight-semibold:		                600;
+$font-weight-semibold:		              	600;
 $font-weight-bold:			                700;
 $font-weight-extrabold:			            800;
 $font-weight-black:			                900;
 
-
 $font-family-body:		                    Arial, sans-serif;
 $font-family-headline:		                $font-family-body;
-$font-family-monospace:		                Consolas, "Lucida Console", Monaco, monospace;
+$font-family-monospace:		                Consolas, 'Lucida Console', Monaco, monospace;
 
 
 /* -------------------------------------------------------- */
@@ -117,3 +138,11 @@ $z-index-7:                                 70;
 $z-index-8:                                 80;
 $z-index-9:                                 90;
 $z-index-10:                                100;
+
+
+/* -------------------------------------------------------- */
+/*                        ANIMATIONS                        */
+/* -------------------------------------------------------- */
+
+$transition-time:                           0.4s;
+$transition-time-fast:                      0.2s;
