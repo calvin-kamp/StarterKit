@@ -1,0 +1,24 @@
+/* -------------------------------------------------------- */
+/*                     TYPOGRAPHY MIXINS                    */
+/* -------------------------------------------------------- */
+
+/* Limits the number of lines in a text block */
+@mixin max-lines($lines: 1){
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Applies hyphenation rules for text */
+@mixin hyphens($mode) {
+    -webkit-hyphens:      $mode;
+    -moz-hyphens:         $mode;
+    -ms-hyphens:          $mode;
+    hyphens:              $mode;
+
+    /* Adds word-break for 'auto' mode */
+    @if $mode == auto {
+        word-break: break-word;
+    }
+}

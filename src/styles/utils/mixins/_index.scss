@@ -1,0 +1,10 @@
+/* -------------------------------------------------------- */
+/*               MERGE ALL MIXINS IN ONE FILE               */
+/* -------------------------------------------------------- */
+
+@forward '@styles/utils/mixins/grid';
+@forward '@styles/utils/mixins/media';
+@forward '@styles/utils/mixins/layout';
+@forward '@styles/utils/mixins/container';
+@forward '@styles/utils/mixins/utilities';
+@forward '@styles/utils/mixins/typography';

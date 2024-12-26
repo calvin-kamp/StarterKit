@@ -1,0 +1,79 @@
+@use 'sass:meta';
+
+@use '@styles/utils/_config' as *;
+@use '@styles/utils/_functions' as *;
+
+/* -------------------------------------------------------- */
+/*                        GRID MIXINS                       */
+/* -------------------------------------------------------- */
+
+/* Generates column classes for flexible layouts */
+@mixin make-col($fullsize: false, $size: null) {
+    @if $fullsize == false and ($size == null or meta.type-of($size) != 'number' or $size < 1 or $size > $grid-columns) {
+        @error "Invalid size: '$size'. It must be a number between 1 and #{$grid-columns}.";
+    }
+
+    flex: 0 0 auto;
+
+    @if $fullsize {
+
+        /* Full-width column */
+        width: 100%;
+
+    } @else if $size != null {
+
+        /* Proportional column width */
+        width: grid-size($size);
+        padding: 0 $col-padding;
+
+    }
+}
+
+/* Generates offset column classes for spacing adjustments */
+@mixin make-offset-col($size: null, $direction: left) {
+    @if $size != null {
+
+        /* Adds margin to the specified direction */
+        margin-#{$direction}: grid-size($size);
+
+    }
+}
+
+/* Generates grid columns for CSS Grid layouts */
+@mixin make-g-col($size: null, $start: null, $row: false) {
+    @if $start != null {
+
+        @if $row {
+
+            /* Set starting position for grid rows */
+            grid-row-start: $start;
+
+        } @else {
+
+            /* Set starting position for grid columns */
+            grid-column-start: $start;
+
+        }
+
+    } @else {
+
+        @if $size != null {
+
+            @if $row {
+
+                /* Span a specific number of rows */
+                grid-row: auto / span $size;
+                padding-top: $col-padding;
+                padding-bottom: $col-padding;
+
+            } @else {
+
+                /* Span a specific number of columns */
+                grid-column: auto / span $size;
+                padding-left: $col-padding;
+                padding-right: $col-padding;
+
+            }
+        }
+    }
+}

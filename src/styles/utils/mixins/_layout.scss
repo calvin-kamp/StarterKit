@@ -1,0 +1,40 @@
+@use '@styles/utils/_config' as *;
+
+/* -------------------------------------------------------- */
+/*                       LAYOUT MIXINS                      */
+/* -------------------------------------------------------- */
+
+/* Applies a flexbox layout with customizable direction, wrap, justify, and align */
+@mixin flex($flex-direction: row, $flex-wrap: wrap, $justify-content: flex-start, $align-items: stretch) {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-direction: $flex-direction;
+    -ms-flex-direction: $flex-direction;
+    flex-direction: $flex-direction;
+
+    -webkit-flex-wrap: $flex-wrap;
+    -ms-flex-wrap: $flex-wrap;
+    flex-wrap: $flex-wrap;
+
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+/* Adds a CSS grid layout with customizable columns, rows, and row gaps */
+@mixin grid($grid-template-columns: $grid-columns, $grid-template-rows: none) {
+    display: -ms-grid;
+    display: grid;
+    grid-auto-flow: row;
+
+    /* Applies grid-template-rows if provided */
+    @if $grid-template-rows != none {
+        -ms-grid-rows: $grid-template-rows;
+        grid-template-rows: $grid-template-rows;
+    }
+
+    /* Sets grid-template-columns with repeated columns */
+    -ms-grid-columns: repeat(#{$grid-template-columns}, 1fr);
+    grid-template-columns: repeat(#{$grid-template-columns}, 1fr);
+}

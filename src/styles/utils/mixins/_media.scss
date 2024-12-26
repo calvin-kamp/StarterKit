@@ -1,0 +1,37 @@
+@use 'sass:map';
+
+@use '@styles/utils/_config' as *;
+@use '@styles/utils/_functions' as *;
+
+/* -------------------------------------------------------- */
+/*                       MEDIA MIXINS                       */
+/* -------------------------------------------------------- */
+
+// Adds a media query for a specified viewport size
+@mixin viewport($viewport) {
+    @if not map.has-key($viewports, $viewport) {
+        @error "Invalid viewport: '$viewport'. It must be one of the following: #{map.keys($viewports)}.";
+    }
+
+    @media screen and (min-width: get-min-width($viewport)) {
+        @content;
+    }
+}
+
+// Adds a media query for a specified custom minimum width
+@mixin manual-viewport($viewport-min-width) {
+	@media screen and (min-width: $viewport-min-width) {
+		@content;
+	}
+}
+
+// Adds a media query for light or dark color scheme preferences
+@mixin color-scheme($mode) {
+    @if $mode == 'dark' or $mode == 'light' {
+        @media (prefers-color-scheme: #{$mode}) {
+            @content;
+        }
+    } @else {
+        @error "Invalid mode: '#{$mode}'. Allowed values are 'dark' or 'light'.";
+    }
+}

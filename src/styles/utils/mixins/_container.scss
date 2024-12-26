@@ -1,0 +1,31 @@
+@use '@styles/utils/_config' as *;
+
+/* -------------------------------------------------------- */
+/*                     CONTAINER MIXINS                     */
+/* -------------------------------------------------------- */
+
+/* Generates container styles for layouts */
+@mixin make-container($fullsize: false, $max-width: null) {
+    /* Ensures the container spans full width */
+    width: 100%;
+
+    @if $fullsize {
+
+        /* Full-size container without max-width */
+        max-width: none;
+
+    } @else {
+
+        @if $max-width != null {
+
+            /* Sets a custom maximum width */
+            max-width: $max-width;
+
+        }
+
+        padding: 0 $container-padding;
+        margin: 0 auto;
+
+    }
+
+}
