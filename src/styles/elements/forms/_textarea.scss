@@ -20,7 +20,7 @@
                 font-size: get-rem(14px);
                 font-weight: $font-weight-light;
 
-                @include viewport(lw) {
+                @include viewport(lg) {
                     top: -18px;
                     left: 27px;
                 }
