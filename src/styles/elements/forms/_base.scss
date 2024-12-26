@@ -5,7 +5,7 @@
 /* -------------------------------------------------------- */
 
 .form {
-    margin: 0 -#{$grid-gap};
+    margin: 0 -#{$container-padding};
     @include flex();
 
     input, textarea {

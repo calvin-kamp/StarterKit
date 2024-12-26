@@ -1,0 +1,27 @@
+@use 'sass:map';
+
+@use '@styles/utils' as *;
+
+/* -------------------------------------------------------- */
+/*                  COLOR SCHEME VARIABLES                  */
+/* -------------------------------------------------------- */
+
+/* Generates CSS variables for the light color scheme */
+@include color-scheme('light') {
+    :root {
+        @each $color, $color-value in map.get($colors, light) {
+            /* Defines a CSS variable for each color in the light scheme */
+            --color-#{'#{$color}'}: #{$color-value};
+        }
+    }
+}
+
+/* Generates CSS variables for the dark color scheme */
+@include color-scheme('dark') {
+    :root {
+        @each $color, $color-value in map.get($colors, dark) {
+            /* Defines a CSS variable for each color in the dark scheme */
+            --color-#{'#{$color}'}: #{$color-value};
+        }
+    }
+}
