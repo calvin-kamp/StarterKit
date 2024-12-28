@@ -1,0 +1,35 @@
+@use '@styles/utils' as *;
+
+/* -------------------------------------------------------- */
+/*                    FORM GROUP PARTIAL                    */
+/* -------------------------------------------------------- */
+
+.form-group {
+    padding: 0!important;
+    @include flex();
+
+    &.valid {
+        input {
+            &:checked {
+                + span {
+                    color: var(--color-ui-green);        
+                }
+            }
+        }
+    }
+
+    &.invalid {
+        span {
+            color: var(--color-ui-red);
+
+            &::before {
+                border-color: var(--color-ui-red)
+            }
+        }
+
+        > small {
+            display: block;
+            margin-left: 10px;
+        }
+    }
+}

@@ -10,8 +10,29 @@
 
     input, textarea {
         width: 100%;
+        transition: all $transition-time ease;
 
-        &:invalid {
+        + span {
+            transition: all $transition-time ease;
+
+            &::before,
+            &::after {
+                transition: inherit;
+            }
+        }
+    }
+
+    textarea,
+    input:not([type="radio"]):not([type="checkbox"]) {
+        &.valid {
+            border-color: var(--color-ui-green);
+
+            + span {
+                color: var(--color-ui-green);
+            }
+        }
+
+        &.invalid {
             border-color: var(--color-ui-red);
 
             + span {
@@ -21,6 +42,14 @@
             ~ small {
                 display: block;
             }
+        }
+    }
+
+    input {
+        &:-webkit-autofill {
+            -webkit-text-fill-color: var(--color-body-font);
+            -webkit-box-shadow: none !important;
+            transition: background-color 99999s ease-in-out 0s !important;
         }
     }
 
@@ -66,5 +95,9 @@
             background-color: var(--color-ui-red);
             content: "i";
         }
+    }
+
+    &__submit {
+        margin-top: 25px;
     }
 }

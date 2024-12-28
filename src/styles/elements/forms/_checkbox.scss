@@ -1,0 +1,67 @@
+@use '@styles/utils' as *;
+
+/* -------------------------------------------------------- */
+/*               FORM OPTION (RADIO/CHECKBOX)               */
+/* -------------------------------------------------------- */
+
+.form-checkbox {
+    margin-bottom: 38px;
+
+    label {
+        position: relative;
+        display: block;
+    }
+    
+    input {
+        position: absolute;
+        opacity: 0;
+
+        &.invalid {
+            + span {
+                &::before {
+                    border-color: var(--color-ui-red);
+                }
+            }
+        }
+
+        &:checked {
+            + span {
+                &::before {
+                    border-color: var(--color-primary);
+                }
+
+                &::after {
+                    opacity: 1;
+                }
+            }
+        }
+
+        + span {
+            display: block;
+            margin-left: 25px;
+            min-height: 20px;
+            cursor: pointer;
+
+            &::before {
+                position: absolute;
+                top: 4px;
+                left: 0;
+                width: 18px;
+                height: 18px;
+                border: 1px solid var(--color-border);
+                content: "";
+            }
+
+            &::after {
+                position: absolute;
+                top: 4px;
+                left: 0;
+                width: 18px;
+                height: 18px;
+                background-color: var(--color-primary);
+                opacity: 0;
+                content: "";
+            }
+        }
+    }
+}

@@ -4,7 +4,14 @@
 /*               FORM OPTION (RADIO/CHECKBOX)               */
 /* -------------------------------------------------------- */
 
-.form-element--option {
+.form-radio {
+    margin-bottom: 38px;
+
+    label {
+        position: relative;
+        display: block;
+    }
+    
     input {
         position: absolute;
         opacity: 0;
@@ -34,6 +41,7 @@
                 width: 18px;
                 height: 18px;
                 border: 1px solid var(--color-border);
+                border-radius: 50%;
                 content: "";
             }
 
@@ -44,7 +52,7 @@
                 width: 18px;
                 height: 18px;
                 background-color: var(--color-primary);
-                transition: all $transition-time ease;
+                border-radius: 50%;
                 opacity: 0;
                 content: "";
             }
