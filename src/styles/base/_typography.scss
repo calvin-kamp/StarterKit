@@ -21,7 +21,7 @@ body {
         font-size: get-rem($font-size-tablet);
     }
 
-    @include viewport(md) {
+    @include viewport(lg) {
         font-size: get-rem($font-size-desktop);
     }
 }
