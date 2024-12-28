@@ -1,0 +1,20 @@
+---
+const {
+    formAction = '',
+    formMethod = 'POST',
+    formQuery = '',
+    formSubmitMessage = ''
+} = Astro.props;
+---
+
+<form 
+    class="form"
+    method={formMethod}
+    data-js="form-validation"
+    { ...(formQuery ? { [`data-${formQuery}`]: '' } : {}) }
+    data-validation-submit-message={formSubmitMessage}
+>
+
+    <slot />
+
+</form>

@@ -1,0 +1,26 @@
+---
+const {
+    required = false,
+    groupType = '',
+    errorMessage = '',
+    gridClasses = '',
+    additionalClasses = '',
+} = Astro.props;
+
+const modifierClass = groupType?.length > 0 ? `form-group--${groupType}` : '';
+const dataValidation = required && (groupType === 'checkbox' || groupType === 'radio') ? `data-validation-${groupType}-group-required` : '';
+---
+
+<div
+    class={`form-group ${modifierClass} ${additionalClasses} ${gridClasses}`}
+    { ...{ [dataValidation]: '' } }
+>
+
+    <slot />
+
+    {errorMessage?.length > 0 && (
+        <small>
+            {errorMessage}
+        </small>
+    )}
+</div>

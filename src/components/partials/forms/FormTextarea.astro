@@ -1,0 +1,38 @@
+---
+const {
+    fieldName,
+    required = false,
+    labelText = '',
+    errorMessage = '',
+    minLength = 0,
+    maxLength = 0,
+    gridClasses = '',
+    additionalClasses = ''
+} = Astro.props;
+
+const dataValidation = required || errorMessage?.length > 0 ? 'data-validation-required' : '';
+---
+
+<div class=`form-textarea ${additionalClasses} ${gridClasses}`>
+    <label>
+        <textarea
+            name={fieldName}
+            data-value=""
+            { ...(minLength > 0 && { minlength: minLength }) }
+            { ...(maxLength > 0 && { maxlength: maxLength }) }
+            { ...(dataValidation && { [dataValidation]: '' }) }
+        />
+
+        {labelText?.length > 0 && (
+            <span>
+                <Fragment set:html={labelText}/>
+            </span>
+        )}
+
+        {errorMessage?.length > 0 && (
+            <small>
+                {errorMessage}
+            </small>
+        )}
+    </label>
+</div>

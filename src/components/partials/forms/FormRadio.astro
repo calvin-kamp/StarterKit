@@ -1,0 +1,36 @@
+---
+const {
+    fieldName,
+    fieldValue = '',
+    required = false,
+    labelText = '',
+    errorMessage = '',
+    gridClasses = '',
+    additionalClasses = ''
+} = Astro.props;
+
+const dataValidation = required || errorMessage?.length > 0 ? 'data-validation-required' : '';
+---
+
+<div class=`form-radio ${additionalClasses} ${gridClasses}`>
+    <label>
+        <input
+            type="radio"
+            name={fieldName}
+            value={fieldValue}
+            { ...(dataValidation && { [dataValidation]: '' }) }
+        />
+
+        {labelText?.length > 0 && (
+            <span>
+                <Fragment set:html={labelText}/>
+            </span>
+        )}
+
+        {errorMessage?.length > 0 && (
+            <small>
+                {errorMessage}
+            </small>
+        )}
+    </label>
+</div>

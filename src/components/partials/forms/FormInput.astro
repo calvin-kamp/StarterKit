@@ -1,0 +1,43 @@
+---
+const {
+    fieldType = 'text',
+    fieldName,
+    fieldValue = '',
+    fieldPattern = '',
+    required = false,
+    labelText = '',
+    errorMessage = '',
+    minLength = 0,
+    maxLength = 0,
+    gridClasses = '',
+    additionalClasses = ''
+} = Astro.props;
+
+const dataValidation = required || errorMessage?.length > 0 ? 'data-validation-required' : '';
+---
+
+<div class={`form-input ${additionalClasses} ${gridClasses}`}>
+    <label>
+        <input
+            type={fieldType}
+            name={fieldName}
+            value={fieldValue}
+            { ...(minLength > 0 && { minlength: minLength }) }
+            { ...(maxLength > 0 && { maxlength: maxLength }) }
+            { ...(fieldPattern && { pattern: fieldPattern }) }
+            { ...(dataValidation && { [dataValidation]: '' }) }
+        />
+
+        {labelText?.length > 0 && (
+            <span>
+                <Fragment set:html={labelText}/>
+            </span>
+        )}
+
+        {errorMessage?.length > 0 && (
+            <small>
+                {errorMessage}
+            </small>
+        )}
+    </label>
+</div>
