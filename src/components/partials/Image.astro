@@ -1,0 +1,56 @@
+---
+import { Picture } from "astro:assets";
+
+const {
+    src = '',
+    width = null,
+    height = null,
+    imageSizes = '',
+    alt = '',
+    loading = 'lazy',
+} = Astro.props;
+
+const sizesArray = imageSizes
+    .replaceAll(' ', '')
+    .replaceAll('\n', '')
+    .trim()
+    .split('|')
+    .map((entry) => {
+
+        const obj = entry.split(",").reduce((acc, pair) => {
+
+            const [key, value] = pair.split(":");
+            acc[key] = value;
+            return acc;
+
+        }, {});
+
+        return obj;
+
+    });
+
+let sizes = '';
+let widths = [];
+
+for (const size of sizesArray) {
+    widths.push(size.size);
+    widths.push(size.size * 2);
+    widths.push(size.size * 3);
+
+    sizes += `(min-width: ${size.viewport}px) ${size.size}px,`;
+}
+
+sizes = sizes.slice(0, -1);
+---
+
+<Picture
+    src={src}
+    width={width}
+    height={height}
+    widths={widths}
+    sizes={sizes}
+    alt={alt}
+    loading={loading}
+    formats={["avif", "webp"]}
+    fallbackFormat="jpg"
+/>
