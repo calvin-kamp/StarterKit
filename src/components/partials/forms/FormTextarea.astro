@@ -13,7 +13,7 @@ const {
 const dataValidation = required || errorMessage?.length > 0 ? 'data-validation-required' : '';
 ---
 
-<div class=`form-textarea ${additionalClasses} ${gridClasses}`>
+<div class={`form-textarea ${additionalClasses} ${gridClasses}`}>
     <label>
         <textarea
             name={fieldName}
