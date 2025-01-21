@@ -12,7 +12,8 @@
     "accordion-js": "^3.3.4",
     "astro": "^5.0.3",
     "sass": "^1.82.0",
-    "swiper": "^11.1.15"
+    "swiper": "^11.1.15",
+    "tom-select": "^2.4.1"
   },
   "devDependencies": {
     "vite-plugin-mkcert": "^1.17.6"
