@@ -1,0 +1,42 @@
+---
+import 'tom-select/dist/css/tom-select.css';
+
+const {
+    fieldName,
+    maxSelectable = 1,
+    required = false,
+    errorMessage = '',
+    redirectToValue = '',
+    gridClasses = '',
+    additionalClasses = '',
+} = Astro.props;
+
+const dataValidation = required || errorMessage?.length > 0 ? 'data-validation-required' : '';
+---
+
+<div class={`form-select ${additionalClasses} ${gridClasses}`} data-js="form-select" data-select-max-selectable={maxSelectable}>
+    <label>
+        <select 
+            name={fieldName}
+            autocomplete="off"
+            { ...(dataValidation && { [dataValidation]: '' }) }
+            { ...(redirectToValue && { 'data-redirect-to-value': redirectToValue }) }
+        >
+
+            <slot />
+
+        </select>
+
+        {errorMessage?.length > 0 && (
+            <small>
+                {errorMessage}
+            </small>
+        )}
+    </label>
+</div>
+
+<script>
+    import {formSelect} from "@scripts/partials/form-select";
+
+    formSelect.init();
+</script>
