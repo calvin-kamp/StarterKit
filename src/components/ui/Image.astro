@@ -1,0 +1,65 @@
+---
+import { Picture } from "astro:assets";
+
+const {
+    src = '',
+    width = null,
+    height = null,
+    alt = '',
+    loading = 'lazy',
+    hasFigure = true,
+    imageSizes = [],
+} = Astro.props;
+
+let sizes = '';
+let widths = [];
+
+for (const size of imageSizes) {
+    if (size.viewportWidth && size.imageWidth) {
+
+        const viewportWidth = parseInt(size.viewportWidth, 10);
+        const imageWidth = parseInt(size.imageWidth, 10);
+
+        widths.push(imageWidth);
+        widths.push(imageWidth * 2);
+        widths.push(imageWidth * 3);
+
+        sizes += `(min-width: ${viewportWidth}px) ${imageWidth}px,`;
+
+    }
+}
+
+sizes = sizes.slice(0, -1);
+---
+
+{hasFigure ? (
+
+    <figure>
+        <Picture
+            src={src}
+            width={width}
+            height={height}
+            widths={widths}
+            sizes={sizes}
+            alt={alt}
+            loading={loading}
+            formats={["avif", "webp"]}
+            fallbackFormat="jpg"
+        />
+    </figure>
+
+) : (
+
+    <Picture
+        src={src}
+        width={width}
+        height={height}
+        widths={widths}
+        sizes={sizes}
+        alt={alt}
+        loading={loading}
+        formats={["avif", "webp"]}
+        fallbackFormat="jpg"
+    />
+
+)}
