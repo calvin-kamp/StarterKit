@@ -1,0 +1,26 @@
+---
+import 'accordion-js/dist/accordion.min.css';
+import '@styles/components/ui/_accordion.scss';
+
+
+const { title = '' } = Astro.props;
+---
+
+<div class="ac">
+
+    <div class="ac-header">
+        <button
+            type="button"
+            class="ac-trigger"
+        >
+            {title}
+        </button>
+    </div>
+
+    <div class="ac-panel">
+        <div>
+            <slot />
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,31 @@
+@use '@styles/utils' as *;
+
+.accordion-container {
+
+    .ac {
+        color: var(--color-body-font);
+        background-color: var(--color-primary);
+
+        .ac {
+            &-trigger {
+                height: auto;
+                padding: 10px 30px 10px 10px;
+                color: inherit;
+                font-family: $font-family-body;
+                font-size: inherit;
+                line-height: 1.5;
+                white-space: wrap;
+            }
+    
+            &-panel {
+                > div {
+                    padding: 10px 30px 10px 10px;
+
+                    p {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
