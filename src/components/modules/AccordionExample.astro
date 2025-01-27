@@ -1,0 +1,103 @@
+---
+import Accordion from '@components/ui/accordion/Accordion.astro';
+import AccordionGroup from '@components/ui/accordion/AccordionGroup.astro';
+
+const accordionSettings = {
+    duration:                               400,
+    showMultiple:                           false,
+    openOnInit:                             [0],
+    disableAdditionalGeneralOptions:        false
+}
+
+const accordionSettingsJSON = encodeURIComponent(JSON.stringify(accordionSettings));
+---
+
+<div class="accordion-example">
+    <div class="container">
+
+        <div class="flex-container">
+        
+            <div class="accordion-example__headline col-12 col-md-10 col-md-left-1">
+
+                <h2>
+                    Accordion Exampe
+                </h2>
+                
+            </div>
+            
+            <div class="accordion-example__accordion col-12 col-md-10 col-md-left-1">
+
+                <AccordionGroup accordionSettings={accordionSettingsJSON}>
+                    <Accordion title="Accordion Title 1">
+
+                        <p>
+                            Accordion Content 1
+                        </p>
+
+                    </Accordion>
+
+                    <Accordion title="Accordion Title 2">
+
+                        <p>
+                            Accordion Content 2
+                        </p>
+
+                    </Accordion>
+
+                    <Accordion title="Accordion Title 2">
+
+                        <p>
+                            Accordion Content 3
+                        </p>
+
+                    </Accordion>
+
+                    <Accordion title="Accordion Title 4">
+
+                        <p>
+                            Accordion Content 4
+                        </p>
+
+                        <AccordionGroup accordionSettings={accordionSettingsJSON}>
+
+                            <Accordion title="Accordion Title 4.1">
+
+                                Accordion Content 4.1
+
+                            </Accordion>
+
+                            <Accordion title="Accordion Title 4.2">
+
+                                Accordion Content 4.2
+
+                            </Accordion>
+
+                            <Accordion title="Accordion Title 4.3">
+
+                                Accordion Content 4.3
+
+                            </Accordion>
+
+                        </AccordionGroup>
+
+                    </Accordion>
+
+                    <Accordion title="Accordion Title 5">
+
+                        <p>
+                            Accordion Content 5
+                        </p>
+
+                    </Accordion>
+                </AccordionGroup>
+
+            </div>
+
+            <div class="col-12 col-md-10 col-md-left-1">
+                
+            </div>
+
+        </div>        
+
+    </div>
+</div>
