@@ -40,39 +40,43 @@ $colors: (
 
 		border: 			#666666,
 
-		primary: 			#6f188d,
-		secondary: 			#800080,
+		primary: 			#FF5733,
 
-		ui-green:           #94b035,
-		ui-blue:            #6F8FAF,
-		ui-red:             #a90217,
+		ui-success:         #22863A,
+		ui-warning:         #FFC107,
+		ui-error:           #FFA733,
+		ui-information:     #2B91D1,
 
-		body-font: 			#292929,
-		body-background: 	#E0E0E0,
+		body-font: 			#EDEDED,
+		body-background: 	#1A1A18,
 
-		code-font:			#E0E0E0,
-		code-background:	#292929,
+		code-font:			#F8F8F2,
+		code-background:	#262626,
+
+		focus:				#A1D490
 
 	),
 	dark: (
 
-		white: 				#000000,
-		black: 				#FFFFFF,
+		white: 				#FFFFFF,
+		black: 				#000000,
 
-		border: 			#999999,
+		border: 			#666666,
 
-		primary: 			#A03700,
-		secondary: 			#B232B2,
+		primary: 			#FF5733,
 
-		ui-green:           #94b035,
-		ui-blue:            #6F8FAF,
-		ui-red:             #a90217,
+		ui-success:         #22863A,
+		ui-warning:         #FFC107,
+		ui-error:           #FFA733,
+		ui-information:     #2B91D1,
 
-		body-font: 			#D6D6D6,
-		body-background: 	#1F1F1F,
+		body-font: 			#EDEDED,
+		body-background: 	#1A1A18,
 
-		code-font:			#1F1F1F,
-		code-background:	#D6D6D6,
+		code-font:			#F8F8F2,
+		code-background:	#262626,
+
+		focus:				#A1D490
 
 	)
 );
