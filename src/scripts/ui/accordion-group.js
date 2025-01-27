@@ -1,46 +1,36 @@
 import Accordion from 'accordion-js';
+import {getOffsetPosition} from '@scripts/utils/get-offset-position.js';
 
 export const accordionGroup = {
 
     vars: {
 
-        elementQuery:               '*[data-js=accordion-group]',
+        elementQuery:                   '[data-js=accordion-group]',
 
-        settingsAttribute:          'data-accordion-settings',
+        settingsAttribute:              'data-accordion-settings',
 
         additionalGeneralOptions: {
-
             onOpen: function ($currentElement) {
-
                 window.scrollTo({
-
                     top: getOffsetPosition($currentElement),
-                    behavior: 'smooth',
-
+                    behavior: 'smooth'
                 });
-
-            },
-
-        },
+            }
+        }
 
     },
 
     init() {
-
+        
         const $accordionGroups = this.findElements();
 
         if (!$accordionGroups) {
-
             console.warn('No accordion elements found.');
-
             return;
-
         }
 
         for (const $accordionGroup of $accordionGroups) {
-
             this.initializeElement($accordionGroup);
-
         }
 
     },
@@ -56,14 +46,12 @@ export const accordionGroup = {
         let accordionOptions = $element.getAttribute(this.vars.settingsAttribute);
 
         try {
-
-            accordionOptions = JSON.parse(decodeURIComponent(accordionOptions));
-
+            accordionOptions = accordionOptions
+                ? JSON.parse(decodeURIComponent(accordionOptions))
+                : {};
         } catch (error) {
-
             console.warn('Invalid accordion settings for element:', $element, error);
             accordionOptions = {};
-
         }
 
         if (!accordionOptions.disableAdditionalGeneralOptions) {
@@ -77,4 +65,4 @@ export const accordionGroup = {
 
     }
 
-}
+};
