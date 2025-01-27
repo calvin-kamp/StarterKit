@@ -174,10 +174,7 @@ a, .link {
     position: relative;
     color: var(--color-primary);
     text-decoration: none;
-
-    &:focus-visible {
-        box-shadow: 0 0 3px 3px var(--color-black);
-    }
+    transition: all $transition-time ease;
 
     &::before {
         position: absolute;
@@ -189,13 +186,21 @@ a, .link {
         content: "";
     }
 
-    &:hover {
-        &::before {
-            width: 100%;
+    &:not([disabled]) {
+        &:hover {
+            &::before {
+                width: 100%;
+            }
+        }
+
+        &:focus-visible {
+            @include focus-visible-styles();
         }
     }
 
     &.link--no-decoration {
+        color: inherit;
+
         &::before {
             content: none;
         }

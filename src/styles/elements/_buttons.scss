@@ -26,41 +26,29 @@ button, .button {
     /* -------------------------------------------------------- */
     
     &--primary {
-        color: var(--color-white);
+        color: var(--color-body-background);
         border-color: var(--color-primary);
         background-color: var(--color-primary);
 
-        &:not([disabled]):hover,
-        &:not([disabled]):focus-visible {
-            color: var(--color-primary);
-            border-color: var(--color-white);
-            background-color: var(--color-white);
+        &:not([disabled]) {
+            &:hover {
+                color: var(--color-body-font);
+                background-color: transparent;
+            }
         }
     }
 
-    &--secondary {
-        color: var(--color-white);
-        border-color: var(--color-secondary);
-        background-color: var(--color-secondary);
-
-        &:not([disabled]):hover,
-        &:not([disabled]):focus-visible {
-            color: var(--color-secondary);
-            border-color: var(--color-white);
-            background-color: var(--color-white);
-        }
-    }
-
-    &--outline {
+    &--outlined {
         color: var(--color-primary);
         border-color: var(--color-primary);
         background-color: transparent;
 
-        &:not([disabled]):hover,
-        &:not([disabled]):focus-visible {
-            color: var(--color-white);
-            border-color: var(--color-primary);
-            background-color: var(--color-primary);
+        &:not([disabled]) {
+            &:hover {
+                color: var(--color-body-background);
+                border-color: var(--color-primary);
+                background-color: var(--color-primary);
+            }
         }
     }
 
@@ -74,13 +62,11 @@ button, .button {
         background-color: var(--color-black);
         opacity: 0.5;
         pointer-events: none;
-
-        &:focus-visible {
-            box-shadow: none;
-        }
     }
 
-    &:not([disabled]):focus-visible {
-        box-shadow: 0 0 3px 3px var(--color-black);
+    &:not([disabled]) {
+        &:focus-visible {
+            @include focus-visible-styles();
+        }
     }
 }
