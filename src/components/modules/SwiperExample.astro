@@ -1,0 +1,103 @@
+---
+import Image from '@components/ui/Image.astro';
+import Swiper from '@components/ui/Swiper.astro';
+
+const sliderSettings = {
+    loop: true,
+    speed: 500,
+    slidesPerView: 1,
+    autoplay: {
+        delay: 6000
+    },
+    breakpoints: {
+        768: {
+            slidesPerView: 2
+        }
+    }
+}
+
+const sliderSettingsJSON = JSON.stringify(sliderSettings);
+---
+
+<div class="swiper-example">
+    <div class="container flex-container">
+
+        <div class="swiper-example__headline col-12 col-md-10 col-md-left-1">
+            <h2>
+                Swiper Example
+            </h2>
+        </div>
+
+        <div class="swiper-example__swiper col-12 col-md-10 col-md-left-1">
+
+            <Swiper sliderSettings={sliderSettingsJSON}>
+
+                <div class="swiper-slide">
+                    <figure>
+                        <Image 
+                            src="https://placehold.co/1000x489"
+                            width="978"
+                            height="489"
+                            imageSizes={[
+                                { viewportWidth: 1200, imageWidth: 1000 },
+                                { viewportWidth: 768, imageWidth: 768 },
+                                { viewportWidth: 320, imageWidth: 320 },
+                            ]}
+                            loading="lazy"
+                            alt="A description of my image."
+                        />
+
+                        <figcaption>
+                            figcaption
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <div class="swiper-slide">
+                    <figure>
+                        <Image 
+                            src="https://placehold.co/1000x489"
+                            width="978"
+                            height="489"
+                            imageSizes={[
+                                { viewportWidth: 1200, imageWidth: 1000 },
+                                { viewportWidth: 768, imageWidth: 768 },
+                                { viewportWidth: 320, imageWidth: 320 },
+                            ]}
+                            loading="lazy"
+                            alt="A description of my image."
+                        />
+
+                        <figcaption>
+                            figcaption
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <div class="swiper-slide">
+                    <figure>
+                        <Image 
+                            src="https://placehold.co/1000x489"
+                            width="978"
+                            height="489"
+                            imageSizes={[
+                                { viewportWidth: 1200, imageWidth: 1000 },
+                                { viewportWidth: 768, imageWidth: 768 },
+                                { viewportWidth: 320, imageWidth: 320 },
+                            ]}
+                            loading="lazy"
+                            alt="A description of my image."
+                        />
+
+                        <figcaption>
+                            figcaption
+                        </figcaption>
+                    </figure>
+                </div>
+
+            </Swiper>
+
+        </div>
+
+    </div>
+</div>
