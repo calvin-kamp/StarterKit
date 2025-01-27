@@ -5,7 +5,12 @@
 /* -------------------------------------------------------- */
 
 /* Applies a flexbox layout with customizable direction, wrap, justify, and align */
-@mixin flex($flex-direction: row, $flex-wrap: wrap, $justify-content: flex-start, $align-items: stretch) {
+@mixin flex(
+    $flex-direction: row,
+    $flex-wrap: wrap,
+    $justify-content: flex-start,
+    $align-items: stretch
+) {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -23,7 +28,10 @@
 }
 
 /* Adds a CSS grid layout with customizable columns, rows, and row gaps */
-@mixin grid($grid-template-columns: $grid-columns, $grid-template-rows: none) {
+@mixin grid(
+    $grid-template-columns: $grid-columns,
+    $grid-template-rows: none
+) {
     display: -ms-grid;
     display: grid;
     grid-auto-flow: row;

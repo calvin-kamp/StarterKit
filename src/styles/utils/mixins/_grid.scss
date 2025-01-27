@@ -8,7 +8,10 @@
 /* -------------------------------------------------------- */
 
 /* Generates column classes for flexible layouts */
-@mixin make-col($fullsize: false, $size: null) {
+@mixin make-col(
+    $fullsize: false,
+    $size: null
+) {
     @if $fullsize == false and ($size == null or meta.type-of($size) != 'number' or $size < 1 or $size > $grid-columns) {
         @error "Invalid size: '$size'. It must be a number between 1 and #{$grid-columns}.";
     }
@@ -30,7 +33,10 @@
 }
 
 /* Generates offset column classes for spacing adjustments */
-@mixin make-offset-col($size: null, $direction: left) {
+@mixin make-offset-col(
+    $size: null,
+    $direction: left
+) {
     @if $size != null {
 
         /* Adds margin to the specified direction */
@@ -40,7 +46,10 @@
 }
 
 /* Generates grid columns for CSS Grid layouts */
-@mixin make-g-col($size: null, $start: null) {
+@mixin make-g-col(
+    $size: null,
+    $start: null
+) {
     @if $start != null {
 
         /* Set starting position for grid columns */
@@ -57,7 +66,10 @@
 }
 
 /* Generates grid rows for CSS Grid layouts */
-@mixin make-g-row($size: null, $start: null) {
+@mixin make-g-row(
+    $size: null,
+    $start: null
+) {
 
     @if $start != null {
 

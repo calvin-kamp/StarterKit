@@ -5,7 +5,10 @@
 /* -------------------------------------------------------- */
 
 /* Generates container styles for layouts */
-@mixin make-container($fullsize: false, $max-width: null) {
+@mixin make-container(
+    $fullsize: false, 
+    $max-width: null
+) {
     /* Ensures the container spans full width */
     width: 100%;
 
