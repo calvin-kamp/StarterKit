@@ -1,0 +1,32 @@
+@use '@styles/utils' as *;
+
+.swiper {
+
+    .swiper-wrapper {
+
+    }
+
+    .swiper-button {
+        &-prev,
+        &-next {
+            color: var(--color-primary);
+        }
+    }
+
+    .swiper-pagination-bullet {
+        background-color: var(--color-border);
+        opacity: 1;
+
+        &-active {
+            background-color: var(--color-primary);
+        }
+    }
+
+    .swiper-scrollbar {
+        background-color: var(--color-border);
+
+        &-drag {
+            background-color: var(--color-primary);
+        }
+    }
+}

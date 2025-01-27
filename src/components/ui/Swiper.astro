@@ -1,0 +1,33 @@
+---
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import '@styles/components/ui/_swiper.scss';
+
+const {
+    swiperSettings = ''
+} = Astro.props;
+---
+
+<div class="swiper" data-js="swiper" data-swiper-settings={swiperSettings}>
+
+    <div class="swiper-wrapper">
+
+        <slot />
+
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <div class="swiper-pagination"></div>
+    <div class="swiper-scrollbar"></div>
+
+</div>
+
+<script>
+    import {swiper} from "@scripts/ui/swiper";
+
+    swiper.init();
+</script>
