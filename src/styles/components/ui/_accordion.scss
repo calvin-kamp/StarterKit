@@ -4,7 +4,8 @@
 
     .ac {
         color: var(--color-body-font);
-        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+        background-color: transparent;
 
         .ac {
             &-trigger {
@@ -16,7 +17,7 @@
                 line-height: 1.5;
                 white-space: wrap;
             }
-    
+
             &-panel {
                 > div {
                     padding: 10px 30px 10px 10px;
