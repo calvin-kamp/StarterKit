@@ -7,7 +7,6 @@ const {
     height = null,
     alt = '',
     loading = 'lazy',
-    hasFigure = true,
     imageSizes = [],
 } = Astro.props;
 
@@ -32,34 +31,14 @@ for (const size of imageSizes) {
 sizes = sizes.slice(0, -1);
 ---
 
-{hasFigure ? (
-
-    <figure>
-        <Picture
-            src={src}
-            width={width}
-            height={height}
-            widths={widths}
-            sizes={sizes}
-            alt={alt}
-            loading={loading}
-            formats={["avif", "webp"]}
-            fallbackFormat="jpg"
-        />
-    </figure>
-
-) : (
-
-    <Picture
-        src={src}
-        width={width}
-        height={height}
-        widths={widths}
-        sizes={sizes}
-        alt={alt}
-        loading={loading}
-        formats={["avif", "webp"]}
-        fallbackFormat="jpg"
-    />
-
-)}
+<Picture
+    src={src}
+    width={width}
+    height={height}
+    widths={widths}
+    sizes={sizes}
+    alt={alt}
+    loading={loading}
+    formats={["avif", "webp"]}
+    fallbackFormat="jpg"
+/>
