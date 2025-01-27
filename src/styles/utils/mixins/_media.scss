@@ -27,7 +27,7 @@
 
 // Adds a media query for light or dark color scheme preferences
 @mixin color-scheme($mode) {
-    @if $mode == 'dark' or $mode == 'light' {
+    @if $mode == 'light' or $mode == 'dark' {
         @media (prefers-color-scheme: #{$mode}) {
             @content;
         }
