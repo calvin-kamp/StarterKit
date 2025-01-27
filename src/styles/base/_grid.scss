@@ -96,7 +96,7 @@
 
             /* Standard grid row */
             .g-row-#{$i} {
-                @include make-g-col($size: $i, $row: true);
+                @include make-g-row($size: $i);
             }
 
             /* Grid column starting point */
@@ -106,7 +106,7 @@
 
             /* Grid row starting point */
             .g-row-start-#{$i} {
-                @include make-g-col($start: $i, $row: true);
+                @include make-g-row($start: $i);
             }
 
         }
@@ -127,7 +127,7 @@
 
                         /* Responsive grid row */
                         .g-row-#{$viewport}-#{$i} {
-                            @include make-g-col($size: $i, $row: true);
+                            @include make-g-row($size: $i);
                         }
 
                         /* Responsive grid column starting point */
@@ -137,7 +137,7 @@
 
                         /* Responsive grid row starting point */
                         .g-row-#{$viewport}-start-#{$i} {
-                            @include make-g-col($start: $i, $row: true);
+                            @include make-g-row($start: $i);
                         }
 
                     }

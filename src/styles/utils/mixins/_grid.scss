@@ -40,40 +40,36 @@
 }
 
 /* Generates grid columns for CSS Grid layouts */
-@mixin make-g-col($size: null, $start: null, $row: false) {
+@mixin make-g-col($size: null, $start: null) {
     @if $start != null {
 
-        @if $row {
+        /* Set starting position for grid columns */
+        grid-column-start: $start;
 
-            /* Set starting position for grid rows */
-            grid-row-start: $start;
+    } @else if $size != null {
 
-        } @else {
+        /* Span a specific number of columns */
+        grid-column: auto / span $size;
+        padding-left: $col-padding;
+        padding-right: $col-padding;
 
-            /* Set starting position for grid columns */
-            grid-column-start: $start;
+    }
+}
 
-        }
+/* Generates grid rows for CSS Grid layouts */
+@mixin make-g-row($size: null, $start: null) {
 
-    } @else {
+    @if $start != null {
 
-        @if $size != null {
+        /* Set starting position for grid rows */
+        grid-row-start: $start;
 
-            @if $row {
+    } @else if $size != null {
 
-                /* Span a specific number of rows */
-                grid-row: auto / span $size;
-                padding-top: $col-padding;
-                padding-bottom: $col-padding;
-
-            } @else {
-
-                /* Span a specific number of columns */
-                grid-column: auto / span $size;
-                padding-left: $col-padding;
-                padding-right: $col-padding;
-
-            }
-        }
+        /* Span a specific number of rows */
+        grid-row: auto / span $size;
+        padding-top: $col-padding;
+        padding-bottom: $col-padding;
+        
     }
 }
