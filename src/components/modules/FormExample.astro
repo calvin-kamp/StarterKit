@@ -1,0 +1,176 @@
+---
+import Button from "@components/ui/Button.astro";
+import Form from "@components/ui/forms/Form.astro";
+import FormInput from "@components/ui/forms/FormInput.astro";
+import FormRadio from "@components/ui/forms/FormRadio.astro";
+import FormGroup from "@components/ui/forms/FormGroup.astro";
+import FormSelect from "@components/ui/forms/FormSelect.astro";
+import FormCheckbox from "@components/ui/forms/FormCheckbox.astro";
+import FormTextarea from "@components/ui/forms/FormTextarea.astro";
+---
+
+<div class="form-example" data-js="form-example">
+    <div class="container flex-container">
+
+        <div class="form-example__headline col-12 col-md-10 col-md-left-1">
+
+            <h2>
+                Form Example
+            </h2>
+            
+        </div>
+
+        <div class="form-example__form col-12 col-md-10 col-md-left-1">
+
+            <Form formSubmitMessage="Form submitted" formQuery="form-example">
+
+                <FormSelect
+                    required
+                    gridClasses="col-12"
+                >
+                    <option disabled selected value="">Choose a country</option>
+                    <option value="germany">Germany</option>
+                    <option value="france">France</option>
+                    <option value="spain">Spain</option>
+                </FormSelect>
+
+                <FormInput 
+                    fieldName="form_Name"
+                    required
+                    labelText="Name:*"
+                    errorMessage="Inser your name"
+                    minLength={2}
+                    gridClasses="col-12 col-md-6"
+                />
+
+                <FormInput 
+                    fieldName="form_Surname"
+                    required
+                    labelText="Surname:*"
+                    errorMessage="Inser your surname"
+                    gridClasses="col-12 col-md-6"
+                />
+
+                <FormGroup
+                    required
+                    groupType="checkbox"
+                    errorMessage="Choose atleast one interest!"
+                    gridClasses="col-12"
+                >
+
+                    <div class="col-12">
+                        <strong>
+                            Choose your interests:*
+                        </strong>
+                    </div>
+
+                    <FormCheckbox 
+                        fieldName="form_Interest1"
+                        fieldValue="animes"
+                        labelText="Animes"
+                        gridClasses="col-12 col-md-6"
+                    />
+
+                    <FormCheckbox 
+                        fieldName="form_Interest2"
+                        fieldValue="plants"
+                        labelText="Plants"
+                        gridClasses="col-12 col-md-6"
+                    />
+
+                    <FormCheckbox 
+                        fieldName="form_Interest3"
+                        fieldValue="coding"
+                        labelText="Coding"
+                        gridClasses="col-12 col-md-6"
+                    />
+
+                    <FormCheckbox 
+                        fieldName="form_Interest4"
+                        fieldValue="video-games"
+                        labelText="Video Games"
+                        gridClasses="col-12 col-md-6"
+                    />
+
+                </FormGroup>
+
+                <FormGroup
+                    required
+                    groupType="radio"
+                    errorMessage="Choose a payment method!"
+                    gridClasses="col-12 col-md-6"
+                >
+
+                    <div class="col-12">
+                        <strong>
+                            Choose a payment method:*
+                        </strong>
+                    </div>
+
+                    <FormRadio
+                        fieldName="form_payment"
+                        fieldValue="paypal"
+                        labelText="Paypal"
+                        gridClasses="col-12"
+                    />
+
+                    <FormRadio
+                        fieldName="form_payment"
+                        fieldValue="creditcard"
+                        labelText="Credit Card"
+                        gridClasses="col-12"
+                    />
+
+                    <FormRadio
+                        fieldName="form_payment"
+                        fieldValue="klarna"
+                        labelText="Klarna"
+                        gridClasses="col-12"
+                    />
+            
+                </FormGroup>
+
+                <FormTextarea 
+                    fieldName="form_Message"
+                    required
+                    labelText="Your message:*"
+                    errorMessage="Please type a message between 5 and 100 characters."
+                    minLength={5}
+                    maxLength={100}
+                    gridClasses="col-12"
+                />
+
+                <FormCheckbox 
+                    fieldName="form_Tos"
+                    required
+                    labelText="I accept <a href='/'>linktext</a>"
+                    errorMessage="Please accept the tos"
+                    gridClasses="col-12"
+                />
+
+                <div class="form__submit col-12">
+                    <button type="submit" class="button button--primary">Test</button>
+                </div>
+
+            </Form>
+            
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const $formExamples = document.querySelectorAll('*[data-js=form-example]');
+
+    if ($formExamples.length > 0) {
+        import('@scripts/modules/form-example')
+            .then((module) => {
+                const { formExample } = module;
+                formExample.init();
+            })
+            .catch((error) => {
+                console.error('Error loading module:', error);
+            });
+    }
+</script>
