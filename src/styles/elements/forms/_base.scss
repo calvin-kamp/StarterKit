@@ -10,7 +10,7 @@
 
     input, textarea {
         width: 100%;
-        transition: all $transition-time ease;
+        transition: all $transition-time-fast linear;
 
         + span {
             transition: all $transition-time ease;

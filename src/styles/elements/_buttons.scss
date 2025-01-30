@@ -63,10 +63,4 @@ button, .button {
         opacity: 0.5;
         pointer-events: none;
     }
-
-    &:not([disabled]) {
-        &:focus-visible {
-            @include focus-visible-styles();
-        }
-    }
 }

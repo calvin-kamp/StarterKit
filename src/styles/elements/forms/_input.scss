@@ -20,10 +20,6 @@
             &:hover {
                 border-color: var(--color-primary);
             }
-
-            &:focus-visible {
-                @include focus-visible-styles();
-            }
         }
 
         + span {

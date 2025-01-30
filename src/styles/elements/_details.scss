@@ -26,11 +26,6 @@ details {
             line-height: inherit;
             color: var(--color-primary);
         }
-
-        &:focus-visible {
-            outline: 0;
-            box-shadow: 0 0 3px 3px var(--color-black);
-        }
     }
 
     /* Expand indicator for open details */

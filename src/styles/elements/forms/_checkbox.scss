@@ -14,21 +14,14 @@
     
     input {
         position: absolute;
-        opacity: 0;
+        height: 100%;
+        z-index: -1;
 
         &:not([disabled]) {
             &:hover {
                 + span {
                     &::before {
                         border-color: var(--color-primary);
-                    }
-                }
-            }
-
-            &:focus-visible {
-                + span {
-                    &::before {
-                        @include focus-visible-styles();
                     }
                 }
             }
