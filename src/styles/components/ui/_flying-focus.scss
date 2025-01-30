@@ -1,0 +1,23 @@
+@use '@styles/utils' as *;
+
+.flying-focus {
+    position: absolute;
+    margin: 0;
+    background: transparent;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all $transition-time-fast linear;
+
+    &--visible {
+        visibility: visible;
+        
+        &::after {
+            position: absolute;        
+            inset: -8px;
+            border: 1px solid var(--color-primary);
+            border-radius: 2px;
+            box-shadow: 0 0 1px var(--color-primary), 0 0 2px 3px var(--color-body-background), inset 0 0 2px var(--color-primary);
+            content: "";
+        }
+    }
+}
