@@ -24,8 +24,8 @@ $enable-grid-container:		true;
 
 $grid-columns:  			12;
 
-$col-padding:      			10px;
-$container-padding:			10px;
+$col-padding:      			8px;
+$container-padding:			16px;
 
 
 /* -------------------------------------------------------- */
@@ -44,7 +44,7 @@ $colors: (
 
 		ui-success:         #22863A,
 		ui-warning:         #FFC107,
-		ui-error:           #FFA733,
+		ui-error:           #D73A49,
 		ui-information:     #2B91D1,
 
 		body-font: 			#EDEDED,
@@ -67,7 +67,7 @@ $colors: (
 
 		ui-success:         #22863A,
 		ui-warning:         #FFC107,
-		ui-error:           #FFA733,
+		ui-error:           #D73A49,
 		ui-information:     #2B91D1,
 
 		body-font: 			#EDEDED,
@@ -87,8 +87,8 @@ $colors: (
 /* -------------------------------------------------------- */
 
 $font-size-mobile:			                16px;
-$font-size-tablet:			                18px;
-$font-size-desktop:			                20px;
+$font-size-tablet:			                16px;
+$font-size-desktop:			                16px;
 
 $font-size-h1-mobile:			            32px;
 $font-size-h2-mobile:			            28px;
