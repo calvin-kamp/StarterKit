@@ -46,6 +46,11 @@
         }
 
         &.has-items {
+            .item {
+                position: absolute;
+                bottom: -20px;
+            }
+
             + span {
                 top: 8px;
                 left: 16px;
@@ -139,7 +144,6 @@
 
         .item {
             & + input {
-                position: absolute;
                 pointer-events: none;
                 z-index: -1;
             }
