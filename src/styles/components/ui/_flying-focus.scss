@@ -6,10 +6,11 @@
     background: transparent;
     visibility: hidden;
     pointer-events: none;
-    transition: all $transition-time-fast linear;
+    transition: all $transition-time cubic-bezier(0, 1, 0, 1);
 
     &--visible {
         visibility: visible;
+        z-index: 10;
         
         &::after {
             position: absolute;        
