@@ -25,18 +25,18 @@
     textarea,
     input:not([type="radio"]):not([type="checkbox"]) {
         &.valid {
-            border-color: var(--color-ui-green);
+            border-color: var(--color-ui-success);
 
             + span {
-                color: var(--color-ui-green);
+                color: var(--color-ui-success);
             }
         }
 
         &.invalid {
-            border-color: var(--color-ui-red);
+            border-color: var(--color-ui-error);
 
             + span {
-                color: var(--color-ui-red);
+                color: var(--color-ui-error);
             }
 
             ~ small {
@@ -78,7 +78,7 @@
 
     small {
         display: none;
-        color: var(--color-ui-red);
+        color: var(--color-ui-error);
 
         &::before {
             display: inline-block;
@@ -92,7 +92,7 @@
             text-align: center;
             color: var(--color-white);
             border-radius: 50%;
-            background-color: var(--color-ui-red);
+            background-color: var(--color-ui-error);
             content: "i";
         }
     }

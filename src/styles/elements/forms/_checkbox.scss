@@ -5,7 +5,7 @@
 /* -------------------------------------------------------- */
 
 .form-checkbox {
-    margin-bottom: 38px;
+    margin-bottom: 16px;
 
     label {
         position: relative;
@@ -30,7 +30,7 @@
         &.invalid {
             + span {
                 &::before {
-                    border-color: var(--color-ui-red);
+                    border-color: var(--color-ui-error);
                 }
             }
         }
@@ -49,27 +49,29 @@
 
         + span {
             display: block;
-            margin-left: 25px;
+            margin-left: 32px;
             min-height: 20px;
             cursor: pointer;
 
             &::before {
                 position: absolute;
-                top: 4px;
+                top: 0;
                 left: 0;
-                width: 18px;
-                height: 18px;
-                border: 1px solid var(--color-border);
+                width: 24px;
+                height: 24px;
+                border: 2px solid var(--color-primary);
+                border-radius: 4px;
                 content: "";
             }
 
             &::after {
                 position: absolute;
-                top: 4px;
+                top: 0;
                 left: 0;
-                width: 18px;
-                height: 18px;
+                width: 24px;
+                height: 24px;
                 background-color: var(--color-primary);
+                border-radius: 4px;
                 opacity: 0;
                 content: "";
             }

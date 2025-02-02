@@ -5,7 +5,7 @@
 /* -------------------------------------------------------- */
 
 .form-radio {
-    margin-bottom: 38px;
+    margin-bottom: 16px;
 
     label {
         position: relative;
@@ -41,27 +41,26 @@
 
         + span {
             display: block;
-            margin-left: 25px;
-            min-height: 20px;
+            margin-left: 32px;
             cursor: pointer;
 
             &::before {
                 position: absolute;
-                top: 4px;
                 left: 0;
-                width: 18px;
-                height: 18px;
-                border: 1px solid var(--color-border);
+                width: 24px;
+                height: 24px;
+                border: 2px solid var(--color-primary);
                 border-radius: 50%;
                 content: "";
             }
 
             &::after {
                 position: absolute;
-                top: 4px;
-                left: 0;
-                width: 18px;
-                height: 18px;
+                top: 12px;
+                left: 12px;
+                transform: translate(-50%, -50%);
+                width: 12px;
+                height: 12px;
                 background-color: var(--color-primary);
                 border-radius: 50%;
                 opacity: 0;

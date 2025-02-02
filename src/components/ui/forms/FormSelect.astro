@@ -1,10 +1,12 @@
 ---
 import 'tom-select/dist/css/tom-select.css';
+import '@styles/elements/forms/_select.scss';
 
 const {
     fieldName,
     maxSelectable = 1,
     required = false,
+    labelText = '',
     errorMessage = '',
     redirectToValue = '',
     gridClasses = '',
@@ -14,7 +16,11 @@ const {
 const dataValidation = required || errorMessage?.length > 0 ? 'data-validation-required' : '';
 ---
 
-<div class={`form-select ${additionalClasses} ${gridClasses}`} data-js="form-select" data-select-max-selectable={maxSelectable}>
+<div 
+    class={`form-select ${additionalClasses} ${gridClasses}`}
+    data-js="form-select"
+    data-select-max-selectable={maxSelectable}
+>
     <label>
         <select 
             name={fieldName}
@@ -26,6 +32,12 @@ const dataValidation = required || errorMessage?.length > 0 ? 'data-validation-r
             <slot />
 
         </select>
+
+        {labelText?.length > 0 && (
+            <span>
+                <Fragment set:html={labelText}/>
+            </span>
+        )}
 
         {errorMessage?.length > 0 && (
             <small>
