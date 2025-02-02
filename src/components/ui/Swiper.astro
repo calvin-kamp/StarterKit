@@ -10,20 +10,22 @@ const {
 } = Astro.props;
 ---
 
-<div class="swiper" data-js="swiper" data-swiper-settings={swiperSettings}>
-
+<div 
+    class="swiper"
+    data-js="swiper"
+    data-swiper-settings={swiperSettings}
+>
     <div class="swiper-wrapper">
 
         <slot />
 
     </div>
 
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <button aria-label="to previous slide" class="swiper-button-prev"></button>
+    <button aria-label="to next slide" class="swiper-button-next"></button>
 
     <div class="swiper-pagination"></div>
     <div class="swiper-scrollbar"></div>
-
 </div>
 
 <script>
