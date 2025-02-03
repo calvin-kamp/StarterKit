@@ -1,0 +1,30 @@
+---
+import '@styles/components/ui/_modal.scss';
+
+const {
+    modalName = '',
+    additionalClasses = ''
+} = Astro.props;
+---
+
+<div class={`modal ${modalName} ${additionalClasses}`} data-js="modal">
+
+    <div class="modal__wrapper">
+        <div class="modal__header">
+            <slot name="modal-header"/>
+
+            <button aria-label="close modal" data-close-modal>x</button>
+        </div>
+        <slot/>
+        <div class="modal__footer">
+            <slot name="modal-footer"/>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    import {modal} from "@scripts/ui/modal";
+    modal.init();
+</script>

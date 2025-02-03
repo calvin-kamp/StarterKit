@@ -1,0 +1,15 @@
+@use '@styles/utils/_config' as *;
+
+@mixin smooth-fading-effect($transition-duration: $transition-time, $transition-style: ease-in-out){
+    display: block!important;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity $transition-duration $transition-style, height $transition-duration ease;
+    transition-delay: $transition-time, 0s;
+
+    &--visible {
+        visibility: visible;
+        opacity: 1;
+        transition-delay: 0s, 0s;
+    }
+}
