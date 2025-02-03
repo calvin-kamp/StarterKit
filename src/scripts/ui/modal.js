@@ -37,8 +37,6 @@ export const modal = {
 
     moveElementsToBody($elements) {
 
-        console.log($elements)
-
         for (const $element of $elements) {
             document.body.appendChild($element.cloneNode(true));
             $element.remove();
