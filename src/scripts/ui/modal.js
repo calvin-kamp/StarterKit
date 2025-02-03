@@ -46,13 +46,13 @@ export const modal = {
 
     addEventTriggers() {
 
-        this.addOpenTriggers();
-        this.addClickOutsideTriggers();
-        this.addCloseTriggers();
+        this.addOpenTrigger();
+        this.addClickOutsideTrigger();
+        this.addCloseTrigger();
 
     },
 
-    addOpenTriggers() {
+    addOpenTrigger() {
 
         const $openTriggers = document.querySelectorAll(this.vars.queries.openTrigger);
 
@@ -75,7 +75,7 @@ export const modal = {
 
     },
 
-    addClickOutsideTriggers() {
+    addClickOutsideTrigger() {
 
         const $modals = this.findElements();
 
@@ -93,7 +93,7 @@ export const modal = {
 
     },
 
-    addCloseTriggers() {
+    addCloseTrigger() {
 
         const $closeTriggers = document.querySelectorAll(this.vars.queries.closeTrigger);
 
