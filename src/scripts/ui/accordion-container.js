@@ -5,7 +5,7 @@ export const accordionGroup = {
 
     vars: {
 
-        elementQuery:                   '[data-js=accordion-group]',
+        elementQuery:                   '[data-js=accordion-container]',
 
         settingsAttribute:              'data-accordion-settings',
 

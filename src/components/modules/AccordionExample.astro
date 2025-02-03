@@ -1,6 +1,6 @@
 ---
 import Accordion from '@components/ui/accordion/Accordion.astro';
-import AccordionGroup from '@components/ui/accordion/AccordionGroup.astro';
+import AccordionContainer from '@components/ui/accordion/AccordionContainer.astro';
 
 const accordionSettings = {
     duration:                               400,
@@ -27,7 +27,7 @@ const accordionSettingsJSON = encodeURIComponent(JSON.stringify(accordionSetting
             
             <div class="accordion-example__accordion col-12 col-md-10 col-md-left-1">
 
-                <AccordionGroup accordionSettings={accordionSettingsJSON}>
+                <AccordionContainer accordionSettings={accordionSettingsJSON}>
                     <Accordion title="Accordion Title 1">
 
                         <p>
@@ -58,7 +58,7 @@ const accordionSettingsJSON = encodeURIComponent(JSON.stringify(accordionSetting
                             Accordion Content 4
                         </p>
 
-                        <AccordionGroup accordionSettings={accordionSettingsJSON}>
+                        <AccordionContainer accordionSettings={accordionSettingsJSON}>
 
                             <Accordion title="Accordion Title 4.1">
 
@@ -78,7 +78,7 @@ const accordionSettingsJSON = encodeURIComponent(JSON.stringify(accordionSetting
 
                             </Accordion>
 
-                        </AccordionGroup>
+                        </AccordionContainer>
 
                     </Accordion>
 
@@ -89,7 +89,7 @@ const accordionSettingsJSON = encodeURIComponent(JSON.stringify(accordionSetting
                         </p>
 
                     </Accordion>
-                </AccordionGroup>
+                </AccordionContainer>
 
             </div>
 

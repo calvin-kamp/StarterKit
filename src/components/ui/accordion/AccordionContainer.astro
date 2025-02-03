@@ -3,7 +3,7 @@ const { accordionSettings = '' } = Astro.props;
 ---
 <div
     class="accordion-container"
-    data-js="accordion-group"
+    data-js="accordion-container"
     data-accordion-settings={accordionSettings}
 >
 
@@ -12,7 +12,7 @@ const { accordionSettings = '' } = Astro.props;
 </div>
 
 <script>
-    import {accordionGroup} from "@scripts/ui/accordion-group";
+    import {accordionGroup} from "@scripts/ui/accordion-container";
 
     accordionGroup.init();
 </script>
