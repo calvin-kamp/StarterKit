@@ -1,7 +1,6 @@
 @use "@styles/utils" as *;
 
 .modal {
-    display: none;
     position: fixed;
     inset: 0;
     background-color: rgba(var(--color-border-rgb), 0.5);
@@ -14,8 +13,27 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 540px;
         padding: 32px;
         background-color: var(--color-body-background);
         border-radius: 8px;
+
+        @include viewport(md) {
+            padding: 48px;
+        }
+    }
+
+    &__header {
+        position: relative;
+        padding-right: 32px;
+
+        @include viewport(md) {
+            padding-right: 48px;
+        }
+    }
+
+    &__content {
+        
     }
 }

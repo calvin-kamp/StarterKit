@@ -1,4 +1,5 @@
 ---
+import Button from "@components/ui/Button.astro";
 import '@styles/components/ui/_modal.scss';
 
 const {
@@ -7,17 +8,26 @@ const {
 } = Astro.props;
 ---
 
-<div class={`modal ${modalName} ${additionalClasses}`} data-js="modal">
+<div 
+    class={`modal ${modalName} ${additionalClasses}`}
+    data-js="modal"
+    aria-label="Modal"
+    role="dialog"
+>
 
     <div class="modal__wrapper">
         <div class="modal__header">
             <slot name="modal-header"/>
 
-            <button aria-label="close modal" data-close-modal>x</button>
+            <Button
+                close
+                closeModal
+                arialabel="close modal"
+            />
         </div>
-        <slot/>
-        <div class="modal__footer">
-            <slot name="modal-footer"/>
+        
+        <div class="modal__content">
+            <slot/>
         </div>
     </div>
 
