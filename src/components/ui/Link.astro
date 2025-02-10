@@ -17,7 +17,7 @@ let securityAttributes = targetType === "_blank" ? "noopener noreferrer" : "";
 
 <a 
     href={href}
-    class={`link ${modifierClasses} ${additionalClasses}`.trim()}
+    class={`link ${modifierClasses} ${additionalClasses}`}
     target={targetType}
     { ...(securityAttributes ? { rel: securityAttributes } : {}) }
     { ...(ariaLabel && { "aria-label": ariaLabel }) }
