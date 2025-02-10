@@ -8,19 +8,25 @@ const {
     labelText = '',
     errorMessage = '',
     gridClasses = '',
-    additionalClasses = ''
+    additionalClasses = '',
+    ariaLabel = null
 } = Astro.props;
 
 const dataValidation = required || errorMessage?.length > 0 ? 'data-validation-required' : '';
+
+const dynamicAttributes = {
+    ...(labelText ? {} : (ariaLabel && { 'aria-label': ariaLabel })),
+    ...(dataValidation && { [dataValidation]: '' })
+};
 ---
 
-<div class={`form-radio ${additionalClasses} ${gridClasses}`}>
+<div class={`form-radio ${additionalClasses} ${gridClasses}`.trim()}>
     <label>
         <input
             type="radio"
             name={fieldName}
             value={fieldValue}
-            { ...(dataValidation && { [dataValidation]: '' }) }
+            { ...dynamicAttributes }
         />
 
         {labelText?.length > 0 && (

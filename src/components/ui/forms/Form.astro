@@ -5,18 +5,22 @@ const {
     formAction = '',
     formMethod = 'POST',
     formQuery = '',
-    formSubmitMessage = ''
+    formSubmitMessage = '',
+    additionalClasses = ''
 } = Astro.props;
+
+const dynamicAttributes = {
+    ...(formQuery ? { [`data-${formQuery}`]: '' } : {}),
+    ...(formSubmitMessage && { 'data-validation-submit-message': formSubmitMessage }),
+};
 ---
 
 <form 
-    class="form"
+    class={`form ${additionalClasses}`.trim()}
     method={formMethod}
+    action={formAction}
     data-js="form-validation"
-    { ...(formQuery ? { [`data-${formQuery}`]: '' } : {}) }
-    data-validation-submit-message={formSubmitMessage}
+    { ...dynamicAttributes }
 >
-
     <slot />
-
 </form>

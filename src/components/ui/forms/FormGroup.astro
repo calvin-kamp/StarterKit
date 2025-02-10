@@ -7,17 +7,23 @@ const {
     errorMessage = '',
     gridClasses = '',
     additionalClasses = '',
+    ariaLabel = null
 } = Astro.props;
 
 const modifierClass = groupType?.length > 0 ? `form-group--${groupType}` : '';
 const dataValidation = required && (groupType === 'checkbox' || groupType === 'radio') ? `data-validation-${groupType}-group-required` : '';
+
+const dynamicAttributes = {
+    ...(ariaLabel && { 'aria-label': ariaLabel }),
+    ...(dataValidation && { [dataValidation]: '' })
+};
 ---
 
 <div
-    class={`form-group ${modifierClass} ${additionalClasses} ${gridClasses}`}
-    { ...{ [dataValidation]: '' } }
+    class={`form-group ${modifierClass} ${additionalClasses} ${gridClasses}`.trim()}
+    role="group"
+    { ...dynamicAttributes }
 >
-
     <slot />
 
     {errorMessage?.length > 0 && (

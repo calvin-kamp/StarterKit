@@ -11,13 +11,20 @@ const {
     redirectToValue = '',
     gridClasses = '',
     additionalClasses = '',
+    ariaLabel = null
 } = Astro.props;
 
 const dataValidation = required || errorMessage?.length > 0 ? 'data-validation-required' : '';
+
+const dynamicAttributes = {
+    ...(labelText ? {} : (ariaLabel && { 'aria-label': ariaLabel })),
+    ...(dataValidation && { [dataValidation]: '' }),
+    ...(redirectToValue && { 'data-redirect-to-value': redirectToValue })
+};
 ---
 
 <div 
-    class={`form-select ${additionalClasses} ${gridClasses}`}
+    class={`form-select ${additionalClasses} ${gridClasses}`.trim()}
     data-js="form-select"
     data-select-max-selectable={maxSelectable}
 >
@@ -25,12 +32,9 @@ const dataValidation = required || errorMessage?.length > 0 ? 'data-validation-r
         <select 
             name={fieldName}
             autocomplete="off"
-            { ...(dataValidation && { [dataValidation]: '' }) }
-            { ...(redirectToValue && { 'data-redirect-to-value': redirectToValue }) }
+            { ...dynamicAttributes }
         >
-
             <slot />
-
         </select>
 
         {labelText?.length > 0 && (

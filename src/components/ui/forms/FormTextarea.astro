@@ -9,20 +9,26 @@ const {
     minLength = 0,
     maxLength = 0,
     gridClasses = '',
-    additionalClasses = ''
+    additionalClasses = '',
+    ariaLabel = null
 } = Astro.props;
 
 const dataValidation = required || errorMessage?.length > 0 ? 'data-validation-required' : '';
+
+const dynamicAttributes = {
+    ...(labelText ? {} : (ariaLabel && { 'aria-label': ariaLabel })),
+    ...(minLength > 0 && { minlength: minLength }),
+    ...(maxLength > 0 && { maxlength: maxLength }),
+    ...(dataValidation && { [dataValidation]: '' })
+};
 ---
 
-<div class={`form-textarea ${additionalClasses} ${gridClasses}`}>
+<div class={`form-textarea ${additionalClasses} ${gridClasses}`.trim()}>
     <label>
         <textarea
             name={fieldName}
             data-value=""
-            { ...(minLength > 0 && { minlength: minLength }) }
-            { ...(maxLength > 0 && { maxlength: maxLength }) }
-            { ...(dataValidation && { [dataValidation]: '' }) }
+            { ...dynamicAttributes }
         />
 
         {labelText?.length > 0 && (
