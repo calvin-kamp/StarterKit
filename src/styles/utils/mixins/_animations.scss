@@ -4,7 +4,7 @@
     display: block!important;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s, opacity $transition-duration $transition-style, height $transition-duration ease;
+    transition: visibility 0s, opacity $transition-duration $transition-style;
     transition-delay: $transition-time, 0s;
 
     &--visible {
