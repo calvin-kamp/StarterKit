@@ -1,0 +1,47 @@
+---
+import '@styles/elements/_buttons.scss';
+
+const {
+    buttonType = 'button',
+    openModal = '',
+    closeModal = false,
+    openOffcanvas = '',
+    closeOffcanvas = false,
+    primary = false,
+    outlined = false,
+    close = false,
+    ariaLabel = null,
+    ariaExpanded = null,
+    ariaControls = '',
+    disabled = false,
+    additionalClasses = '',
+    dataAttributes = {}
+} = Astro.props;
+
+const modifierClasses = [
+    primary && 'button--primary',
+    outlined && 'button--outlined',
+    close && 'button--close',
+    additionalClasses
+].filter(Boolean).join(' ');
+
+const dynamicDataAttributes = {
+    ...(openModal && { 'data-open-modal': openModal }),
+    ...(closeModal && { 'data-close-modal': true }),
+    ...(openOffcanvas && { 'data-offcanvas-trigger-open-id': openOffcanvas }),
+    ...(closeOffcanvas && { 'data-offcanvas-close': true }),
+    ...(disabled && { disabled: true }),
+    ...(ariaLabel && { 'aria-label': ariaLabel }),
+    ...(ariaExpanded !== null && { 'aria-expanded': ariaExpanded }),
+    ...(ariaControls && { 'aria-controls': ariaControls }),
+    ...dataAttributes
+};
+---
+
+<button
+    type={buttonType}
+    class={`button ${modifierClasses}`}
+    { ...dynamicDataAttributes }
+>
+    <slot />
+</button>

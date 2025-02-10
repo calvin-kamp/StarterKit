@@ -51,6 +51,52 @@ button, .button {
     }
 
     /* -------------------------------------------------------- */
+    /*                       CLOSE BUTTON                       */
+    /* -------------------------------------------------------- */
+    &--close {
+        position: absolute;
+        top: -1rem;
+        right: -1rem;
+        width: 50px;
+        min-width: 0;
+        height: 50px;
+        padding: 0;
+        border-radius: 0;
+        z-index: $z-index-2;
+        
+        &::before,
+        &::after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            display: block;
+            width: 16px;
+            height: 2px;
+            background-color: var(--color-body-font);
+            transition: all $transition-time ease;
+            content: "";
+        }
+
+        &::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        &::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        &:not([disabled]) {
+            &:hover {
+                &::before,
+                &::after {
+                    background-color: var(--color-primary);
+                }
+            }
+        }
+    }
+
+    /* -------------------------------------------------------- */
     /*                       STATE STYLES                       */
     /* -------------------------------------------------------- */
 
