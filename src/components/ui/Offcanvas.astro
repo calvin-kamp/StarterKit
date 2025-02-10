@@ -5,18 +5,23 @@ import '@styles/components/ui/_offcanvas.scss';
 const {
     id = '',
     orientation = 'right',
+    ariaLabel = null,
     additionalClasses = ''
 } = Astro.props;
 
 const offcanvasClass = `offcanvas offcanvas--${orientation} offcanvas--id-${id} ${additionalClasses}`;
+
+const dynamicAriaAttributes = {
+    ...(ariaLabel ? { 'aria-label': ariaLabel } : { 'aria-label': 'Modal' })
+};
 ---
 
 <div
     class={offcanvasClass}
     data-js="offcanvas"
     data-offcanvas-id={id}
-    aria-label="Offcanvas"
     role="dialog"
+    { ...dynamicAriaAttributes }
 >
     <div class="offcanvas__wrapper">
         <div class="offcanvas__header">

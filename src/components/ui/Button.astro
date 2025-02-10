@@ -25,7 +25,7 @@ const modifierClasses = [
     additionalClasses
 ].filter(Boolean).join(' ');
 
-const dynamicDataAttributes = {
+const dynamicAttributes = {
     ...(openModal && { 'data-open-modal': openModal }),
     ...(closeModal && { 'data-close-modal': true }),
     ...(openOffcanvas && { 'data-offcanvas-trigger-open-id': openOffcanvas }),
@@ -40,8 +40,8 @@ const dynamicDataAttributes = {
 
 <button
     type={buttonType}
-    class={`button ${modifierClasses}`}
-    { ...dynamicDataAttributes }
+    class={`button ${modifierClasses}`.trim()}
+    { ...dynamicAttributes }
 >
     <slot />
 </button>

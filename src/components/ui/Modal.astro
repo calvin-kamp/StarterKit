@@ -4,15 +4,20 @@ import '@styles/components/ui/_modal.scss';
 
 const {
     modalName = '',
+    ariaLabel = null,
     additionalClasses = ''
 } = Astro.props;
+
+const dynamicAriaAttributes = {
+    ...(ariaLabel ? { 'aria-label': ariaLabel } : { 'aria-label': 'Modal' })
+};
 ---
 
 <div 
-    class={`modal ${modalName} ${additionalClasses}`}
+    class={`modal ${modalName} ${additionalClasses}`.trim()}
     data-js="modal"
-    aria-label="Modal"
     role="dialog"
+    { ...dynamicAriaAttributes }
 >
 
     <div class="modal__wrapper">
@@ -36,5 +41,6 @@ const {
 
 <script>
     import {modal} from "@scripts/ui/modal";
+
     modal.init();
 </script>
