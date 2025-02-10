@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass:color';
 
 @use '@styles/utils' as *;
 
@@ -12,6 +13,7 @@
         @each $color, $color-value in map.get($colors, light) {
             /* Defines a CSS variable for each color in the light scheme */
             --color-#{'#{$color}'}: #{$color-value};
+            --color-#{'#{$color}'}-rgb: #{color.channel($color-value, "red", $space: rgb)}, #{color.channel($color-value, "green", $space: rgb)}, #{color.channel($color-value, "blue", $space: rgb)};
         }
     }
 }
@@ -22,6 +24,7 @@
         @each $color, $color-value in map.get($colors, dark) {
             /* Defines a CSS variable for each color in the dark scheme */
             --color-#{'#{$color}'}: #{$color-value};
+            --color-#{'#{$color}'}-rgb: #{color.channel($color-value, "red", $space: rgb)}, #{color.channel($color-value, "green", $space: rgb)}, #{color.channel($color-value, "blue", $space: rgb)};
         }
     }
 }
