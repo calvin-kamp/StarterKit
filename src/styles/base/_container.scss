@@ -19,31 +19,35 @@
 /*           RESPONSIVE MAX-WIDTH CONTAINER LOGIC           */
 /* -------------------------------------------------------- */
 
-/* Apply responsive max-widths to the default container */
-.container {
+@if $use-fixed-container-max-width == false {
+
+    /* Apply responsive max-widths to the default container */
+    .container {
+        @each $viewport, $container-max-width in $container-max-widths {
+            @include viewport($viewport) {
+                max-width: $container-max-width;
+            }
+        }
+    }
+    
+    /* -------------------------------------------------------- */
+    /*          GENERATE CONTAINER CLASSES BY VIEWPORT          */
+    /* -------------------------------------------------------- */
+    
     @each $viewport, $container-max-width in $container-max-widths {
         @include viewport($viewport) {
-            max-width: $container-max-width;
+    
+            /* Specific responsive container */
+            .container-#{$viewport} {
+                @include make-container($fullsize: false, $max-width: $container-max-width);
+            }
+    
+            /* Fullsize responsive container */
+            .container-#{$viewport}--fullsize {
+                @include make-container($fullsize: true);
+            }
+    
         }
     }
-}
 
-/* -------------------------------------------------------- */
-/*          GENERATE CONTAINER CLASSES BY VIEWPORT          */
-/* -------------------------------------------------------- */
-
-@each $viewport, $container-max-width in $container-max-widths {
-    @include viewport($viewport) {
-
-        /* Specific responsive container */
-        .container-#{$viewport} {
-            @include make-container($fullsize: false, $max-width: $container-max-width);
-        }
-
-        /* Fullsize responsive container */
-        .container-#{$viewport}--fullsize {
-            @include make-container($fullsize: true);
-        }
-
-    }
 }

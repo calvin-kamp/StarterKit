@@ -3,29 +3,33 @@
 /* -------------------------------------------------------- */
 
 $viewports: (
-    xs:         			0,
-    sm:         			576px,
-    md:         			768px,
-    lg:         			992px,
-    xl:         			1280px,
-    xxl:        			1440px,
+    xs:         						0,
+    sm:         						576px,
+    md:         						768px,
+    lg:         						992px,
+    xl:         						1280px,
+    xxl:        						1440px,
 );
+
+$use-fixed-container-max-width:			false;
+
+$container-fixed-max-width:				1520px;
 
 $container-max-widths: (
-    sm:         			540px,
-    md:         			720px,
-    lg:         			960px,
-    xl:         			1240px,
-    xxl:        			1380px,
+	sm:         						540px,
+	md:         						720px,
+	lg:         						960px,
+	xl:         						1240px,
+	xxl:        						1380px,
 );
 
-$enable-flex-container:		true;
-$enable-grid-container:		true;
+$enable-flex-container:					true;
+$enable-grid-container:					true;
 
-$grid-columns:  			12;
+$grid-columns:  						12;
 
-$col-padding:      			8px;
-$container-padding:			16px;
+$col-padding:      						8px;
+$container-padding:						16px;
 
 
 /* -------------------------------------------------------- */
@@ -51,9 +55,7 @@ $colors: (
 		body-background: 	#1A1A18,
 
 		code-font:			#F8F8F2,
-		code-background:	#262626,
-
-		focus:				#A1D490
+		code-background:	#262626
 
 	),
 	dark: (
@@ -74,9 +76,7 @@ $colors: (
 		body-background: 	#1A1A18,
 
 		code-font:			#F8F8F2,
-		code-background:	#262626,
-
-		focus:				#A1D490
+		code-background:	#262626
 
 	)
 );

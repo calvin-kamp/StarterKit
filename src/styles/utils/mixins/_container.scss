@@ -19,10 +19,19 @@
 
     } @else {
 
-        @if $max-width != null {
+        @if $use-fixed-container-max-width {
 
-            /* Sets a custom maximum width */
-            max-width: $max-width;
+            /* Falls eine feste Max-Width genutzt wird, überschreibe den Parameter */
+            max-width: $container-fixed-max-width;
+
+        } @else {
+
+            @if $max-width != null {
+
+                /* Sets a custom maximum width */
+                max-width: $max-width;
+
+            }
 
         }
 
