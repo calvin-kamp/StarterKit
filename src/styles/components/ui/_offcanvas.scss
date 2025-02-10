@@ -1,0 +1,90 @@
+@use '@styles/utils' as *;
+
+.offcanvas {
+    position: fixed;
+    inset: 0;
+    transition: all ease 1s;
+    background-color: rgba(var(--color-body-background-rgb), 0);
+    overflow: auto;
+    visibility: hidden;
+    opacity: 0;
+    overflow: hidden;
+    z-index: $z-index-8;
+
+    &--right {
+        .offcanvas__wrapper {
+            right: 0;
+            transform: translate(100%, 0);
+            width: 90%;
+            max-width: 540px;
+            height: 100%;
+            
+            @include viewport(md) {
+                width: 50%;
+                max-width: 768px;
+            }
+        }
+    }
+
+    &--left {
+        .offcanvas__wrapper {
+            left: 0;
+            transform: translate(-100%, 0);
+            width: 90%;
+            max-width: 540px;
+            height: 100%;
+            
+            @include viewport(md) {
+                width: 50%;
+                max-width: 768px;
+            }
+        }
+    }
+
+    &--top {
+        .offcanvas__wrapper {
+            top: 0;
+            transform: translate(0, -100%);
+            width: 100%;
+        }
+    }
+
+    &--bottom {
+        .offcanvas__wrapper {
+            bottom: 0;
+            transform: translate(0, 100%);
+            width: 100%;
+        }
+    }
+
+    &--show {
+        visibility: visible;
+        opacity: 1;
+        transition-delay: 0s;
+        background-color: rgba(var(--color-body-background-rgb), 0.75);
+
+        .offcanvas__wrapper {
+            transform: translate(0, 0);
+        }
+    }
+
+    &__wrapper {
+        position: absolute;
+        background-color: var(--color-body-background);
+        padding: 32px;
+        transition: all ease 1s;
+
+        @include viewport(md) {
+            padding-right: 48px;
+        }
+    }
+
+    &__header {
+        position: relative;
+        padding-right: 32px;
+
+        @include viewport(md) {
+            padding-right: 48px;
+        }
+    }
+}
