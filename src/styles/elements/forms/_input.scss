@@ -29,10 +29,10 @@
             }
 
             &:focus {
-                border-color: var(--color-primary);
+                border-color: var(--color-primary)!important;
 
                 ~ span {
-                    color: var(--color-primary);
+                    color: var(--color-primary)!important;
                 }
             }
         }
@@ -40,7 +40,7 @@
         + span {
             display: block;
             position: absolute;
-            top: 50%;
+            top: 29px;
             left: 16px;
             transform: translateY(-50%);
             font-weight: $font-weight-light;

@@ -25,6 +25,16 @@
                     }
                 }
             }
+
+            &:focus {
+                + span {
+                    color: var(--body-font)!important;
+
+                    &::before {
+                        border-color: var(--color-primary)!important;
+                    }
+                }
+            }
         }
 
         &.invalid {
