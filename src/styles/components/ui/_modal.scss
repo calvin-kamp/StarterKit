@@ -3,8 +3,8 @@
 .modal {
     position: fixed;
     inset: 0;
-    background-color: rgba(var(--color-border-rgb), 0.5);
-    z-index: $z-index-10;
+    background-color: var(--color-overlay);
+    z-index: $z-index-5;
     @include smooth-fading-effect();
 
 

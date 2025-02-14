@@ -3,9 +3,9 @@ import '@styles/elements/_buttons.scss';
 
 const {
     buttonType = 'button',
-    openModal = '',
+    openModalId = '',
     closeModal = false,
-    openOffcanvas = '',
+    openOffcanvasId = '',
     closeOffcanvas = false,
     primary = false,
     outlined = false,
@@ -26,9 +26,9 @@ const modifierClasses = [
 ].filter(Boolean).join(' ');
 
 const dynamicAttributes = {
-    ...(openModal && { 'data-open-modal': openModal }),
-    ...(closeModal && { 'data-close-modal': true }),
-    ...(openOffcanvas && { 'data-offcanvas-trigger-open-id': openOffcanvas }),
+    ...(openModalId && { 'data-modal-open-id': openModalId }),
+    ...(closeModal && { 'data-modal-close': true }),
+    ...(openOffcanvasId && { 'data-offcanvas-open-id': openOffcanvasId }),
     ...(closeOffcanvas && { 'data-offcanvas-close': true }),
     ...(disabled && { disabled: true }),
     ...(ariaLabel && { 'aria-label': ariaLabel }),

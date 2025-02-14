@@ -3,15 +3,18 @@ export const offcanvas = {
     vars: {
 
         queries: {
-            element: '*[data-js=offcanvas]',
-            wrapper: '.offcanvas__wrapper',
-            openTrigger: '*[data-offcanvas-trigger-open-id]',
-            closeTrigger: '*[data-offcanvas-close]',
+            element:                    '*[data-js=offcanvas]',
+            wrapper:                    '.offcanvas__wrapper',
+            openTrigger:                '*[data-offcanvas-open-id]',
+            closeTrigger:               '*[data-offcanvas-close]',
         },
 
-        triggerAttribute: 'data-offcanvas-trigger-open-id',
-        idAttribute: 'data-offcanvas-id',
-        showClass: 'offcanvas--show'
+        attributes: {
+            openTriggerId:              'data-offcanvas-open-id',
+            offcanvasId:                'data-offcanvas-id',
+        },
+
+        showClass:                      'offcanvas--show'
 
     },
 
@@ -61,8 +64,8 @@ export const offcanvas = {
             $openTrigger.addEventListener('click', (event) => {
                 event.preventDefault();
 
-                const offcanvasId = $openTrigger.getAttribute(this.vars.triggerAttribute);
-                const $offcanvas = document.querySelector(`[${this.vars.idAttribute}="${offcanvasId}"]`);
+                const offcanvasId = $openTrigger.getAttribute(this.vars.attributes.openTriggerId);
+                const $offcanvas = document.querySelector(`[${this.vars.attributes.offcanvasId}="${offcanvasId}"]`);
 
                 if ($offcanvas) {
                     this.show($offcanvas);

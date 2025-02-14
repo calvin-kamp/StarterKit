@@ -3,13 +3,11 @@ import Button from "@components/ui/Button.astro";
 import '@styles/components/ui/_offcanvas.scss';
 
 const {
-    id = '',
+    offcanvasId = '',
     orientation = 'right',
     ariaLabel = null,
     additionalClasses = ''
 } = Astro.props;
-
-const offcanvasClass = `offcanvas offcanvas--${orientation} offcanvas--id-${id} ${additionalClasses}`;
 
 const dynamicAriaAttributes = {
     ...(ariaLabel ? { 'aria-label': ariaLabel } : { 'aria-label': 'Modal' })
@@ -17,9 +15,9 @@ const dynamicAriaAttributes = {
 ---
 
 <div
-    class={offcanvasClass}
+    class={`offcanvas offcanvas--${orientation} offcanvas--id-${offcanvasId} ${additionalClasses}`}
     data-js="offcanvas"
-    data-offcanvas-id={id}
+    data-offcanvas-id={offcanvasId}
     role="dialog"
     { ...dynamicAriaAttributes }
 >
@@ -42,5 +40,6 @@ const dynamicAriaAttributes = {
 
 <script>
     import { offcanvas } from "@scripts/ui/offcanvas";
+    
     offcanvas.init();
 </script>

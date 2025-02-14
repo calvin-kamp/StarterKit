@@ -5,13 +5,16 @@ export const modal = {
         queries: {
             element:                    '*[data-js=modal]',
             wrapper:                    '.modal__wrapper',
-            openTrigger:                '*[data-open-modal]',
-            closeTrigger:               '*[data-close-modal]',
+            openTrigger:                '*[data-modal-open-id]',
+            closeTrigger:               '*[data-modal-close]',
         },
 
-        triggerAttribute:               'data-open-modal',
+        attributes: {
+            openTriggerId:              'data-modal-open-id',
+            modalId:                    'data-modal-id',
+        },
 
-        showClass:                      'modal--visible'
+        showClass:                      'modal--show'
 
     },
 
@@ -19,7 +22,7 @@ export const modal = {
 
         const $modals = this.findElements();
 
-        if (!$modals) {
+        if (!$modals.length) {
             console.warn('No modal elements found.');
             return;
         }
@@ -61,8 +64,8 @@ export const modal = {
             $openTrigger.addEventListener('click', (event) => {
                 event.preventDefault();
 
-                const modalSelector = '.' + $openTrigger.getAttribute(this.vars.triggerAttribute);
-                const $modal = document.querySelector(modalSelector);
+                const modalId = $openTrigger.getAttribute(this.vars.attributes.openTriggerId);
+                const $modal = document.querySelector(`[${this.vars.attributes.modalId}="${modalId}"]`);
 
                 if ($modal) {
                     this.show($modal);

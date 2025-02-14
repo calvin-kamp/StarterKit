@@ -3,7 +3,7 @@ import Button from "@components/ui/Button.astro";
 import '@styles/components/ui/_modal.scss';
 
 const {
-    modalName = '',
+    modalId = '',
     ariaLabel = null,
     additionalClasses = ''
 } = Astro.props;
@@ -14,9 +14,10 @@ const dynamicAriaAttributes = {
 ---
 
 <div 
-    class={`modal ${modalName} ${additionalClasses}`}
-    data-js="modal"
+    class={`modal modal--id-${modalId} ${additionalClasses}`}
     role="dialog"
+    data-js="modal"
+    data-modal-id={modalId}
     { ...dynamicAriaAttributes }
 >
 
