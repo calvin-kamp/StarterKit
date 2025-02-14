@@ -7,13 +7,13 @@
 button, .button {
     display: inline-block;
     padding: 0 32px;
-    margin: 0;
-    line-height: 54px;
+    min-width: 240px;
+    height: 56px;
     border: 1px solid transparent;
     cursor: pointer;
     text-decoration: none;
     transition: all $transition-time ease;
-    border-radius: 50px;
+    border-radius: 8px;
     font-weight: $font-weight-medium;
     text-align: center;
     white-space: nowrap;
