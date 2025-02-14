@@ -7,7 +7,7 @@
     transition: visibility 0s, opacity $transition-duration $transition-style;
     transition-delay: $transition-time, 0s;
 
-    &--visible {
+    &--show {
         visibility: visible;
         opacity: 1;
         transition-delay: 0s, 0s;

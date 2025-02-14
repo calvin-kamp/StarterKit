@@ -62,7 +62,6 @@ button, .button {
         height: 50px;
         padding: 0;
         border-radius: 0;
-        z-index: $z-index-2;
         
         &::before,
         &::after {
