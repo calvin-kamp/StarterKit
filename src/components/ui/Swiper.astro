@@ -8,10 +8,22 @@ import '@styles/components/ui/_swiper.scss';
 const {
     swiperSettings = ''
 } = Astro.props;
+
+let parsedSettings;
+try {
+    parsedSettings = JSON.parse(swiperSettings);
+} catch {
+    parsedSettings = {};
+}
+
+const ariaLive = parsedSettings.autoplay ? "polite" : "off";
 ---
 
 <div 
     class="swiper"
+    role="region"
+    aria-roledescription="carousel"
+    aria-live={ariaLive}
     data-js="swiper"
     data-swiper-settings={swiperSettings}
 >
@@ -21,11 +33,11 @@ const {
 
     </div>
 
+    <div class="swiper-scrollbar"></div>
     <button aria-label="to previous slide" class="swiper-button-prev"></button>
     <button aria-label="to next slide" class="swiper-button-next"></button>
 
     <div class="swiper-pagination"></div>
-    <div class="swiper-scrollbar"></div>
 </div>
 
 <script>
