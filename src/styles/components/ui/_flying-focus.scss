@@ -10,7 +10,7 @@
 
     &--visible {
         visibility: visible;
-        z-index: 10;
+        z-index: $z-index-9;
         
         &::after {
             position: absolute;        
