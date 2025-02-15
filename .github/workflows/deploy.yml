@@ -31,6 +31,8 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
           local-dir: ./dist/
           server-dir: /public_html/astro-starter-kit/
-
+          cleanup: true
