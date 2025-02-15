@@ -1,4 +1,7 @@
 ---
+import '@styles/components/modules/_accordion-example.scss';
+
+import Link from "@components/ui/Link.astro";
 import Button from "@components/ui/Button.astro";
 import Form from "@components/ui/forms/Form.astro";
 import FormInput from "@components/ui/forms/FormInput.astro";
@@ -150,7 +153,12 @@ import FormTextarea from "@components/ui/forms/FormTextarea.astro";
                 />
 
                 <div class="form__submit col-12">
-                    <button type="submit" class="button button--primary">Test</button>
+                    <Button 
+                        buttonType="submit"
+                        primary
+                    >
+                        submit form
+                    </Button>
                 </div>
 
             </Form>

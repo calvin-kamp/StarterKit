@@ -1,14 +1,16 @@
 ---
+import '@styles/components/modules/_swiper-example.scss';
+
 import Image from '@components/ui/Image.astro';
 import Swiper from '@components/ui/Swiper.astro';
+import Modal from "@components/ui/Modal.astro";
+import Button from "@components/ui/Button.astro";
+import Offcanvas from "@components/ui/Offcanvas.astro";
+import imageExample from '@root/assets/placeholder-image.png'
 
-const sliderSettings = {
-    loop: true,
+const swiperSettings = {
     speed: 500,
     slidesPerView: 1,
-    autoplay: {
-        delay: 6000
-    },
     breakpoints: {
         768: {
             slidesPerView: 2
@@ -16,7 +18,7 @@ const sliderSettings = {
     }
 }
 
-const sliderSettingsJSON = JSON.stringify(sliderSettings);
+const swiperSettingsJSON = JSON.stringify(swiperSettings);
 ---
 
 <div class="swiper-example">
@@ -30,12 +32,12 @@ const sliderSettingsJSON = JSON.stringify(sliderSettings);
 
         <div class="swiper-example__swiper col-12 col-md-10 col-md-left-1">
 
-            <Swiper sliderSettings={sliderSettingsJSON}>
+            <Swiper swiperSettings={swiperSettingsJSON}>
 
                 <div class="swiper-slide">
                     <figure>
                         <Image 
-                            src="https://placehold.co/1000x489"
+                            src={imageExample}
                             width="978"
                             height="489"
                             imageSizes={[
@@ -43,7 +45,7 @@ const sliderSettingsJSON = JSON.stringify(sliderSettings);
                                 { viewportWidth: 768, imageWidth: 768 },
                                 { viewportWidth: 320, imageWidth: 320 },
                             ]}
-                            loading="lazy"
+                            loading="eager"
                             alt="A description of my image."
                         />
 
@@ -56,7 +58,7 @@ const sliderSettingsJSON = JSON.stringify(sliderSettings);
                 <div class="swiper-slide">
                     <figure>
                         <Image 
-                            src="https://placehold.co/1000x489"
+                            src={imageExample}
                             width="978"
                             height="489"
                             imageSizes={[
@@ -64,7 +66,7 @@ const sliderSettingsJSON = JSON.stringify(sliderSettings);
                                 { viewportWidth: 768, imageWidth: 768 },
                                 { viewportWidth: 320, imageWidth: 320 },
                             ]}
-                            loading="lazy"
+                            loading="eager"
                             alt="A description of my image."
                         />
 
@@ -77,7 +79,7 @@ const sliderSettingsJSON = JSON.stringify(sliderSettings);
                 <div class="swiper-slide">
                     <figure>
                         <Image 
-                            src="https://placehold.co/1000x489"
+                            src={imageExample}
                             width="978"
                             height="489"
                             imageSizes={[
@@ -85,7 +87,7 @@ const sliderSettingsJSON = JSON.stringify(sliderSettings);
                                 { viewportWidth: 768, imageWidth: 768 },
                                 { viewportWidth: 320, imageWidth: 320 },
                             ]}
-                            loading="lazy"
+                            loading="eager"
                             alt="A description of my image."
                         />
 
@@ -97,6 +99,157 @@ const sliderSettingsJSON = JSON.stringify(sliderSettings);
 
             </Swiper>
 
+        </div>
+
+        <div class="swiper-example__offcanvas-triggers col-12 col-md-10 col-md-left-1">
+            <Button
+                primary
+                orientation="right"
+                openOffcanvasId="right"
+            >
+                open offcanvas right
+            </Button>
+
+            <Offcanvas offcanvasId="right" orientation="right">
+                <div slot="offcanvas-header">
+                    <h2>offcanvas right header</h2>
+                </div>
+            
+                <p>offcanvas right content</p>
+            
+                
+                    <Button 
+                        primary
+                        closeOffcanvas
+                    >
+                        offcanvas close
+                    </Button>
+                
+            </Offcanvas>
+
+            <Button
+                primary
+                openOffcanvasId="left"
+            >
+                open offcanvas Left
+            </Button>
+
+            <Offcanvas offcanvasId="left" orientation="left">
+                <div slot="offcanvas-header">
+                    <h2>offcanvas left header</h2>
+                </div>
+            
+                <p>offcanvas left content</p>
+            
+                
+                    <Button 
+                        primary
+                        closeOffcanvas
+                    >
+                        close offcanvas
+                    </Button>
+                
+            </Offcanvas>
+
+            <Button
+                primary
+                openOffcanvasId="top"
+            >
+                open offcanvas top
+            </Button>
+
+            <Offcanvas offcanvasId="top" orientation="top">
+                <div slot="offcanvas-header">
+                    <h2>offcanvas top header</h2>
+                </div>
+            
+                <p>offcanvas top content</p>
+            
+                
+                    <Button 
+                        primary
+                        closeOffcanvas
+                    >
+                        Schließen
+                    </Button>
+                
+            </Offcanvas>
+
+            <Button
+                primary
+                openOffcanvasId="bottom"
+            >
+                open offcanvas bottom
+            </Button>
+
+            <Offcanvas offcanvasId="bottom" orientation="bottom">
+                <div slot="offcanvas-header">
+                    <h2>offcanvas bottom header</h2>
+                </div>
+            
+                <p>offcanvas bottom content</p>
+            
+                
+                    <Button 
+                        primary
+                        closeOffcanvas
+                    >
+                        close offcanvas
+                    </Button>
+                
+            </Offcanvas> 
+        </div>
+
+        <div class="swiper-example__modal-triggers col-12 col-md-10 col-md-left-1">
+            <Button 
+                outlined
+                openModalId="one"
+            >
+                open modal one
+            </Button>
+
+            <Modal modalId="one">
+
+                <div slot="modal-header">
+                    <h2>
+                        modal one header
+                    </h2>
+                </div>
+    
+                <p>
+                    modal one content
+                </p>
+    
+                <div slot="modal-footer">
+                    <button data-close-modal>close modal</button>
+                </div>
+                
+            </Modal>
+
+            <Button 
+                outlined
+                openModalId="two"
+            >
+                open modal two
+            </Button>
+
+            <Modal modalId="two">
+
+                <div slot="modal-header">
+                    <h2>
+                        modal two header
+                    </h2>
+                </div>
+    
+                <p>
+                    modal two content
+                </p>
+    
+                <div slot="modal-footer">
+                    <button data-close-modal>close modal</button>
+                </div>
+                
+            </Modal>
         </div>
 
     </div>
