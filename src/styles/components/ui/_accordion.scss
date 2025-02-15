@@ -3,7 +3,7 @@
 .accordion-container {
 
     .ac {
-        margin: 0 0 1rem;
+        margin: 0;
         color: var(--color-body-font);
         border: none;
         border-bottom: 1px solid var(--color-border);
@@ -15,11 +15,8 @@
 
         .ac {
             &-trigger {
-                height: auto;
-                padding: 10px 30px 10px 10px;
+                padding: 0 32px 0 0;
                 color: inherit;
-                font-family: $font-family-body;
-                font-size: inherit;
                 line-height: 1.5;
                 white-space: wrap;
                 border-radius: 0;
@@ -27,10 +24,18 @@
 
             &-panel {
                 > div {
-                    padding: 10px 30px 10px 10px;
+                    padding-bottom: 16px;
 
                     p {
-                        margin-bottom: 0;
+                        margin-bottom: 1rem;
+
+                        &:last-of-type {
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    .accordion-container {
+                        margin-top: 16px;
                     }
                 }
             }
