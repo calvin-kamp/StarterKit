@@ -34,6 +34,6 @@ jobs:
           protocol: ftp
           port: 21
           local-dir: ./dist/
-          server-dir: /public_html/astro-starter-kit
+          server-dir: /public_html/astro-starter-kit/
           log-level: verbose
           cleanup: true
