@@ -1,0 +1,38 @@
+---
+import '@styles/components/ui/_expandable-content.scss';
+
+import Button from '@components/ui/Button.astro';
+
+const { 
+  expandText = 'Show more', 
+  collapseText = 'Show less',
+  additionalClasses = '' 
+} = Astro.props;
+---
+
+<div 
+    class={`expandable-content ${additionalClasses}`}
+    data-js="expandable-content"
+>
+    <div class="expandable-content__wrapper" data-expandable-content-wrapper>
+        <slot/>
+    </div>
+
+    <div class="expandable-content__actions">
+        <Button
+            additionalClasses="expandable-content__toggle"
+            ariaExpanded="false"
+            dataAttributes={{ 'data-expandable-content-toggle' : true }}
+        >
+            <span class="expandable-content__expand">{expandText}</span>
+            <span class="expandable-content__collapse">{collapseText}</span>
+        </Button>
+    </div>
+    
+</div>
+
+<script>
+    import {expandableContent} from "@scripts/ui/expandable-content";
+
+    expandableContent.init()
+</script>

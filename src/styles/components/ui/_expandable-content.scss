@@ -1,0 +1,81 @@
+@use '@styles/utils' as *;
+
+.expandable-content {
+    margin-bottom: 16px;
+
+    &.expandable-content--expandable {
+        .expandable-content {
+            &__actions {
+                display: block;
+            }
+        }
+    }
+
+    &.expandable-content--expanded {
+        .expandable-content {
+            &__wrapper {
+                &::after {
+                    opacity: 0;
+                }
+            }
+
+            &__expand {
+                display: none;
+            }
+        
+            &__collapse {
+                display: block;
+            }
+        }
+    }
+
+    .expandable-content {
+        &__wrapper {
+            position: relative;
+            max-height: 214px;
+            overflow: hidden;
+            transition: all $transition-time linear;
+
+            &::after {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 60px;
+                background-image: linear-gradient(to bottom, rgba(var(--color-body-background-rgb), 0), var(--color-body-background));
+                opacity: 1;
+                transition: all $transition-time linear;
+                content: "";
+            }
+
+            p {
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    
+        &__actions {
+            display: none;
+            margin-top: 24px;
+        }
+    
+        &__toggle {
+            min-width: 0;
+            height: auto;
+            padding: 0;
+            line-height: inherit;
+            font-size: inherit;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+    
+        &__expand {
+            display: block;
+        }
+    
+        &__collapse {
+            display: none;
+        }
+    }
+}
