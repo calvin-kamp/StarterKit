@@ -1,13 +1,13 @@
 @use '@styles/utils' as *;
 
 /* -------------------------------------------------------- */
-/*                      FLEX CONTAINER                      */
+/*                    FLEXBOX GRID LAYOUT                   */
 /* -------------------------------------------------------- */
 
 @if $enable-flex-container {
 
     /* Base styles for flex containers */
-    .flex-container {
+    .flex-layout {
         @include flex();
 
         /* Generate column classes based on grid columns */
@@ -77,13 +77,13 @@
 }
 
 /* -------------------------------------------------------- */
-/*                      GRID CONTAINER                      */
+/*                      CSS GRID LAYOUT                     */
 /* -------------------------------------------------------- */
 
 @if $enable-grid-container {
 
     /* Base styles for grid containers */
-    .grid-container {
+    .grid-layout {
         @include grid();
 
         /* Generate grid column and row classes */
