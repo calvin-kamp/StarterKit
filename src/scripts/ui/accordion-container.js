@@ -24,7 +24,7 @@ export const accordionGroup = {
         
         const $accordionGroups = this.findElements();
 
-        if (!$accordionGroups) {
+        if (!$accordionGroups.length) {
             console.warn('No accordion elements found.');
             return;
         }

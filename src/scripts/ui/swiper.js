@@ -32,7 +32,7 @@ export const swiper = {
 
         const $swipers = this.findElements();
 
-        if (!$swipers) {
+        if (!$swipers.length) {
             console.warn('No swiper elements found.');
             return;
         }

@@ -4,7 +4,7 @@ export const modal = {
 
         queries: {
             element:                    '*[data-js=modal]',
-            wrapper:                    '.modal__wrapper',
+            wrapper:                    '*[data-modal-wrapper]',
             openTrigger:                '*[data-modal-open-id]',
             closeTrigger:               '*[data-modal-close]',
         },

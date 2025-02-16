@@ -12,7 +12,7 @@ export const formExample = {
 
         const $formExamples = this.findModules();
 
-        if (!$formExamples) {
+        if (!$formExamples.length) {
             console.warn('No form-example modules found.');
             return;
         }

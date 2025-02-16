@@ -4,7 +4,7 @@ export const offcanvas = {
 
         queries: {
             element:                    '*[data-js=offcanvas]',
-            wrapper:                    '.offcanvas__wrapper',
+            wrapper:                    '*[data-offcanvas-wrapper]',
             openTrigger:                '*[data-offcanvas-open-id]',
             closeTrigger:               '*[data-offcanvas-close]',
         },
