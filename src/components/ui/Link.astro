@@ -9,10 +9,10 @@ const {
 const currentURL = Astro.url.pathname;
 const isActive = href === currentURL;
 
-const modifierClasses = isActive ? "link--active" : "";
+const modifierClasses = isActive ? 'link--active' : '';
 
-let targetType = linkTarget || (href?.match(/^(http(s)?|ftp):\/\//) ? "_blank" : "_self");
-let securityAttributes = targetType === "_blank" ? "noopener noreferrer" : "";
+let targetType = linkTarget || (href?.match(/^(http(s)?|ftp):\/\//) ? '_blank' : '_self');
+let securityAttributes = targetType === '_blank' ? 'noopener noreferrer' : '';
 
 const dynamicAttributes = {
     ...(ariaLabel && { 'aria-label': ariaLabel }),

@@ -1,6 +1,6 @@
 ---
-import Button from "@components/ui/Button.astro";
 import '@styles/components/ui/_modal.scss';
+import Button from '@components/ui/Button.astro';
 
 const {
     modalId = '',
@@ -41,7 +41,7 @@ const dynamicAriaAttributes = {
 
 
 <script>
-    import {modal} from "@scripts/ui/modal";
+    import {modal} from '@scripts/ui/modal';
 
     modal.init();
 </script>

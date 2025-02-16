@@ -1,6 +1,6 @@
 ---
-import Button from "@components/ui/Button.astro";
 import '@styles/components/ui/_offcanvas.scss';
+import Button from '@components/ui/Button.astro';
 
 const {
     offcanvasId = '',
@@ -39,7 +39,7 @@ const dynamicAriaAttributes = {
 </div>
 
 <script>
-    import { offcanvas } from "@scripts/ui/offcanvas";
+    import { offcanvas } from '@scripts/ui/offcanvas';
     
     offcanvas.init();
 </script>

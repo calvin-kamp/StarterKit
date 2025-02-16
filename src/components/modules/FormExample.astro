@@ -1,15 +1,14 @@
 ---
 import '@styles/components/modules/_accordion-example.scss';
 
-import Link from "@components/ui/Link.astro";
-import Button from "@components/ui/Button.astro";
-import Form from "@components/ui/forms/Form.astro";
-import FormInput from "@components/ui/forms/FormInput.astro";
-import FormRadio from "@components/ui/forms/FormRadio.astro";
-import FormGroup from "@components/ui/forms/FormGroup.astro";
-import FormSelect from "@components/ui/forms/FormSelect.astro";
-import FormCheckbox from "@components/ui/forms/FormCheckbox.astro";
-import FormTextarea from "@components/ui/forms/FormTextarea.astro";
+import Button from '@components/ui/Button.astro';
+import Form from '@components/ui/forms/Form.astro';
+import FormInput from '@components/ui/forms/FormInput.astro';
+import FormRadio from '@components/ui/forms/FormRadio.astro';
+import FormGroup from '@components/ui/forms/FormGroup.astro';
+import FormSelect from '@components/ui/forms/FormSelect.astro';
+import FormCheckbox from '@components/ui/forms/FormCheckbox.astro';
+import FormTextarea from '@components/ui/forms/FormTextarea.astro';
 ---
 
 <div class="form-example" data-js="form-example">
@@ -170,16 +169,7 @@ import FormTextarea from "@components/ui/forms/FormTextarea.astro";
 </div>
 
 <script>
-    const $formExamples = document.querySelectorAll('*[data-js=form-example]');
-
-    if ($formExamples.length > 0) {
-        import('@scripts/modules/form-example')
-            .then((module) => {
-                const { formExample } = module;
-                formExample.init();
-            })
-            .catch((error) => {
-                console.error('Error loading module:', error);
-            });
-    }
+    import {formExample} from '@scripts/modules/form-example';
+    
+    formExample.init();
 </script>
