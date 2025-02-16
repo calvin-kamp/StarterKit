@@ -1,7 +1,9 @@
 {
-  "name": "starter-kit",
+  "name": "astro-starter-kit",
+  "description": "Ready to develop starter kit for Astro!",
+  "main": "README.md",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -17,5 +19,16 @@
   },
   "devDependencies": {
     "vite-plugin-mkcert": "^1.17.6"
-  }
+  },
+  "keywords": [
+    "Astro",
+    "Starter Kit",
+    "Template"
+  ],
+  "author": "Calvin Kamp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/calvin-kamp/StarterKit/issues"
+  },
+  "homepage": "https://github.com/calvin-kamp/StarterKit#readme"
 }
