@@ -1,0 +1,12 @@
+@use '@styles/utils' as *;
+
+.modal-example {
+    padding: 50px 0;
+
+    &__modal-triggers {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+    }
+}

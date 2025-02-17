@@ -1,0 +1,12 @@
+@use '@styles/utils' as *;
+
+.offcanvas-example {
+    padding: 50px 0;
+
+    &__offcanvas-trigger {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+    }
+}
