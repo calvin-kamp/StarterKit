@@ -10,6 +10,7 @@ const {
     primary = false,
     outlined = false,
     close = false,
+    link = false,
     ariaLabel = null,
     ariaExpanded = null,
     ariaControls = '',
@@ -22,6 +23,7 @@ const modifierClasses = [
     primary && 'button--primary',
     outlined && 'button--outlined',
     close && 'button--close',
+    link && 'button--link',
     additionalClasses
 ].filter(Boolean).join(' ');
 
