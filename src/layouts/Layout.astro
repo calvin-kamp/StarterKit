@@ -1,4 +1,6 @@
 ---
+import Header from '@components/layout/Header.astro';
+import Footer from '@components/layout/Footer.astro';
 import '@styles/styles.scss';
 
 const {
@@ -36,9 +38,13 @@ const {
 	</head>
 	<body>
 
+        <Header />
+
 		<main>
 			<slot />
 		</main>
+
+        <Footer />
 		
 	</body>
 </html>
