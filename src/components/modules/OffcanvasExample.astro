@@ -1,0 +1,122 @@
+---
+import '@styles/components/modules/_offcanvas-example.scss';
+
+import Button from '@components/ui/Button.astro';
+import Offcanvas from '@components/ui/Offcanvas.astro';
+---
+
+<div class="offcanvas-example">
+    <div class="container">
+        <div class="flex-layout">
+
+            <div class="offcanvas-example__headline col-12 col-md-10 col-md-left-1">
+
+                <h2>
+                    Offcanvas Example
+                </h2>
+                
+            </div>
+
+            <div class="offcanvas-example__offcanvas-trigger col-12 col-md-10 col-md-left-1">
+
+                <Button
+                    primary
+                    orientation="right"
+                    openOffcanvasId="right"
+                >
+                    open offcanvas right
+                </Button>
+
+                <Offcanvas offcanvasId="right" orientation="right">
+                    <div slot="offcanvas-header">
+                        <h2>offcanvas right header</h2>
+                    </div>
+                
+                    <p>offcanvas right content</p>
+                
+                    
+                        <Button 
+                            primary
+                            closeOffcanvas
+                        >
+                            offcanvas close
+                        </Button>
+                    
+                </Offcanvas>
+
+                <Button
+                    primary
+                    openOffcanvasId="left"
+                >
+                    open offcanvas Left
+                </Button>
+
+                <Offcanvas offcanvasId="left" orientation="left">
+                    <div slot="offcanvas-header">
+                        <h2>offcanvas left header</h2>
+                    </div>
+                
+                    <p>offcanvas left content</p>
+                
+                    
+                        <Button 
+                            primary
+                            closeOffcanvas
+                        >
+                            close offcanvas
+                        </Button>
+                    
+                </Offcanvas>
+
+                <Button
+                    primary
+                    openOffcanvasId="top"
+                >
+                    open offcanvas top
+                </Button>
+
+                <Offcanvas offcanvasId="top" orientation="top">
+                    <div slot="offcanvas-header">
+                        <h2>offcanvas top header</h2>
+                    </div>
+                
+                    <p>offcanvas top content</p>
+                
+                    
+                        <Button 
+                            primary
+                            closeOffcanvas
+                        >
+                            Schließen
+                        </Button>
+                    
+                </Offcanvas>
+
+                <Button
+                    primary
+                    openOffcanvasId="bottom"
+                >
+                    open offcanvas bottom
+                </Button>
+
+                <Offcanvas offcanvasId="bottom" orientation="bottom">
+                    <div slot="offcanvas-header">
+                        <h2>offcanvas bottom header</h2>
+                    </div>
+                
+                    <p>offcanvas bottom content</p>
+                
+                    
+                        <Button 
+                            primary
+                            closeOffcanvas
+                        >
+                            close offcanvas
+                        </Button>
+                    
+                </Offcanvas> 
+
+            </div>
+        </div>
+    </div>
+</div>

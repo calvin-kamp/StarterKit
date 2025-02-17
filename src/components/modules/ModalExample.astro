@@ -1,0 +1,76 @@
+---
+import '@styles/components/modules/_modal-example.scss';
+
+import Modal from '@components/ui/Modal.astro';
+import Button from '@components/ui/Button.astro';
+---
+
+<div class="modal-example">
+    <div class="container">
+        <div class="flex-layout">
+
+            <div class="modal-example__headline col-12 col-md-10 col-md-left-1">
+
+                <h2>
+                    Modal Example
+                </h2>
+                
+            </div>
+
+            <div class="modal-example__modal-triggers col-12 col-md-10 col-md-left-1">
+
+                <Button 
+                    outlined
+                    openModalId="one"
+                >
+                    open modal one
+                </Button>
+
+                <Modal modalId="one">
+
+                    <div slot="modal-header">
+                        <h2>
+                            modal one header
+                        </h2>
+                    </div>
+        
+                    <p>
+                        modal one content
+                    </p>
+        
+                    <div slot="modal-footer">
+                        <button data-close-modal>close modal</button>
+                    </div>
+                    
+                </Modal>
+
+                <Button 
+                    outlined
+                    openModalId="two"
+                >
+                    open modal two
+                </Button>
+
+                <Modal modalId="two">
+
+                    <div slot="modal-header">
+                        <h2>
+                            modal two header
+                        </h2>
+                    </div>
+        
+                    <p>
+                        modal two content
+                    </p>
+        
+                    <div slot="modal-footer">
+                        <button data-close-modal>close modal</button>
+                    </div>
+                    
+                </Modal>
+
+            </div>
+
+        </div>
+    </div>
+</div>
