@@ -44,8 +44,11 @@ ul {
 
     /* Unstyled unordered lists */
     &.list--unstyled {
+        margin-bottom: 0;
+
         li {
             padding-left: 0;
+            margin-bottom: 0;
 
             /* Remove markers */
             &::before {
@@ -55,6 +58,7 @@ ul {
             /* Remove nesting indentation */
             ul, ol {
                 padding-left: 0;
+                margin: 0;
             }
         }
     }

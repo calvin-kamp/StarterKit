@@ -6,6 +6,7 @@
 
 .form-group {
     padding: 0!important;
+    margin-bottom: 32px;
     @include flex();
 
     &.valid {
@@ -33,7 +34,10 @@
         }
     }
 
-    &:first-child {
-        margin-bottom: 50px;
+    .form {
+        &-radio,
+        &-checkbox {
+            margin: 16px 0 0;
+        }
     }
 }

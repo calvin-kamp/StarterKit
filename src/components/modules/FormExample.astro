@@ -1,5 +1,5 @@
 ---
-import '@styles/components/modules/_accordion-example.scss';
+import '@styles/components/modules/_form-example.scss';
 
 import Button from '@components/ui/Button.astro';
 import Form from '@components/ui/forms/Form.astro';
@@ -31,6 +31,7 @@ import FormTextarea from '@components/ui/forms/FormTextarea.astro';
                         required
                         labelText="Choose a country*"
                         gridClasses="col-12"
+                        errorMessage="Select one Country"
                     >
                         <option disabled selected value="">Choose a country</option>
                         <option value="germany">Germany</option>

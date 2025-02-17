@@ -1,16 +1,5 @@
 @use '@styles/utils' as *;
 
 .form-example {
-    padding: 50px;
-    
-    &__offcanvas-triggers {
-        display: flex;
-        gap: 20px;
-        margin-bottom: 20px;
-    }
-
-    &__modal-triggers {
-        display: flex;
-        gap: 20px;
-    }
+    padding: 50px 0;
 }

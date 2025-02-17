@@ -22,6 +22,7 @@
         }
     }
 
+    select,
     textarea,
     input:not([type="radio"]):not([type="checkbox"]) {
         &.valid {
@@ -78,6 +79,7 @@
 
     small {
         display: none;
+        margin-top: 4px;
         color: var(--color-ui-error);
 
         &::before {
@@ -85,9 +87,9 @@
             transform: rotate(180deg);
             width: 20px;
             height: 20px;
-            margin-right: 10px;
-            font-size: 14px;
-            line-height: 20px;
+            margin-right: 8px;
+            font-size: get-rem(14px);
+            line-height: get-rem(20px);
             font-weight: 900;
             text-align: center;
             color: var(--color-white);
@@ -99,5 +101,10 @@
 
     &__submit {
         margin-top: 25px;
+
+        button {
+            display: block;
+            margin: 0 auto;
+        }
     }
 }
