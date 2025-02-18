@@ -1,7 +1,8 @@
 ---
+import '@styles/styles.scss';
+
 import Header from '@components/layout/Header.astro';
 import Footer from '@components/layout/Footer.astro';
-import '@styles/styles.scss';
 
 const {
 	pageTitle = ''
@@ -9,33 +10,36 @@ const {
 ---
 
 <!Doctype html>
-<html lang="de">
+<html lang="en">
 	<head>
-		<meta charset="UTF-8">
-		<meta name="description" content="Astro description">
-        <meta name="viewport" content="width=device-width, initial-scale=1 viewport-fit=cover">
-		<meta name="generator" content={Astro.generator}>
 
-        <meta property="og:title" content="Title">
-        <meta property="og:description" content="Description">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="description" content="Kickstart your project with an ultra-fast, accessible, and SEO-optimized web template powered by Astro.">
+        <meta name="keywords" content="Astro, Starter Kit, High Performance, Accessibility, Web Performance, SEO, Web Development">
+        <meta name="author" content="Calvin Kamp">
+        <meta name="generator" content={Astro.generator}>
+
+        <meta property="og:title" content="Astro Starter Kit – High Performance & A11Y">
+        <meta property="og:description" content="Kickstart your project with an ultra-fast, accessible, and SEO-optimized web template powered by Astro.">
         <meta property="og:type" content="website">
-        <meta property="og:url" content="https://astro-starter-kit.calvin-kamp.de/">
-        <meta property="og:image" content="">
+        <meta property="og:url" content="https://astro-starter-kit.calvin-kamp.com/">
+        <meta property="og:image" content="https://astro.build/social.jpg">
+        <meta property="og:locale" content="en_GB">
 
-        <meta name="twitter:title" content="Title">
-        <meta name="twitter:description" content="Description">
-        <meta name="twitter:image" content="">
-        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Astro Starter Kit – High Performance & A11Y">
+        <meta name="twitter:description" content="Kickstart your project with an ultra-fast, accessible, and SEO-optimized web template powered by Astro.">
+        <meta name="twitter:image" content="https://astro.build/social.jpg">
+        <meta name="twitter:card" content="summary_large_image">
 
-        <link rel="canonical" href="https://astro-starter-kit.calvin-kamp.de/">
-
-        <link rel="stylesheet" href="/fonts/fonts.css">
+        <link rel="canonical" href="https://astro-starter-kit.calvin-kamp.com/">
 
         <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+        <title>{pageTitle}</title>
 
-		<title>{pageTitle}</title>
-
-	</head>
+    </head>
+    
 	<body>
 
         <Header />
