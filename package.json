@@ -18,6 +18,8 @@
     "tom-select": "^2.4.3"
   },
   "devDependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "astro-robots-txt": "^1.0.0",
     "vite-plugin-mkcert": "^1.17.6"
   },
   "keywords": [
