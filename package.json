@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.4.3",
+    "@nanostores/persistent": "^0.10.2",
     "accordion-js": "^3.4.0",
     "astro": "^5.3.0",
+    "nanostores": "^0.11.4",
     "sass": "^1.85.0",
     "swiper": "^11.2.4",
     "tom-select": "^2.4.3"

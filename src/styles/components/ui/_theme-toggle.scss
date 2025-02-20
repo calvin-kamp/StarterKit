@@ -1,0 +1,54 @@
+@use '@styles/utils' as *;
+
+.theme-toggle {
+    display: flex!important;
+    align-items: center;
+
+    &--light {
+        .theme-toggle__button {
+            &::before {
+                background-image: url("/src/assets/sun.svg");
+            }
+
+            &::after {
+                content: "Light";
+            }
+        }
+    }
+
+    &--dark {
+        .theme-toggle__button {
+            &::before {
+                background-image: url("/src/assets/moon.svg");
+            }
+
+            &::after {
+                content: "Dark";
+            }
+        }
+    }
+
+    .theme-toggle {
+        &__button {
+            display: flex;
+            align-items: center;
+            
+            &::before {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 20px auto;
+                transition: all $transition-time linear;
+                content: "";
+            }
+        
+            &::after {
+                display: inline-block;
+                margin-left: 16px;
+                transition: all $transition-time linear;
+            }
+        }
+    }    
+}

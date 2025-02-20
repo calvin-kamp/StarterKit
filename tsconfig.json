@@ -9,6 +9,7 @@
 
 		"paths": {
 			"@root/*": ["./src/*"],
+			"@stores/*": ["./src/stores/*"],
 			"@styles/*": ["./src/styles/*"],
 			"@scripts/*": ["./src/scripts/*"],
 			"@layouts/*": ["./src/layouts/*"],

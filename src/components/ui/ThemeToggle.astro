@@ -1,0 +1,23 @@
+---
+import '@styles/components/ui/_theme-toggle.scss';
+
+import Button from '@components/ui/Button.astro';
+---
+<div
+    class="theme-toggle"
+    data-js="theme-toggle"
+>
+    <Button
+        link
+        additionalClasses="theme-toggle__button"
+        ariaLabel="Toggle Color Theme"
+        dataAttributes={{ 'data-theme-toggle-trigger' : true }}
+    />
+</div>
+
+
+<script>
+    import {themeToggle} from '@scripts/ui/theme-toggle';
+
+    themeToggle.init();
+</script>
