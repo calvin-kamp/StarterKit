@@ -16,6 +16,7 @@ const {
     ariaControls = '',
     disabled = false,
     additionalClasses = '',
+    onClick = '',
     dataAttributes = {}
 } = Astro.props;
 
@@ -38,12 +39,15 @@ const dynamicAttributes = {
     ...(ariaControls && { 'aria-controls': ariaControls }),
     ...dataAttributes
 };
+
+const alpineEvents = onClick ? { '@click': onClick } : {};
 ---
 
 <button
     type={buttonType}
     class={`button ${modifierClasses}`}
     { ...dynamicAttributes }
+    { ...alpineEvents}
 >
     <slot />
 </button>

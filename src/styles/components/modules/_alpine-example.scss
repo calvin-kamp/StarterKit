@@ -1,0 +1,23 @@
+@use '@styles/utils' as *;
+
+.alpine-example {
+    padding: 50px 0;
+
+    &__tabs {
+        .active {
+            color: var(--color-primary);
+        }
+    }
+
+    &__content {
+        height: 300px;
+
+        figure {
+            margin-left: auto;
+
+            img {
+                max-width: 492px;
+            }
+        }
+    }
+}

@@ -1,0 +1,100 @@
+---
+import '@styles/components/modules/_alpine-example.scss';
+
+import Image from '@components/ui/Image.astro';
+import Button from '@components/ui/Button.astro';
+import imageExample from '@root/assets/placeholder-image.png';
+---
+
+<div class="alpine-example" x-data="{ activeTab: '1'}">
+    <div class="container">
+        <div class="flex-layout">
+
+            <div class="alpine-example__headline col-12">
+                <h2>
+                    Alpine Example
+                </h2>
+            </div>
+
+            <div class="alpine-example__tabs col-12">
+                <nav>
+                    <ul class="list list--horizontal">
+                        <li x-bind:class="{ 'active': activeTab === '1' }">
+                            <Button 
+                                link 
+                                onClick="activeTab = '1'" 
+                            >
+                                Tab 1
+                            </Button>
+                        </li>
+                        <li x-bind:class="{ 'active': activeTab === '2' }">
+                            <Button 
+                                link 
+                                onClick="activeTab = '2'"
+                            >
+                                Tab 2
+                            </Button>
+                        </li>
+                        <li x-bind:class="{ 'active': activeTab === '3' }">
+                            <Button 
+                                link 
+                                onClick="activeTab = '3'" 
+                            >
+                                Tab 3
+                            </Button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="alpine-example__content col-12">
+                <div
+                    x-cloak
+                    :style="{ display: activeTab === '1' ? 'block' : 'none' }"
+                >
+                    <h3>Tab 1 is active (default)</h3>
+
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur nisi exercitationem eum maiores dolorem, sit vel minus dolore beatae, excepturi illum incidunt libero. Et est, quos nulla molestiae ad accusantium.
+                    </p>
+                </div>
+
+                <div
+                    x-cloak
+                    :style="{ display: activeTab === '2' ? 'block' : 'none' }"
+                >
+                    <h3>Tab 2 is active</h3>
+
+                    <ol class="list list--styled">
+                        <li>Feature 1</li>
+                        <li>Feature 2</li>
+                        <li>Feature 3</li>
+                    </ol>
+                </div>
+
+                <div
+                    x-cloak
+                    :style="{ display: activeTab === '3' ? 'block' : 'none' }"
+                >
+                    <h3>Tab 3 is active</h3>
+
+                    <figure>
+                        <Image 
+                            src={imageExample}
+                            width="272"
+                            height="133"
+                            imageSizes={[
+                                { viewportWidth: 1200, imageWidth: 1332 },
+                                { viewportWidth: 768, imageWidth: 672 },
+                                { viewportWidth: 320, imageWidth: 492 },
+                            ]}
+                            loading="eager"
+                            alt="A description of my image."
+                        />
+                    </figure>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

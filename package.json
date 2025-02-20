@@ -11,6 +11,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/alpinejs": "^0.4.3",
     "accordion-js": "^3.4.0",
     "astro": "^5.3.0",
     "sass": "^1.85.0",
