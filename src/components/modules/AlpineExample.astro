@@ -10,13 +10,13 @@ import imageExample from '@root/assets/placeholder-image.png';
     <div class="container">
         <div class="flex-layout">
 
-            <div class="alpine-example__headline col-12">
+            <div class="alpine-example__headline col-12 col-md-10 col-md-left-1">
                 <h2>
                     Alpine Example
                 </h2>
             </div>
 
-            <div class="alpine-example__tabs col-12">
+            <div class="alpine-example__tabs col-12 col-md-10 col-md-left-1">
                 <nav>
                     <ul class="list list--horizontal">
                         <li x-bind:class="{ 'active': activeTab === '1' }">
@@ -47,7 +47,7 @@ import imageExample from '@root/assets/placeholder-image.png';
                 </nav>
             </div>
 
-            <div class="alpine-example__content col-12">
+            <div class="alpine-example__content col-12 col-md-10 col-md-left-1">
                 <div
                     x-cloak
                     :style="{ display: activeTab === '1' ? 'block' : 'none' }"
