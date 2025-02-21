@@ -8,23 +8,19 @@
 /* -------------------------------------------------------- */
 
 /* Generates CSS variables for the light color scheme */
-@include color-scheme('light') {
-    :root {
-        @each $color, $color-value in map.get($colors, light) {
-            /* Defines a CSS variable for each color in the light scheme */
-            --color-#{'#{$color}'}: #{$color-value};
-            --color-#{'#{$color}'}-rgb: #{color.channel($color-value, "red", $space: rgb)}, #{color.channel($color-value, "green", $space: rgb)}, #{color.channel($color-value, "blue", $space: rgb)};
-        }
+:root[data-theme="light"] {
+    @each $color, $color-value in map.get($colors, light) {
+        /* Defines a CSS variable for each color in the light scheme */
+        --color-#{'#{$color}'}: #{$color-value};
+        --color-#{'#{$color}'}-rgb: #{color.channel($color-value, "red", $space: rgb)}, #{color.channel($color-value, "green", $space: rgb)}, #{color.channel($color-value, "blue", $space: rgb)};
     }
 }
 
 /* Generates CSS variables for the dark color scheme */
-@include color-scheme('dark') {
-    :root {
-        @each $color, $color-value in map.get($colors, dark) {
-            /* Defines a CSS variable for each color in the dark scheme */
-            --color-#{'#{$color}'}: #{$color-value};
-            --color-#{'#{$color}'}-rgb: #{color.channel($color-value, "red", $space: rgb)}, #{color.channel($color-value, "green", $space: rgb)}, #{color.channel($color-value, "blue", $space: rgb)};
-        }
+:root[data-theme="dark"] {
+    @each $color, $color-value in map.get($colors, dark) {
+        /* Defines a CSS variable for each color in the dark scheme */
+        --color-#{'#{$color}'}: #{$color-value};
+        --color-#{'#{$color}'}-rgb: #{color.channel($color-value, "red", $space: rgb)}, #{color.channel($color-value, "green", $space: rgb)}, #{color.channel($color-value, "blue", $space: rgb)};
     }
 }
