@@ -38,26 +38,28 @@ $container-padding:						16px;
 
 $colors: (
 	light: (
+
+		white:              #FFFFFF,
+		black:              #000000,
+
+		border:             #8c8c8c,
+
+		overlay:            rgba(140, 140, 140, 0.5),
+
 		
-		white: 				#FFFFFF,
-		black: 				#000000,
+		primary:            #69108F,
+		primary-hover:      #7C26A1,
 
-		border: 			#666666,
+		ui-success:         #0C5F24,
+		ui-warning:         #8F5D20,
+		ui-error:           #A60629,
+		ui-information:     #125588,
 
-		overlay:			rgba(102, 102, 102, 0.5),
+		body-font:          #1A1A18,
+		body-background:    #F2F2F2,
 
-		primary: 			#FF5733,
-
-		ui-success:         #22863A,
-		ui-warning:         #FFC107,
-		ui-error:           #D73A49,
-		ui-information:     #2B91D1,
-
-		body-font: 			#EDEDED,
-		body-background: 	#1A1A18,
-
-		code-font:			#F8F8F2,
-		code-background:	#262626
+		code-font:          #222222,
+		code-background:    #F8F8F2 
 
 	),
 	dark: (
@@ -65,22 +67,23 @@ $colors: (
 		white: 				#FFFFFF,
 		black: 				#000000,
 
-		border: 			#666666,
+		border: 			#64645B,
 
-		overlay:			rgba(102, 102, 102, 0.5),
+		overlay:			rgba(100, 100, 91, 0.5),
 
-		primary: 			#FF5733,
+		primary: 			#FF6D3A,
+		primary-hover: 		#F25F33,
 
-		ui-success:         #22863A,
+		ui-success:         #30B951,
 		ui-warning:         #FFC107,
-		ui-error:           #D73A49,
-		ui-information:     #2B91D1,
+		ui-error:           #FA7B7B,
+		ui-information:     #35B6FF,
 
 		body-font: 			#EDEDED,
-		body-background: 	#1A1A18,
+		body-background: 	#171715,
 
 		code-font:			#F8F8F2,
-		code-background:	#262626
+		code-background:	#363737
 
 	)
 );

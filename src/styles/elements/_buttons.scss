@@ -30,8 +30,9 @@ button, .button {
 
         &:not([disabled]) {
             &:hover {
-                color: var(--color-body-font);
-                background-color: transparent;
+                color: var(--color-body-background);
+                border-color: var(--color-primary-hover);
+                background-color: var(--color-primary-hover);
             }
         }
     }
