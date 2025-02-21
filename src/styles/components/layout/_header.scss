@@ -5,6 +5,22 @@
 /* -------------------------------------------------------- */
 
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     padding: 25px;
     border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-body-background);
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* give main the spacing top that is generated from the header without creating an extra file for 3 lines of code, sorry not sorry */
+    ~ main {
+        padding-top: 93px;
+    }
 }

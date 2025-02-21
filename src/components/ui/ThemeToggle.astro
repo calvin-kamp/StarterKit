@@ -2,9 +2,13 @@
 import '@styles/components/ui/_theme-toggle.scss';
 
 import Button from '@components/ui/Button.astro';
+
+const {
+    additionalClasses = ''
+} = Astro.props;
 ---
 <div
-    class="theme-toggle"
+    class={`theme-toggle ${additionalClasses}`}
     data-js="theme-toggle"
 >
     <Button

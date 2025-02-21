@@ -11,7 +11,17 @@ const {
 
 <!Doctype html>
 <html lang="en">
-	<head>
+    
+    <head>
+
+        <script>
+            (function() {
+                const savedTheme = localStorage.getItem("theme");
+                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                const theme = savedTheme ? savedTheme.replace(/"/g, '') : (prefersDark ? "dark" : "light");
+                document.documentElement.setAttribute("data-theme", theme);
+            })();
+        </script>
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
