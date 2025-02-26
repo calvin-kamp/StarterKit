@@ -9,6 +9,7 @@
     margin-bottom: 16px;
 
     label {
+        display: block;
         position: relative;
     }
 
@@ -49,6 +50,10 @@
             .item {
                 position: absolute;
                 bottom: -20px;
+
+                @include styles-for-safari() {
+                    bottom: 0;
+                }
             }
 
             + span {
