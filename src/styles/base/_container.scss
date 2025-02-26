@@ -23,27 +23,27 @@
 
     /* Apply responsive max-widths to the default container */
     .container {
-        @each $viewport, $container-max-width in $container-max-widths {
-            @include viewport($viewport) {
+        @each $breakpoint, $container-max-width in $container-max-widths {
+            @include breakpoint($breakpoint) {
                 max-width: $container-max-width;
             }
         }
     }
     
     /* -------------------------------------------------------- */
-    /*          GENERATE CONTAINER CLASSES BY viewport          */
+    /*          GENERATE CONTAINER CLASSES BY breakpoint          */
     /* -------------------------------------------------------- */
     
-    @each $viewport, $container-max-width in $container-max-widths {
-        @include viewport($viewport) {
+    @each $breakpoint, $container-max-width in $container-max-widths {
+        @include breakpoint($breakpoint) {
     
             /* Specific responsive container */
-            .container-#{$viewport} {
+            .container-#{$breakpoint} {
                 @include make-container($fullsize: false, $max-width: $container-max-width);
             }
     
             /* Fullsize responsive container */
-            .container-#{$viewport}--fullsize {
+            .container-#{$breakpoint}--fullsize {
                 @include make-container($fullsize: true);
             }
     

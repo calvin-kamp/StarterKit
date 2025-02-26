@@ -14,16 +14,16 @@ let sizes = '';
 let widths = [];
 
 for (const size of imageSizes) {
-    if (size.viewportWidth && size.imageWidth) {
+    if (size.breakpointWidth && size.imageWidth) {
 
-        const viewportWidth = parseInt(size.viewportWidth, 10);
+        const breakpointWidth = parseInt(size.breakpointWidth, 10);
         const imageWidth = parseInt(size.imageWidth, 10);
 
         widths.push(imageWidth);
         widths.push(imageWidth * 2);
         widths.push(imageWidth * 3);
 
-        sizes += `(min-width: ${viewportWidth}px) ${imageWidth}px,`;
+        sizes += `(min-width: ${breakpointWidth}px) ${imageWidth}px,`;
 
     }
 }

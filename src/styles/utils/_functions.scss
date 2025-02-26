@@ -10,9 +10,9 @@
 /*                         FUNCTIONS                        */
 /* -------------------------------------------------------- */
 
-// Get the minimum width for a viewport
-@function get-min-width($viewport) {
-    @return map.get($viewports, $viewport);
+// Get the minimum width for a breakpoint
+@function get-min-width($breakpoint) {
+    @return map.get($breakpoints, $breakpoint);
 }
 
 // Calculate percentage width for grid columns

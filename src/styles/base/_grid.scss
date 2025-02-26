@@ -36,34 +36,34 @@
             @include make-col($fullsize: true);
         }
 
-        /* Responsive column logic for specific viewports */
-        @each $viewport, $width in $viewports {
+        /* Responsive column logic for specific breakpoints */
+        @each $breakpoint, $width in $breakpoints {
 
-            @if $viewport != "xs" {
+            @if $breakpoint != "xs" {
 
-                @include viewport($viewport) {
+                @include breakpoint($breakpoint) {
 
                     @for $i from 1 through $grid-columns {
 
                         /* Responsive column */
-                        .col-#{$viewport}-#{$i} {
+                        .col-#{$breakpoint}-#{$i} {
                             @include make-col($size: $i);
                         }
 
                         /* Responsive left offset column */
-                        .col-#{$viewport}-left-#{$i} {
+                        .col-#{$breakpoint}-left-#{$i} {
                             @include make-offset-col($size: $i, $direction: left);
                         }
 
                         /* Responsive right offset column */
-                        .col-#{$viewport}-right-#{$i} {
+                        .col-#{$breakpoint}-right-#{$i} {
                             @include make-offset-col($size: $i, $direction: right);
                         }
 
                     }
 
                     /* Responsive full-size column */
-                    .col-#{$viewport}--fullsize {
+                    .col-#{$breakpoint}--fullsize {
                         @include make-col($fullsize: true);
                     }
 
@@ -112,32 +112,32 @@
 
         }
 
-        /* Responsive grid logic for specific viewports */
-        @each $viewport, $width in $viewports {
+        /* Responsive grid logic for specific breakpoints */
+        @each $breakpoint, $width in $breakpoints {
 
-            @if $viewport != "xs" {
+            @if $breakpoint != "xs" {
 
-                @include viewport($viewport) {
+                @include breakpoint($breakpoint) {
 
                     @for $i from 1 through $grid-columns {
 
                         /* Responsive grid column */
-                        .g-col-#{$viewport}-#{$i} {
+                        .g-col-#{$breakpoint}-#{$i} {
                             @include make-g-col($size: $i);
                         }
 
                         /* Responsive grid row */
-                        .g-row-#{$viewport}-#{$i} {
+                        .g-row-#{$breakpoint}-#{$i} {
                             @include make-g-row($size: $i);
                         }
 
                         /* Responsive grid column starting point */
-                        .g-col-#{$viewport}-start-#{$i} {
+                        .g-col-#{$breakpoint}-start-#{$i} {
                             @include make-g-col($start: $i);
                         }
 
                         /* Responsive grid row starting point */
-                        .g-row-#{$viewport}-start-#{$i} {
+                        .g-row-#{$breakpoint}-start-#{$i} {
                             @include make-g-row($start: $i);
                         }
 

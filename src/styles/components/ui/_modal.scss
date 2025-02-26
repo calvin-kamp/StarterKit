@@ -19,7 +19,7 @@
         background-color: var(--color-body-background);
         border-radius: 8px;
 
-        @include viewport(md) {
+        @include breakpoint(md) {
             padding: 48px;
         }
     }
@@ -28,7 +28,7 @@
         position: relative;
         padding-right: 32px;
 
-        @include viewport(md) {
+        @include breakpoint(md) {
             padding-right: 48px;
         }
     }

@@ -19,7 +19,7 @@
             max-width: 540px;
             height: 100%;
             
-            @include viewport(md) {
+            @include breakpoint(md) {
                 width: 50%;
             }
         }
@@ -33,7 +33,7 @@
             max-width: 540px;
             height: 100%;
             
-            @include viewport(md) {
+            @include breakpoint(md) {
                 width: 50%;
             }
         }
@@ -71,7 +71,7 @@
         padding: 32px;
         transition: all ease 1s;
 
-        @include viewport(md) {
+        @include breakpoint(md) {
             padding: 48px;
         }
     }
@@ -80,7 +80,7 @@
         position: relative;
         padding-right: 32px;
 
-        @include viewport(md) {
+        @include breakpoint(md) {
             padding-right: 48px;
         }
     }

@@ -7,20 +7,20 @@
 /*                       MEDIA MIXINS                       */
 /* -------------------------------------------------------- */
 
-// Adds a media query for a specified viewport size
-@mixin viewport($viewport) {
-    @if not map.has-key($viewports, $viewport) {
-        @error "Invalid viewport: '$viewport'. It must be one of the following: #{map.keys($viewports)}.";
+// Adds a media query for a specified breakpoint size
+@mixin breakpoint($breakpoint) {
+    @if not map.has-key($breakpoints, $breakpoint) {
+        @error "Invalid breakpoint: '$breakpoint'. It must be one of the following: #{map.keys($breakpoints)}.";
     }
 
-    @media screen and (min-width: get-min-width($viewport)) {
+    @media screen and (min-width: get-min-width($breakpoint)) {
         @content;
     }
 }
 
 // Adds a media query for a specified custom minimum width
-@mixin manual-viewport($viewport-min-width) {
-	@media screen and (min-width: $viewport-min-width) {
+@mixin manual-breakpoint($breakpoint-min-width) {
+	@media screen and (min-width: $breakpoint-min-width) {
 		@content;
 	}
 }
