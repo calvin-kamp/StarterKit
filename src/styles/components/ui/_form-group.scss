@@ -5,9 +5,7 @@
 /* -------------------------------------------------------- */
 
 .form-group {
-    padding: 0!important;
     margin-bottom: 32px;
-    @include flex();
 
     &.valid {
         input {

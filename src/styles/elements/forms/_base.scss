@@ -5,9 +5,6 @@
 /* -------------------------------------------------------- */
 
 .form {
-    margin: 0 -#{$col-padding};
-    @include flex();
-
     input, textarea {
         width: 100%;
         transition: all $transition-time-fast linear;
