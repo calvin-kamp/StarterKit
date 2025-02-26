@@ -4,12 +4,19 @@ import Button from '@components/ui/Button.astro';
 
 const {
     modalId = '',
+    title = '',
     ariaLabel = null,
     additionalClasses = ''
 } = Astro.props;
 
+const hasDescriptionSlot = Boolean(Astro.slots['modal-description']);
+const hasHeaderSlot = Boolean(Astro.slots['modal-header']);
+const hasTitle = Boolean(title);
+
 const dynamicAriaAttributes = {
-    ...(ariaLabel ? { 'aria-label': ariaLabel } : { 'aria-label': 'Modal' })
+    ...(ariaLabel ? { 'aria-label': ariaLabel } : {}),
+    ...(hasTitle || hasHeaderSlot ? { 'aria-labelledby': `modal-title-${modalId}` } : {}),
+    ...(hasDescriptionSlot ? { 'aria-describedby': `modal-description-${modalId}` } : {})
 };
 ---
 
@@ -23,25 +30,31 @@ const dynamicAriaAttributes = {
 
     <div class="modal__wrapper" data-modal-wrapper>
         <div class="modal__header">
+            {hasTitle &&
+                <h2 id={`modal-title-${modalId}`}>
+                    {title}
+                </h2>
+            }
+
             <slot name="modal-header"/>
 
             <Button
                 close
                 closeModal
-                arialabel="close modal"
+                ariaLabel="Modal schließen"
             />
         </div>
         
-        <div class="modal__content">
+        <div class="modal__content" id={`modal-description-${modalId}`}>
+            <slot name="modal-description"/>
+            
             <slot/>
         </div>
     </div>
-
 </div>
 
-
 <script>
-    import {modal} from '@scripts/ui/modal';
+    import { modal } from '@scripts/ui/modal';
 
     modal.init();
 </script>

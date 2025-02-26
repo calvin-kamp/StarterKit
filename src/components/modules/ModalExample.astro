@@ -7,7 +7,7 @@ import Button from '@components/ui/Button.astro';
 
 <div class="modal-example">
     <div class="container">
-        <div class="flex-layout">
+        <div class="row">
 
             <div class="modal-example__headline col-12 col-md-10 col-md-left-1">
 
@@ -26,13 +26,10 @@ import Button from '@components/ui/Button.astro';
                     open modal one
                 </Button>
 
-                <Modal modalId="one">
-
-                    <div slot="modal-header">
-                        <h2>
-                            modal one header
-                        </h2>
-                    </div>
+                <Modal
+                    modalId="one"
+                    title="This title describes the first Modal"
+                >
         
                     <p>
                         modal one content

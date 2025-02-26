@@ -12,6 +12,7 @@
     padding: 25px;
     border-bottom: 1px solid var(--color-border);
     background-color: var(--color-body-background);
+    z-index: $z-index-1;
 
     &__wrapper {
         display: flex;

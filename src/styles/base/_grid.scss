@@ -4,10 +4,11 @@
 /*                    FLEXBOX GRID LAYOUT                   */
 /* -------------------------------------------------------- */
 
-@if $enable-flex-container {
+@if $enable-flex-layout {
 
     /* Base styles for flex containers */
-    .flex-layout {
+    .row {
+        margin: 0 -#{$col-padding};
         @include flex();
 
         /* Generate column classes based on grid columns */
@@ -80,10 +81,10 @@
 /*                      CSS GRID LAYOUT                     */
 /* -------------------------------------------------------- */
 
-@if $enable-grid-container {
+@if $enable-grid-layout {
 
     /* Base styles for grid containers */
-    .grid-layout {
+    .grid {
         @include grid();
 
         /* Generate grid column and row classes */

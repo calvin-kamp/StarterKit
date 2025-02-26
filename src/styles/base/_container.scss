@@ -31,7 +31,7 @@
     }
     
     /* -------------------------------------------------------- */
-    /*          GENERATE CONTAINER CLASSES BY VIEWPORT          */
+    /*          GENERATE CONTAINER CLASSES BY viewport          */
     /* -------------------------------------------------------- */
     
     @each $viewport, $container-max-width in $container-max-widths {

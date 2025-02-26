@@ -12,7 +12,6 @@ $viewports: (
 );
 
 $use-fixed-container-max-width:			false;
-
 $container-fixed-max-width:				1520px;
 
 $container-max-widths: (
@@ -23,8 +22,8 @@ $container-max-widths: (
 	xxl:        						1380px,
 );
 
-$enable-flex-container:					true;
-$enable-grid-container:					true;
+$enable-flex-layout:					true;
+$enable-grid-layout:					true;
 
 $grid-columns:  						12;
 

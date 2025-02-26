@@ -44,13 +44,13 @@ ul, ul.list {
 
     /* Horizontal unordered lists */
     &.list--horizontal {
-        display: flex;
-        gap: 1rem;
         margin-bottom: 0;
 
         li {
+            display: inline-block;
             padding-left: 0;
             margin-bottom: 0;
+            margin-right: 10px;
         }
     }
 

@@ -4,13 +4,20 @@ import Button from '@components/ui/Button.astro';
 
 const {
     offcanvasId = '',
+    title = '',
     orientation = 'right',
     ariaLabel = null,
     additionalClasses = ''
 } = Astro.props;
 
+const hasDescriptionSlot = Boolean(Astro.slots['offcanvas-description']);
+const hasHeaderSlot = Boolean(Astro.slots['offcanvas-header']);
+const hasTitle = Boolean(title);
+
 const dynamicAriaAttributes = {
-    ...(ariaLabel ? { 'aria-label': ariaLabel } : { 'aria-label': 'Modal' })
+    ...(ariaLabel ? { 'aria-label': ariaLabel } : {}),
+    ...(hasTitle || hasHeaderSlot ? { 'aria-labelledby': `offcanvas-title-${offcanvasId}` } : {}),
+    ...(hasDescriptionSlot ? { 'aria-describedby': `offcanvas-description-${offcanvasId}` } : {})
 };
 ---
 
@@ -23,6 +30,12 @@ const dynamicAriaAttributes = {
 >
     <div class="offcanvas__wrapper" data-offcanvas-wrapper>
         <div class="offcanvas__header">
+            {hasTitle &&
+                <h2 id={`offcanvas-title-${offcanvasId}`}>
+                    {title}
+                </h2>
+            }
+
             <slot name="offcanvas-header"/>
 
             <Button 
@@ -32,7 +45,9 @@ const dynamicAriaAttributes = {
             />
         </div>
 
-        <div class="offcanvas__content" data-offcanvas-body>
+        <div class="offcanvas__content" id={`offcanvas-description-${offcanvasId}`} data-offcanvas-body>
+            <slot name="offcanvas-description"/>
+            
             <slot/>
         </div>
     </div>
@@ -40,6 +55,6 @@ const dynamicAriaAttributes = {
 
 <script>
     import { offcanvas } from '@scripts/ui/offcanvas';
-    
+
     offcanvas.init();
 </script>
