@@ -10,12 +10,12 @@ const {
 } = Astro.props;
 
 const hasDescriptionSlot = Boolean(Astro.slots['modal-description']);
-const hasHeaderSlot = Boolean(Astro.slots['modal-header']);
+const hasFooterSlot = Boolean(Astro.slots['modal-footer']);
 const hasTitle = Boolean(title);
 
 const dynamicAriaAttributes = {
     ...(ariaLabel ? { 'aria-label': ariaLabel } : {}),
-    ...(hasTitle || hasHeaderSlot ? { 'aria-labelledby': `modal-title-${modalId}` } : {}),
+    ...(hasTitle ? { 'aria-labelledby': `modal-title-${modalId}` } : {}),
     ...(hasDescriptionSlot ? { 'aria-describedby': `modal-description-${modalId}` } : {})
 };
 ---
@@ -50,6 +50,10 @@ const dynamicAriaAttributes = {
             
             <slot/>
         </div>
+
+        {hasFooterSlot &&
+            <slot name="modal-footer" />
+        }
     </div>
 </div>
 

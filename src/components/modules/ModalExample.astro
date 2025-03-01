@@ -31,12 +31,17 @@ import Button from '@components/ui/Button.astro';
                     title="This title describes the first Modal"
                 >
         
-                    <p>
+                    <p slot="modal-description">
                         modal one content
                     </p>
         
                     <div slot="modal-footer">
-                        <button data-close-modal>close modal</button>
+                        <Button 
+                            primary
+                            data-close-modal
+                        >
+                            close modal
+                        </Button>
                     </div>
                     
                 </Modal>
@@ -59,10 +64,6 @@ import Button from '@components/ui/Button.astro';
                     <p>
                         modal two content
                     </p>
-        
-                    <div slot="modal-footer">
-                        <button data-close-modal>close modal</button>
-                    </div>
                     
                 </Modal>
 

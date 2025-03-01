@@ -22,7 +22,8 @@ import imageExample from '@root/assets/placeholder-image.png';
                         <li x-bind:class="{ 'active': activeTab === '1' }">
                             <Button 
                                 link 
-                                onClick="activeTab = '1'" 
+                                onClick="activeTab = '1'"
+                                ariaLabel="Open first tab"
                             >
                                 Tab 1
                             </Button>
@@ -31,6 +32,7 @@ import imageExample from '@root/assets/placeholder-image.png';
                             <Button 
                                 link 
                                 onClick="activeTab = '2'"
+                                ariaLabel="Open second tab"
                             >
                                 Tab 2
                             </Button>
@@ -38,7 +40,8 @@ import imageExample from '@root/assets/placeholder-image.png';
                         <li x-bind:class="{ 'active': activeTab === '3' }">
                             <Button 
                                 link 
-                                onClick="activeTab = '3'" 
+                                onClick="activeTab = '3'"
+                                ariaLabel="Open third tab"
                             >
                                 Tab 3
                             </Button>

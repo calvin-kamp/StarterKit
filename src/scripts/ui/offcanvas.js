@@ -1,3 +1,6 @@
+import { updateAriaAttribute } from '@scripts/utils/update-aria-attribute.js';
+import { saveFocus, restoreFocus } from '@stores/focus.js';
+
 export const offcanvas = {
 
     vars: {
@@ -7,6 +10,7 @@ export const offcanvas = {
             wrapper:                    '*[data-offcanvas-wrapper]',
             openTrigger:                '*[data-offcanvas-open-id]',
             closeTrigger:               '*[data-offcanvas-close]',
+            focusable:                  'button, a, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
         },
 
         attributes: {
@@ -52,6 +56,7 @@ export const offcanvas = {
         this.addOpenTrigger();
         this.addClickOutsideTrigger();
         this.addCloseTrigger();
+        this.addKeyboardListener();
 
     },
 
@@ -68,6 +73,7 @@ export const offcanvas = {
                 const $offcanvas = document.querySelector(`[${this.vars.attributes.offcanvasId}="${offcanvasId}"]`);
 
                 if ($offcanvas) {
+                    saveFocus();
                     this.show($offcanvas);
                 } else {
                     console.error('Offcanvas element not found for trigger:', $openTrigger);
@@ -85,9 +91,7 @@ export const offcanvas = {
         for (const $offcanvas of $offcanvasElements) {
 
             $offcanvas.addEventListener('click', (event) => {
-                const $target = event.target;
-
-                if (!$target.closest(this.vars.queries.wrapper)) {
+                if (!event.target.closest(this.vars.queries.wrapper)) {
                     this.hide($offcanvas);
                 }
             });
@@ -114,15 +118,79 @@ export const offcanvas = {
 
     },
 
+    addKeyboardListener() {
+
+        document.addEventListener('keydown', (event) => {
+
+            if (event.key === 'Escape') {
+                const $openOffcanvas = document.querySelector(`.${this.vars.showClass}`);
+
+                if ($openOffcanvas) {
+                    this.hide($openOffcanvas);
+                }
+            }
+
+        });
+
+    },
+
     show($offcanvas) {
 
         $offcanvas.classList.add(this.vars.showClass);
+        document.body.style.overflow = 'hidden';
+        document.body.style.height = '100vh';
+        updateAriaAttribute($offcanvas, 'aria-hidden', 'false');
+
+        const $focusableElements = $offcanvas.querySelectorAll(this.vars.queries.focusable);
+
+        if ($focusableElements?.length) {
+            $focusableElements[0].focus();
+        }
+
+        this.trapFocus($offcanvas);
+        document.querySelector('main').setAttribute('inert', '');
 
     },
 
     hide($offcanvas) {
 
         $offcanvas.classList.remove(this.vars.showClass);
+        document.body.style.overflow = '';
+        document.body.style.height = '';
+        updateAriaAttribute($offcanvas, 'aria-hidden', 'true');
+
+        restoreFocus();
+
+        document.querySelector('main').removeAttribute('inert');
+
+    },
+
+    trapFocus($offcanvas) {
+
+        const $focusableElements = Array.from($offcanvas.querySelectorAll(this.vars.queries.focusable));
+
+        if ($focusableElements.length === 0) {
+            return;
+        }
+
+        const firstElement = $focusableElements[0];
+        const lastElement = $focusableElements[$focusableElements.length - 1];
+
+        const handleTabKey = (event) => {
+
+            if (event.key === 'Tab') {
+                if (event.shiftKey && document.activeElement === firstElement) {
+                    event.preventDefault();
+                    lastElement.focus();
+                } else if (!event.shiftKey && document.activeElement === lastElement) {
+                    event.preventDefault();
+                    firstElement.focus();
+                }
+            }
+
+        };
+
+        $offcanvas.addEventListener('keydown', handleTabKey);
 
     }
 

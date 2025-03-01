@@ -1,4 +1,5 @@
 import { theme, toggleTheme } from "@stores/theme";
+import { updateAriaAttribute } from "@scripts/utils/update-aria-attribute.js";
 
 export const themeToggle = {
 
@@ -30,7 +31,6 @@ export const themeToggle = {
             theme.subscribe(() => this.updateThemeClasses($themeToggle));
         }
 
-
     },
 
     findElements() {
@@ -42,6 +42,11 @@ export const themeToggle = {
     addEventTrigger($themeToggle) {
 
         const $themeToggleTrigger = $themeToggle.querySelector(this.vars.queries.themeToggle);
+
+        if (!$themeToggleTrigger) {
+            console.warn('No theme toggle trigger found.');
+            return;
+        }
 
         $themeToggleTrigger.addEventListener('click', () => {
 
@@ -56,15 +61,22 @@ export const themeToggle = {
     updateThemeClasses($themeToggle) {
 
         const currentTheme = theme.get();
+        const $toggleButton = $themeToggle.querySelector('button');
 
-        if (currentTheme === 'light') {
-            $themeToggle.classList.add(this.vars.classes.lightTheme);
-            $themeToggle.classList.remove(this.vars.classes.darkTheme);
-        } else if (currentTheme === 'dark') {
-            $themeToggle.classList.add(this.vars.classes.darkTheme);
-            $themeToggle.classList.remove(this.vars.classes.lightTheme);
+        if (!$toggleButton) {
+            console.warn('No toggle button found inside theme toggle.');
+            return;
         }
 
+        $themeToggle.classList.toggle(this.vars.classes.lightTheme, currentTheme === 'light');
+        $themeToggle.classList.toggle(this.vars.classes.darkTheme, currentTheme === 'dark');
+
+        updateAriaAttribute($toggleButton, "aria-label", 
+            currentTheme === 'light' 
+            ? 'Switch color theme to dark' 
+            : 'Switch color theme to light'
+        );
+
     }
-    
+
 }

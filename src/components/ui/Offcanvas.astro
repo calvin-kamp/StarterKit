@@ -11,12 +11,12 @@ const {
 } = Astro.props;
 
 const hasDescriptionSlot = Boolean(Astro.slots['offcanvas-description']);
-const hasHeaderSlot = Boolean(Astro.slots['offcanvas-header']);
+const hasFooterSlot = Boolean(Astro.slots['offcanvas-footer']);
 const hasTitle = Boolean(title);
 
 const dynamicAriaAttributes = {
     ...(ariaLabel ? { 'aria-label': ariaLabel } : {}),
-    ...(hasTitle || hasHeaderSlot ? { 'aria-labelledby': `offcanvas-title-${offcanvasId}` } : {}),
+    ...(hasTitle ? { 'aria-labelledby': `offcanvas-title-${offcanvasId}` } : {}),
     ...(hasDescriptionSlot ? { 'aria-describedby': `offcanvas-description-${offcanvasId}` } : {})
 };
 ---
@@ -50,6 +50,10 @@ const dynamicAriaAttributes = {
             
             <slot/>
         </div>
+
+        {hasFooterSlot &&
+            <slot name="offcanvas-footer" />
+        }
     </div>
 </div>
 

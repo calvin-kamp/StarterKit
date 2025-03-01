@@ -1,5 +1,7 @@
-export const modal = {
+import { updateAriaAttribute } from '@scripts/utils/update-aria-attribute.js';
+import { saveFocus, restoreFocus } from '@stores/focus.js';
 
+export const modal = {
     vars: {
 
         queries: {
@@ -7,6 +9,7 @@ export const modal = {
             wrapper:                    '*[data-modal-wrapper]',
             openTrigger:                '*[data-modal-open-id]',
             closeTrigger:               '*[data-modal-close]',
+            focusable:                  'button, a, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
         },
 
         attributes: {
@@ -52,6 +55,7 @@ export const modal = {
         this.addOpenTrigger();
         this.addClickOutsideTrigger();
         this.addCloseTrigger();
+        this.addKeyboardListener();
 
     },
 
@@ -65,9 +69,10 @@ export const modal = {
                 event.preventDefault();
 
                 const modalId = $openTrigger.getAttribute(this.vars.attributes.openTriggerId);
-                const $modal = document.querySelector(`[${this.vars.attributes.modalId}="${modalId}"]`);
+                const $modal = document.querySelector(`[${this.vars.attributes.modalId}='${modalId}']`);
 
                 if ($modal) {
+                    saveFocus();
                     this.show($modal);
                 } else {
                     console.error('Modal element not found for trigger:', $openTrigger);
@@ -85,9 +90,7 @@ export const modal = {
         for (const $modal of $modals) {
 
             $modal.addEventListener('click', (event) => {
-                const $target = event.target;
-
-                if (!$target.closest(this.vars.queries.wrapper)) {
+                if (!event.target.closest(this.vars.queries.wrapper)) {
                     this.hide($modal);
                 }
             });
@@ -114,15 +117,79 @@ export const modal = {
 
     },
 
+    addKeyboardListener() {
+
+        document.addEventListener('keydown', (event) => {
+
+            if (event.key === 'Escape') {
+                const $openModal = document.querySelector(`.${this.vars.showClass}`);
+
+                if ($openModal) {
+                    this.hide($openModal);
+                }
+            }
+
+        });
+
+    },
+
     show($modal) {
 
         $modal.classList.add(this.vars.showClass);
+        document.body.style.overflow = 'hidden';
+        document.body.style.height = '100vh';
+        updateAriaAttribute($modal, 'aria-hidden', 'false');
+
+        const $focusableElements = $modal.querySelectorAll(this.vars.queries.focusable);
+
+        if ($focusableElements?.length) {
+            $focusableElements[0].focus();
+        }
+
+        this.trapFocus($modal);
+        document.querySelector('main').setAttribute('inert', '');
 
     },
 
     hide($modal) {
 
         $modal.classList.remove(this.vars.showClass);
+        document.body.style.overflow = '';
+        document.body.style.height = '';
+        updateAriaAttribute($modal, 'aria-hidden', 'true');
+
+        restoreFocus();
+
+        document.querySelector('main').removeAttribute('inert');
+
+    },
+
+    trapFocus($modal) {
+
+        const $focusableElements = Array.from($modal.querySelectorAll(this.vars.queries.focusable));
+
+        if (!$focusableElements.length === 0) {
+            return;
+        }
+
+        const firstElement = $focusableElements[0];
+        const lastElement = $focusableElements[$focusableElements.length - 1];
+
+        const handleTabKey = (event) => {
+
+            if (event.key === 'Tab') {
+                if (event.shiftKey && document.activeElement === firstElement) {
+                    event.preventDefault();
+                    lastElement.focus();
+                } else if (!event.shiftKey && document.activeElement === lastElement) {
+                    event.preventDefault();
+                    firstElement.focus();
+                }
+            }
+
+        };
+
+        $modal.addEventListener('keydown', handleTabKey);
 
     }
 

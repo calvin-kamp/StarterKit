@@ -1,3 +1,5 @@
+import { updateAriaAttribute } from '@scripts/utils/update-aria-attribute.js';
+
 export const expandableContent = {
 
     vars: {
@@ -56,7 +58,7 @@ export const expandableContent = {
                 const $expandableContent = $toggleButton.closest(this.vars.queries.element);
 
                 if ($expandableContent) {
-                    this.toggleExpand($expandableContent);
+                    this.toggleExpand($expandableContent, $toggleButton);
                 } else {
                     console.error('Expandable content element not found for trigger:', $toggleButton);
                 }
@@ -65,7 +67,7 @@ export const expandableContent = {
 
     },
 
-    toggleExpand($expandableContent) {
+    toggleExpand($expandableContent, $toggleButton) {
 
         const $contentWrapper = $expandableContent.querySelector(this.vars.queries.wrapper);
         if (!$contentWrapper) {
@@ -76,8 +78,12 @@ export const expandableContent = {
 
         if (isExpanded) {
             this.collapse($expandableContent, $contentWrapper);
+
+            updateAriaAttribute($toggleButton, 'aria-expanded', 'false');
         } else {
             this.expand($expandableContent, $contentWrapper);
+            
+            updateAriaAttribute($toggleButton, 'aria-expanded', 'true');
         }
 
     },
