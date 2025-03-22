@@ -136,8 +136,12 @@ export const modal = {
     show($modal) {
 
         $modal.classList.add(this.vars.showClass);
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
         document.body.style.overflow = 'hidden';
         document.body.style.height = '100vh';
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
+        
         updateAriaAttribute($modal, 'aria-hidden', 'false');
 
         const $focusableElements = $modal.querySelectorAll(this.vars.queries.focusable);
@@ -154,8 +158,11 @@ export const modal = {
     hide($modal) {
 
         $modal.classList.remove(this.vars.showClass);
+
         document.body.style.overflow = '';
         document.body.style.height = '';
+        document.body.style.paddingRight = '';
+
         updateAriaAttribute($modal, 'aria-hidden', 'true');
 
         restoreFocus();

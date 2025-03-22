@@ -137,8 +137,13 @@ export const offcanvas = {
     show($offcanvas) {
 
         $offcanvas.classList.add(this.vars.showClass);
+
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
         document.body.style.overflow = 'hidden';
         document.body.style.height = '100vh';
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
+
         updateAriaAttribute($offcanvas, 'aria-hidden', 'false');
 
         const $focusableElements = $offcanvas.querySelectorAll(this.vars.queries.focusable);
@@ -155,8 +160,11 @@ export const offcanvas = {
     hide($offcanvas) {
 
         $offcanvas.classList.remove(this.vars.showClass);
+
         document.body.style.overflow = '';
         document.body.style.height = '';
+        document.body.style.paddingRight = '';
+
         updateAriaAttribute($offcanvas, 'aria-hidden', 'true');
 
         restoreFocus();
