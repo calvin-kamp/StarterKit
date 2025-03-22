@@ -74,7 +74,7 @@ button, .button {
             width: 16px;
             height: 2px;
             background-color: var(--color-body-font);
-            transition: all $transition-time ease;
+            transition: inherit;
             content: "";
         }
 

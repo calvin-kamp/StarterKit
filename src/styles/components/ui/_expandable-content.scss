@@ -5,6 +5,20 @@
 
     &.expandable-content--expandable {
         .expandable-content {
+            &__wrapper {
+                &::after {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 60px;
+                    background-image: linear-gradient(to bottom, rgba(var(--color-body-background-rgb), 0), var(--color-body-background));
+                    opacity: 1;
+                    transition:  inherit;
+                    content: "";
+                }
+            }
+            
             &__actions {
                 display: block;
             }
@@ -35,18 +49,6 @@
             max-height: 214px;
             overflow: hidden;
             transition: all $transition-time linear;
-
-            &::after {
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                height: 60px;
-                background-image: linear-gradient(to bottom, rgba(var(--color-body-background-rgb), 0), var(--color-body-background));
-                opacity: 1;
-                transition: all $transition-time linear;
-                content: "";
-            }
 
             p {
                 &:last-of-type {
