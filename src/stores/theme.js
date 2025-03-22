@@ -24,6 +24,12 @@ export function toggleTheme() {
     if (isBrowser) {
         localStorage.setItem("theme", newTheme);
         document.documentElement.setAttribute("data-theme", newTheme);
+        
+        document.documentElement.classList.add('theme-transition');
+
+        setTimeout(() => {
+            document.documentElement.classList.remove('theme-transition');
+        }, 400);
     }
 }
 

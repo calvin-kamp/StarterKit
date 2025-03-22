@@ -40,15 +40,19 @@
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: 20px auto;
-                transition: all $transition-time linear;
                 content: "";
             }
         
             &::after {
                 display: inline-block;
                 margin-left: 16px;
-                transition: all $transition-time linear;
             }
         }
     }    
+}
+
+.theme-transition {
+    header, body, footer, button, a, div {
+        transition: background-color $transition-time linear, border-color $transition-time linear, color $transition-time linear;
+    }
 }
