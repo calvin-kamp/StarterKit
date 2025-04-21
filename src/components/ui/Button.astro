@@ -28,6 +28,22 @@ const modifierClasses = [
     additionalClasses
 ].filter(Boolean).join(' ');
 
+const mapDataAttributes = (attributes)  => {
+    if (typeof attributes === 'string') {
+        return { [attributes]: '' };
+    }
+
+    if (Array.isArray(attributes)) {
+        return attributes.reduce((acc, attr) => {
+            acc[attr] = '';
+            return acc;
+        }, {});
+    }
+
+    return {};
+}
+
+
 const dynamicAttributes = {
     ...(openModalId && { 'data-modal-open-id': openModalId }),
     ...(closeModal && { 'data-modal-close': true }),
@@ -37,7 +53,7 @@ const dynamicAttributes = {
     ...(ariaLabel && { 'aria-label': ariaLabel }),
     ...(ariaExpanded !== null && { 'aria-expanded': ariaExpanded }),
     ...(ariaControls && { 'aria-controls': ariaControls }),
-    ...dataAttributes
+    ...mapDataAttributes(dataAttributes)
 };
 
 const alpineEvents = onClick ? { '@click': onClick } : {};
