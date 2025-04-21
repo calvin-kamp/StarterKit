@@ -142,7 +142,10 @@ export const offcanvas = {
 
         document.body.style.overflow = 'hidden';
         document.body.style.height = '100vh';
-        document.body.style.paddingRight = `${scrollbarWidth}px`;
+        
+        if(scrollbarWidth > 0) {
+            document.body.style.paddingRight = `${scrollbarWidth}px`;
+        }
 
         updateAriaAttribute($offcanvas, 'aria-hidden', 'false');
 
